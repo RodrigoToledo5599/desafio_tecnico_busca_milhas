@@ -10,20 +10,24 @@ class AirPortViewModel{
   String url = env().url;
 
 
-  dynamic getAirports(String parameter) async {
-    String stringData = "";
+  Future<List<AirPortModel>> getAirports(String parameter) async {
+    List<AirPortModel> AirPortList = [];
     if(parameter.isEmpty){
       HttpClientRequest request = await this.client.getUrl(Uri.parse(this.url + "/aeroportos"));
       HttpClientResponse response = await request.close();
-      stringData = await response.transform(utf8.decoder).join();
+      String responseBody = await response.transform(utf8.decoder).join();
+      List<dynamic> jsonList = jsonDecode(responseBody);
+      AirPortList = jsonList.map((json)=> AirPortModel.fromJson(json)).toList();
     }
     else{
       HttpClientRequest request = await this.client.getUrl(Uri.parse(this.url + "/aeroportos?q=${parameter}"));
       HttpClientResponse response = await request.close();
-      stringData = await response.transform(utf8.decoder).join();
+      String responseBody = await response.transform(utf8.decoder).join();
+      List<dynamic> jsonList = jsonDecode(responseBody);
+      AirPortList = jsonList.map((json)=> AirPortModel.fromJson(json)).toList();
     }
     client.close();
-    return stringData;
+    return Future.value(AirPortList);
   }
 
 

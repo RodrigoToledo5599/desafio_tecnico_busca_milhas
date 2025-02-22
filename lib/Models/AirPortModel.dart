@@ -27,6 +27,26 @@ class AirPortModel{
     this.FusoHorario
   });
 
+  factory AirPortModel.fromJson(Map<String, dynamic> json) {
+    return AirPortModel(
+      Iata: json['Iata'],
+      Nome: json['Nome'],
+      Continente: json['Continente'],
+      Pais:json['Pais'],
+      PaisCodigo:json['PaisCodigo'],
+      Regiao:json['Regiao'],
+      RegiaoCodigo:json['RegiaoCodigo'],
+      Local:json['Local'],
+      SubLocal:json['SubLocal'],
+      FusoHorario:json['FusoHorario'],
+    );
+  }
+
+
+  @override // apenas esses 2 por agora;
+  String toString() {
+    return 'TaskModel(Iata: ${this.Iata}, Nome: ${this.Nome})';
+  }
 
 
 }
