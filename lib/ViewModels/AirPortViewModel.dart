@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:desafio_tecnico_busca_milhas/Models/AirPortModel.dart';
 import 'package:desafio_tecnico_busca_milhas/env.dart';
 
