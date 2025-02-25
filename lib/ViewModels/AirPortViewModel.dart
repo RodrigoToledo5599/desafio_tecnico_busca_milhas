@@ -25,7 +25,7 @@ class AirPortViewModel{
       List<dynamic> jsonList = jsonDecode(responseBody);
       AirPortList = jsonList.map((json)=> AirPortModel.fromJson(json)).toList();
     }
-    client.close();
+    // client.close();
     return Future.value(AirPortList);
   }
 

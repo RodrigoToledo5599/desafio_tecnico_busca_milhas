@@ -1,7 +1,6 @@
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
 import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/PesquisaAeroporto.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/SelectCompanhiaAerea.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/SelectData.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/SelectNPassageiros.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/SelectTipoDeViagem.dart';
@@ -25,11 +24,11 @@ class TelaInicialState extends State<TelaInicial> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar:UpBar(),
-        body:SingleChildScrollView(
-          child: Container(
-            color: Color.fromRGBO(255, 255, 255,1),
-            width:  MediaQuery.sizeOf(context).width * 1,
-            height: MediaQuery.sizeOf(context).height * 1,
+        body:Container(
+          color: Color.fromRGBO(255, 255, 255,1),
+          width:  MediaQuery.sizeOf(context).width * 1,
+          height: MediaQuery.sizeOf(context).height * 1,
+          child: SingleChildScrollView(
             child:Column(
                 children:[
                   PesquisaAeroporto(controller: AeroportoController),
