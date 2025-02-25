@@ -38,7 +38,6 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
         width: MediaQuery.sizeOf(context).width * 1,
         child: Column(
           children:[
-            Text("Pesquisa Aeroporto"),
             Form(
               key: _formKey,
               child:
@@ -109,7 +108,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                               return Center(child: Text("Error loading Airports"));
                             }
                             if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                              return Center(child: Text("No airports found"));
+                              return Center(child: Text(""));
                             }
                             this.airPorts = snapshot.data!;
                             return Container(

@@ -1,6 +1,7 @@
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
 import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/PesquisaAeroporto.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/SelectCompanhiaAerea.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/SelectData.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/SelectNPassageiros.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/SelectTipoDeViagem.dart';
@@ -12,9 +13,11 @@ class TelaInicial extends StatefulWidget{
 }
 
 class TelaInicialState extends State<TelaInicial> {
-  TextEditingController AeroportoController = TextEditingController();
+  TextEditingController AeroportoControllerOrigem = TextEditingController();
+  TextEditingController AeroportoControllerDestino = TextEditingController();
+  TextEditingController DataControllerIda = TextEditingController();
+  TextEditingController DataControllerVolta = TextEditingController();
   TextEditingController CompanhiaAereaController = TextEditingController();
-  TextEditingController DataController = TextEditingController();
   TextEditingController NPassageirosController = TextEditingController();
   TextEditingController TipoDeViagemController = TextEditingController();
 
@@ -31,9 +34,49 @@ class TelaInicialState extends State<TelaInicial> {
           child: SingleChildScrollView(
             child:Column(
                 children:[
-                  PesquisaAeroporto(controller: AeroportoController),
+                  Row(
+                    children:[
+                      SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
+                      Text("Origem"),
+                    ]
+                  ),
+                  SizedBox(height: 20),
+                  PesquisaAeroporto(controller: AeroportoControllerOrigem),
+                  Row(
+                      children:[
+                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
+                        Text("Destino"),
+                      ]
+                  ),
+                  SizedBox(height: 20),
+                  PesquisaAeroporto(controller: AeroportoControllerDestino),
+                  SizedBox(height: 20),
+                  Row(
+                      children:[
+                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
+                        Text("Ida"),
+                      ]
+                  ),
+                  SelectData(controller: DataControllerIda),
+                  SizedBox(height: 20),
+
+                  Row(
+                      children:[
+                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
+                        Text("Volta (Opcional)"),
+                      ]
+                  ),
+                  SelectData(controller: DataControllerVolta),
+
+                  ElevatedButton(
+                      onPressed:(){
+                        print("${DataControllerIda.text}");
+                        print("${DataControllerVolta.text}");
+                      },
+                      child: Text("Press here")
+                  ),
+
                   // SelectCompanhiaAerea(),
-                  // SelectData(),
                   // SelectNPassageiros(),
                   // SelectTipoDeViagem()
                 ]
