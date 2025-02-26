@@ -86,18 +86,21 @@ class TelaInicialState extends State<TelaInicial> {
                       Horascontroller: HorarioControllerVolta,
                   ),
 
+                  SelectCompanhiaAerea(controller: CompanhiaAereaController),
+
                   ElevatedButton(
                       onPressed:(){
-                        print("${DataControllerIda.text}");
-                        print("${HorarioControllerIda.text}");
-                        print("${DataControllerVolta.text}");
-                        print("${HorarioControllerVolta.text}");
+                        // print("${DataControllerIda.text}");
+                        // print("${HorarioControllerIda.text}");
+                        // print("${DataControllerVolta.text}");
+                        // print("${HorarioControllerVolta.text}");
+                        print("${CompanhiaAereaController.text}");
                       },
                       child: Text("Mostrar resultados aqui")
                   ),
                   SizedBox(height: 50),
 
-                  // SelectCompanhiaAerea(),
+
                   // SelectNPassageiros(),
                   // SelectTipoDeViagem()
                 ]
