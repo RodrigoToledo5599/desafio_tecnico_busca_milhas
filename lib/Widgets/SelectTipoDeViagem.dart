@@ -15,9 +15,8 @@ class SelectTipoDeViagem extends StatefulWidget{
 }
 
 class SelectTipoDeViagemState extends State<SelectTipoDeViagem>{
-
   final List<String> values = <String>['ida','idavolta'];
-  String? msg = "tipo de viagem";
+  String? msg = "Tipo de viagem";
   @override
   Widget build(BuildContext context){
     return SingleChildScrollView(

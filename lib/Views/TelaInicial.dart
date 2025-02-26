@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/PesquisaAeroporto.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/SelectCompanhiaAerea.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/SelectData.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/SelectNPassageiros.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/SelectTipoDeViagem.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/SelectNPassageiros.dart';
 
 
 class TelaInicial extends StatefulWidget{
@@ -24,8 +24,9 @@ class TelaInicialState extends State<TelaInicial> {
 
 
   TextEditingController CompanhiaAereaController = TextEditingController();
-  TextEditingController NPassageirosController = TextEditingController();
   TextEditingController TipoDeViagemController = TextEditingController();
+
+  TextEditingController NPassageirosController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -91,11 +92,12 @@ class TelaInicialState extends State<TelaInicial> {
 
                   ElevatedButton(
                       onPressed:(){
-                        // print("${DataControllerIda.text}");
-                        // print("${HorarioControllerIda.text}");
-                        // print("${DataControllerVolta.text}");
-                        // print("${HorarioControllerVolta.text}");
+                        print("${DataControllerIda.text}");
+                        print("${HorarioControllerIda.text}");
+                        print("${DataControllerVolta.text}");
+                        print("${HorarioControllerVolta.text}");
                         print("${CompanhiaAereaController.text}");
+                        print("${NPassageirosController.text}");
                       },
                       child: Text("Mostrar resultados aqui")
                   ),

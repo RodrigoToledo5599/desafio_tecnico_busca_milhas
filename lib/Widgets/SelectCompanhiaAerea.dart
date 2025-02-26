@@ -19,7 +19,7 @@ class SelectCompanhiaAerea extends StatefulWidget{
 
 class SelectCompanhiaAereaState extends State<SelectCompanhiaAerea>{
   final List<String> values = <String>['AMERICAN AIRLINES', 'GOL', 'IBERIA', 'INTERLINE', 'LATAM', 'AZUL', 'TAP'];
-  String? msg = "Escolha aqui";
+  String? msg = "Companhia aérea";
   @override
   Widget build(BuildContext context){
     return SingleChildScrollView(
