@@ -14,9 +14,15 @@ class TelaInicial extends StatefulWidget{
 
 class TelaInicialState extends State<TelaInicial> {
   TextEditingController AeroportoControllerOrigem = TextEditingController();
+
   TextEditingController AeroportoControllerDestino = TextEditingController();
+
   TextEditingController DataControllerIda = TextEditingController();
+  TextEditingController HorarioControllerIda = TextEditingController();
   TextEditingController DataControllerVolta = TextEditingController();
+  TextEditingController HorarioControllerVolta = TextEditingController();
+
+
   TextEditingController CompanhiaAereaController = TextEditingController();
   TextEditingController NPassageirosController = TextEditingController();
   TextEditingController TipoDeViagemController = TextEditingController();
@@ -42,6 +48,9 @@ class TelaInicialState extends State<TelaInicial> {
                   ),
                   SizedBox(height: 20),
                   PesquisaAeroporto(controller: AeroportoControllerOrigem),
+
+
+
                   Row(
                       children:[
                         SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
@@ -50,14 +59,20 @@ class TelaInicialState extends State<TelaInicial> {
                   ),
                   SizedBox(height: 20),
                   PesquisaAeroporto(controller: AeroportoControllerDestino),
-                  SizedBox(height: 20),
+
+
+
+
                   Row(
                       children:[
                         SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
                         Text("Ida"),
                       ]
                   ),
-                  SelectData(controller: DataControllerIda),
+                  SelectData(
+                      Datacontroller: DataControllerIda,
+                      Horascontroller: HorarioControllerIda,
+                  ),
                   SizedBox(height: 20),
 
                   Row(
@@ -66,14 +81,19 @@ class TelaInicialState extends State<TelaInicial> {
                         Text("Volta (Opcional)"),
                       ]
                   ),
-                  SelectData(controller: DataControllerVolta),
+                  SelectData(
+                      Datacontroller: DataControllerVolta,
+                      Horascontroller: HorarioControllerVolta,
+                  ),
 
                   ElevatedButton(
                       onPressed:(){
                         print("${DataControllerIda.text}");
+                        print("${HorarioControllerIda.text}");
                         print("${DataControllerVolta.text}");
+                        print("${HorarioControllerVolta.text}");
                       },
-                      child: Text("Press here")
+                      child: Text("Mostrar resultados aqui")
                   ),
 
                   // SelectCompanhiaAerea(),
