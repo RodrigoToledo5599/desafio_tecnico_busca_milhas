@@ -48,9 +48,6 @@ class TelaInicialState extends State<TelaInicial> {
                   ),
                   SizedBox(height: 20),
                   PesquisaAeroporto(controller: AeroportoControllerOrigem),
-
-
-
                   Row(
                       children:[
                         SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
@@ -59,10 +56,6 @@ class TelaInicialState extends State<TelaInicial> {
                   ),
                   SizedBox(height: 20),
                   PesquisaAeroporto(controller: AeroportoControllerDestino),
-
-
-
-
                   Row(
                       children:[
                         SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
@@ -74,7 +67,6 @@ class TelaInicialState extends State<TelaInicial> {
                       Horascontroller: HorarioControllerIda,
                   ),
                   SizedBox(height: 20),
-
                   Row(
                       children:[
                         SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
@@ -85,8 +77,17 @@ class TelaInicialState extends State<TelaInicial> {
                       Datacontroller: DataControllerVolta,
                       Horascontroller: HorarioControllerVolta,
                   ),
+                  Container(
+                    width: MediaQuery.sizeOf(context).width * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children:[
+                          SelectCompanhiaAerea(controller: CompanhiaAereaController),
+                          SelectTipoDeViagem(controller: NPassageirosController),
+                        ]
+                    ),
+                  ),
 
-                  SelectCompanhiaAerea(controller: CompanhiaAereaController),
 
                   ElevatedButton(
                       onPressed:(){
@@ -102,7 +103,7 @@ class TelaInicialState extends State<TelaInicial> {
 
 
                   // SelectNPassageiros(),
-                  // SelectTipoDeViagem()
+
                 ]
             )
           ),
