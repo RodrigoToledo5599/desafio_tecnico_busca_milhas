@@ -47,7 +47,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                   mainAxisAlignment: MainAxisAlignment.center,
                     children:[
                       Container(
-                        width: MediaQuery.sizeOf(context).width * 0.6,
+                        width: MediaQuery.sizeOf(context).width * 0.5,
                         child:
                         TextFormField(
                           controller: widget.controller,
@@ -79,7 +79,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                             side: BorderSide.none,
                             shadowColor: Colors.transparent,
                             // foregroundColor: Color.fromRGBO(0, 127, 255, 1),
-                            padding: EdgeInsets.symmetric(horizontal: 9, vertical: 15),
+                            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                             textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                             shape: RoundedRectangleBorder(
                               side:BorderSide(
@@ -91,6 +91,31 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                           child: Icon(
                               Icons.search
                           ),
+                      ),
+                      ElevatedButton(
+                        onPressed:(){
+                          setState(() {
+                            widget.controller.text = "";
+                            this.airPorts = [];
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(245, 247, 249, 1),
+                          side: BorderSide.none,
+                          shadowColor: Colors.transparent,
+                          // foregroundColor: Color.fromRGBO(0, 127, 255, 1),
+                          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                          textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          shape: RoundedRectangleBorder(
+                            side:BorderSide(
+                              color:Color.fromRGBO(245, 247, 249, 1),
+                              width: 0.0,
+                            ),
+                          ),
+                        ),
+                        child: Icon(
+                            Icons.close
+                        ),
                       ),
                     ]
                   ),

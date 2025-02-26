@@ -95,6 +95,7 @@ class TelaInicialState extends State<TelaInicial> {
                       },
                       child: Text("Mostrar resultados aqui")
                   ),
+                  SizedBox(height: 50),
 
                   // SelectCompanhiaAerea(),
                   // SelectNPassageiros(),
