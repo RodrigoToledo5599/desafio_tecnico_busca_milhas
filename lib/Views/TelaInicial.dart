@@ -94,12 +94,17 @@ class TelaInicialState extends State<TelaInicial> {
                   SizedBox(height:70),
                   ElevatedButton(
                       onPressed:(){
+                        print("${AeroportoControllerOrigem.text}");
+                        print("${AeroportoControllerDestino.text}");
                         print("${DataControllerIda.text}");
                         print("${HorarioControllerIda.text}");
                         print("${DataControllerVolta.text}");
                         print("${HorarioControllerVolta.text}");
                         print("${CompanhiaAereaController.text}");
                         print("${TipoDeViagemController.text}");
+                        print("${NPassageirosAdultosController.text}");
+                        print("${NPassageirosCriancasController.text}");
+                        print("${NPassageirosBebesController.text}");
                       },
                       child: Text("Mostrar resultados aqui")
                   ),
