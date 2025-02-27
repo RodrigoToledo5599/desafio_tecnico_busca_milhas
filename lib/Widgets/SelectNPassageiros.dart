@@ -37,7 +37,7 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
       setState((){
         warningMsg = "não é possível ter mais bebes do que adultos";
         widget.bebesController.text = (NAdults - 1).toString();
-        msgBebe = "N° de bebes ${NAdults}";
+        msgBebe = "N° de bebes ${NAdults}";   
       });
     }
 
@@ -46,57 +46,74 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
   @override
   Widget build(BuildContext context){
     return Container(
+      width: MediaQuery.sizeOf(context).width * 0.6,
         child: SingleChildScrollView(
           child: Column(
               children:[
-                DropdownButton<int>(
-                  hint: Text("${msgAdulto}"),
-                  items: values.map((int value) {
-                    return DropdownMenuItem<int>(
-                      value: value,
-                      child: Text(value.toString()),
-                    );
-                  }).toList(),
-                  onChanged: (value){
-                    setState(() {
-                      widget.adultosController.text = value.toString();
-                      msgAdulto = "N° de adultos: "+value.toString();
-                      // assuringThereAreMoreAdultsThanBabies();
-                    });
-                  },
-                ),
-                DropdownButton<int>(
-                  hint: Text("${msgCrianca}"),
-                  items: values.map((int value) {
-                    return DropdownMenuItem<int>(
-                      value: value,
-                      child: Text(value.toString()),
-                    );
-                  }).toList(),
-                  onChanged: (value){
-                    setState(() {
-                      widget.criancasController.text = value.toString();
-                      msgCrianca = "N° de crianças: "+value.toString();
-                    });
-                  },
-                ),
-                DropdownButton<int>(
-                  hint: Text("${msgBebe}"),
-                  items: values.map((int value) {
-                    return DropdownMenuItem<int>(
-                      value: value,
-                      child: Text(value.toString()),
-                    );
-                  }).toList(),
-                  onChanged: (value){
-                    setState(() {
-                      widget.bebesController.text = value.toString();
-                      msgBebe = "N° de bebes: "+value.toString();
-                      assuringThereAreMoreAdultsThanBabies();
-                    });
-                  },
-                ),
-                Text("${warningMsg}"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("N° de Adultos: "),
+                      Container(
+                        child: TextFormField(
+                            controller: widget.adultosController,
+                            decoration:
+                            InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            keyboardType: TextInputType.number,
+                        ),
+                          width: MediaQuery.of(context).size.width * 0.15
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("N° de Crianças: "),
+                      Container(
+                          child: TextFormField(
+                            controller: widget.criancasController,
+                            decoration:
+                            InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            keyboardType: TextInputType.number,
+                          ),
+                          width: MediaQuery.of(context).size.width * 0.15
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("N° de bebes: "),
+                      Container(
+                          child: TextFormField(
+                            controller: widget.bebesController,
+                            decoration:
+                            InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            keyboardType: TextInputType.number,
+                          ),
+                          width: MediaQuery.of(context).size.width * 0.15
+                      )
+                    ],
+                  ),
+                  Text("${warningMsg}"),
               ]
           ),
         )
