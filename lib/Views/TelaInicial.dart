@@ -13,6 +13,7 @@ class TelaInicial extends StatefulWidget{
 }
 
 class TelaInicialState extends State<TelaInicial> {
+  String warningMsg = "";
   TextEditingController AeroportoControllerOrigem = TextEditingController();
 
   TextEditingController AeroportoControllerDestino = TextEditingController();
@@ -29,6 +30,24 @@ class TelaInicialState extends State<TelaInicial> {
   TextEditingController NPassageirosAdultosController = TextEditingController();
   TextEditingController NPassageirosCriancasController = TextEditingController();
   TextEditingController NPassageirosBebesController = TextEditingController();
+
+
+  void assuringThereAreMoreAdultsThanBabies(){
+    int NBabies = int.parse(this.NPassageirosBebesController.text);
+    int NAdults = int.parse(this.NPassageirosAdultosController.text);
+    if(NAdults < NBabies){
+      setState((){
+        warningMsg = "não é possível ter mais bebes do que adultos";
+        this.NPassageirosBebesController.text = (NAdults - 1).toString();
+      });
+    }
+    else{
+      setState((){
+        warningMsg = "";
+      });
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,25 +113,23 @@ class TelaInicialState extends State<TelaInicial> {
                   SizedBox(height:70),
                   ElevatedButton(
                       onPressed:(){
-                        print("${AeroportoControllerOrigem.text}");
-                        print("${AeroportoControllerDestino.text}");
-                        print("${DataControllerIda.text}");
-                        print("${HorarioControllerIda.text}");
-                        print("${DataControllerVolta.text}");
-                        print("${HorarioControllerVolta.text}");
-                        print("${CompanhiaAereaController.text}");
-                        print("${TipoDeViagemController.text}");
-                        print("${NPassageirosAdultosController.text}");
-                        print("${NPassageirosCriancasController.text}");
-                        print("${NPassageirosBebesController.text}");
+                        // print("${AeroportoControllerOrigem.text}");
+                        // print("${AeroportoControllerDestino.text}");
+                        // print("${DataControllerIda.text}");
+                        // print("${HorarioControllerIda.text}");
+                        // print("${DataControllerVolta.text}");
+                        // print("${HorarioControllerVolta.text}");
+                        // print("${CompanhiaAereaController.text}");
+                        // print("${TipoDeViagemController.text}");
+                        // print("${NPassageirosAdultosController.text}");
+                        // print("${NPassageirosCriancasController.text}");
+                        // print("${NPassageirosBebesController.text}");
+                        this.assuringThereAreMoreAdultsThanBabies();
                       },
-                      child: Text("Mostrar resultados aqui")
+                      child: Text("Enviar")
                   ),
+                  Text("${warningMsg}"),
                   SizedBox(height: 50),
-
-
-                  
-
                 ]
             )
           ),
