@@ -23,7 +23,8 @@ class SelectCompanhiaAereaState extends State<SelectCompanhiaAerea>{
   Widget build(BuildContext context){
     return SingleChildScrollView(
         child: Container(
-          child: Column(
+          width: MediaQuery.sizeOf(context).width * 0.6,
+          child: Row(
               children:[
                 DropdownButton<String>(
                   hint: Text("${msg}"),
