@@ -26,7 +26,9 @@ class TelaInicialState extends State<TelaInicial> {
   TextEditingController CompanhiaAereaController = TextEditingController();
   TextEditingController TipoDeViagemController = TextEditingController();
 
-  TextEditingController NPassageirosController = TextEditingController();
+  TextEditingController NPassageirosAdultosController = TextEditingController();
+  TextEditingController NPassageirosCriancasController = TextEditingController();
+  TextEditingController NPassageirosBebesController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -78,18 +80,18 @@ class TelaInicialState extends State<TelaInicial> {
                       Datacontroller: DataControllerVolta,
                       Horascontroller: HorarioControllerVolta,
                   ),
-                  Container(
-                    width: MediaQuery.sizeOf(context).width * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:[
-                          SelectCompanhiaAerea(controller: CompanhiaAereaController),
-                          SelectTipoDeViagem(controller: NPassageirosController),
-                        ]
-                    ),
+                  
+                  SelectCompanhiaAerea(controller: CompanhiaAereaController),
+                  SizedBox(height:30),
+                  SelectTipoDeViagem(controller: TipoDeViagemController),
+                  SizedBox(height:50),
+                  SelectNPassageiros(
+                    adultosController: NPassageirosAdultosController ,
+                    bebesController: NPassageirosBebesController,
+                    criancasController: NPassageirosCriancasController,
                   ),
 
-
+                  SizedBox(height:70),
                   ElevatedButton(
                       onPressed:(){
                         print("${DataControllerIda.text}");
@@ -97,14 +99,14 @@ class TelaInicialState extends State<TelaInicial> {
                         print("${DataControllerVolta.text}");
                         print("${HorarioControllerVolta.text}");
                         print("${CompanhiaAereaController.text}");
-                        print("${NPassageirosController.text}");
+                        print("${TipoDeViagemController.text}");
                       },
                       child: Text("Mostrar resultados aqui")
                   ),
                   SizedBox(height: 50),
 
 
-                  // SelectNPassageiros(),
+                  
 
                 ]
             )

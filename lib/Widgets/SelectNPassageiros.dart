@@ -6,7 +6,17 @@ import 'package:flutter/material.dart';
 
 
 class SelectNPassageiros extends StatefulWidget{
-  SelectNPassageiros({Key? key}) : super(key: key);
+  
+  TextEditingController adultosController = TextEditingController();
+  TextEditingController criancasController = TextEditingController();
+  TextEditingController bebesController = TextEditingController();
+
+  SelectNPassageiros({
+    required this.adultosController,
+    required this.bebesController,
+    required this.criancasController,
+    Key? key,
+    }) : super(key: key);
   SelectNPassageirosState createState() => SelectNPassageirosState();
 
 }
@@ -15,11 +25,11 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
 
   @override
   Widget build(BuildContext context){
-    return SingleChildScrollView(
-        child: Container(
+    return Container(
+        child: SingleChildScrollView(
           child: Column(
               children:[
-                Text("Select Número de Passageiros"),
+                
               ]
           ),
         )
