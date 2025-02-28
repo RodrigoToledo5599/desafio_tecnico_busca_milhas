@@ -1,3 +1,4 @@
+import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,8 @@ class TelaInicialState extends State<TelaInicial> {
   TextEditingController NPassageirosAdultosController = TextEditingController();
   TextEditingController NPassageirosCriancasController = TextEditingController();
   TextEditingController NPassageirosBebesController = TextEditingController();
+
+  TravelOptionsViewModel tovm = TravelOptionsViewModel();
 
 
   void printAllResults(){
@@ -118,11 +121,18 @@ class TelaInicialState extends State<TelaInicial> {
                     bebesController: NPassageirosBebesController,
                     criancasController: NPassageirosCriancasController,
                   ),
-
                   SizedBox(height:70),
                   ElevatedButton(
                       onPressed:(){
-                        // this.printAllResults();
+                        // tovm.createTravelOptions(
+                        //     CompanhiaAereaController.text,
+                        //     DataControllerIda.text,
+                        //     DataControllerVolta.text,
+                        //     AeroportoControllerOrigem.text,
+                        //     AeroportoControllerDestino.text,
+                        //     TipoDeViagemController.text
+                        // );
+                        this.printAllResults();
                         if(this.assuringThereAreMoreAdultsThanBabies() == true){
                           Navigator.push(
                               context,
