@@ -15,38 +15,46 @@ class TelaInicial extends StatefulWidget{
 class TelaInicialState extends State<TelaInicial> {
   String warningMsg = "";
   TextEditingController AeroportoControllerOrigem = TextEditingController();
-
   TextEditingController AeroportoControllerDestino = TextEditingController();
-
   TextEditingController DataControllerIda = TextEditingController();
   TextEditingController HorarioControllerIda = TextEditingController();
   TextEditingController DataControllerVolta = TextEditingController();
   TextEditingController HorarioControllerVolta = TextEditingController();
-
-
   TextEditingController CompanhiaAereaController = TextEditingController();
   TextEditingController TipoDeViagemController = TextEditingController();
-
   TextEditingController NPassageirosAdultosController = TextEditingController();
   TextEditingController NPassageirosCriancasController = TextEditingController();
   TextEditingController NPassageirosBebesController = TextEditingController();
 
 
-  void assuringThereAreMoreAdultsThanBabies(){
+  void printAllResults(){
+    print("${AeroportoControllerOrigem.text}");
+    print("${AeroportoControllerDestino.text}");
+    print("${DataControllerIda.text}");
+    print("${HorarioControllerIda.text}");
+    print("${DataControllerVolta.text}");
+    print("${HorarioControllerVolta.text}");
+    print("${CompanhiaAereaController.text}");
+    print("${TipoDeViagemController.text}");
+    print("${NPassageirosAdultosController.text}");
+    print("${NPassageirosCriancasController.text}");
+    print("${NPassageirosBebesController.text}");
+  }
+
+  bool assuringThereAreMoreAdultsThanBabies(){
     int NBabies = int.parse(this.NPassageirosBebesController.text);
     int NAdults = int.parse(this.NPassageirosAdultosController.text);
     if(NAdults < NBabies){
       setState((){
-        warningMsg = "não é possível ter mais bebes do que adultos";
+        warningMsg = "Não é possível ter mais bebes do que adultos";
         this.NPassageirosBebesController.text = (NAdults - 1).toString();
       });
+      return false;
     }
-    else{
-      setState((){
-        warningMsg = "";
-      });
-    }
-
+    setState((){
+      warningMsg = "";
+    });
+    return true;
   }
 
   @override
@@ -113,17 +121,7 @@ class TelaInicialState extends State<TelaInicial> {
                   SizedBox(height:70),
                   ElevatedButton(
                       onPressed:(){
-                        // print("${AeroportoControllerOrigem.text}");
-                        // print("${AeroportoControllerDestino.text}");
-                        // print("${DataControllerIda.text}");
-                        // print("${HorarioControllerIda.text}");
-                        // print("${DataControllerVolta.text}");
-                        // print("${HorarioControllerVolta.text}");
-                        // print("${CompanhiaAereaController.text}");
-                        // print("${TipoDeViagemController.text}");
-                        // print("${NPassageirosAdultosController.text}");
-                        // print("${NPassageirosCriancasController.text}");
-                        // print("${NPassageirosBebesController.text}");
+                        // this.printAllResults();
                         this.assuringThereAreMoreAdultsThanBabies();
                       },
                       child: Text("Enviar")

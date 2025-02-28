@@ -51,6 +51,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                         child:
                         TextFormField(
                           controller: widget.controller,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             fillColor: Color.fromRGBO(245, 247, 249, 1),
                             filled: true,
