@@ -1,10 +1,11 @@
+import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
 import 'package:flutter/material.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/PesquisaAeroporto.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/SelectCompanhiaAerea.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/SelectData.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/SelectTipoDeViagem.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/SelectNPassageiros.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/PesquisaAeroporto.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectCompanhiaAerea.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectData.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectTipoDeViagem.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectNPassageiros.dart';
 
 
 class TelaInicial extends StatefulWidget{
@@ -65,7 +66,7 @@ class TelaInicialState extends State<TelaInicial> {
         appBar:UpBar(),
         body:Container(
           color: Color.fromRGBO(255, 255, 255,1),
-          width:  MediaQuery.sizeOf(context).width * 1,
+          width: MediaQuery.sizeOf(context).width * 1,
           height: MediaQuery.sizeOf(context).height * 1,
           child: SingleChildScrollView(
             child:Column(
@@ -122,7 +123,16 @@ class TelaInicialState extends State<TelaInicial> {
                   ElevatedButton(
                       onPressed:(){
                         // this.printAllResults();
-                        this.assuringThereAreMoreAdultsThanBabies();
+                        if(this.assuringThereAreMoreAdultsThanBabies() == true){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TelaDeResultados()
+                              )
+                          );
+                        }
+                        else{}
+
                       },
                       child: Text("Enviar")
                   ),
