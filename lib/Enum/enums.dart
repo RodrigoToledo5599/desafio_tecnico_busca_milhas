@@ -1,1 +1,0 @@
-enum TipoViagem {Ida,IdaVolta}
