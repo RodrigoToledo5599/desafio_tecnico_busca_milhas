@@ -72,12 +72,26 @@ class TelaDeResultadosState extends State<TelaDeResultados>{
               child: Container(
                 color: Color.fromRGBO(255, 255, 255,1),
                 width: MediaQuery.sizeOf(context).width * 1,
-                height: MediaQuery.sizeOf(context).height * 1,
                 child: Column(
-                  children:
-                  flights.map((flight) {
-                    return SingleFlightData(Flight: flight);
-                  }).toList(),
+                  children:[
+                    Text("Voos encontrados"),
+                    Column(
+                      children:
+                      flights.map((flight) {
+                        return Container(
+                          child: Column(
+                            children:[
+                              SizedBox(height: 10),
+                              SingleFlightData(Flight: flight),
+                            ]
+                          )
+                        );
+                      }).toList(),
+                    ),
+
+                  ]
+
+
                 )
               ),
             );

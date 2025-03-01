@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
+import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';
 
 
 
 class TelaFlightData extends StatefulWidget{
-  TelaFlightData({Key? key}) : super(key: key);
+  FlightModel Flight = FlightModel();
+
+  TelaFlightData({
+    Key? key,
+    required this.Flight
+  }) : super(key: key);
   TelaFlightDataState createState() => TelaFlightDataState();
 }
 

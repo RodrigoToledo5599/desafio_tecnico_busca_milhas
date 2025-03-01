@@ -1,4 +1,5 @@
 import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';
+import 'package:desafio_tecnico_busca_milhas/Views/TelaFlightData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,16 +21,83 @@ class SingleFlightDataState extends State<SingleFlightData>{
 
   @override
   Widget build(BuildContext context){
-    return SingleChildScrollView(
-      child: Container(
-        width: MediaQuery.sizeOf(context).width * 0.8,
-        child:Column(
-          children:[
-            Text("${widget.Flight.NumeroVoo}  -  ${widget.Flight.NumeroConexoes}"),
-          ]
-        )
-      ),
-    );
+    return
+      ElevatedButton(
+        onPressed: () =>{
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => TelaFlightData(Flight: widget.Flight)
+            )
+          )
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+        ),
+        child: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(8), // Rounded corners
+            ),
+            width: MediaQuery.sizeOf(context).width * 0.8,
+            padding: const EdgeInsets.all(12.0),
+            height: 100,
+            child: Column(
+                children:[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children:[
+                        Text(
+                          "${widget.Flight.NumeroVoo}",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          "Conexões: ${widget.Flight.NumeroConexoes}",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ]
+                  ),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children:[
+                        Text(
+                          "Duração: ",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          "${widget.Flight.Duracao}",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ]
+                  ),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children:[
+                        Text(
+                          "Companhia: ",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          "${widget.Flight.Companhia}",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ]
+                  )
+                ]
+            )
+        ),
+      );
   }
-
 }
