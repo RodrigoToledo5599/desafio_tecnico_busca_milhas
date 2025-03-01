@@ -127,14 +127,14 @@ class TelaInicialState extends State<TelaInicial> {
                   ElevatedButton(
                       onPressed:() async
                       {
-                        // this.printAllResults();
+                        this.printAllResults();
                         if(this.assuringThereAreMoreAdultsThanBabies() == true){
-                          Map<String,dynamic>? travelCode = await tovm.createTravelOptions(
+                          Map<String,dynamic>? travelCode = await tovm.createTravelOptionsCode(
                               CompanhiaAereaController.text,
                               DataControllerIda.text,
                               DataControllerVolta.text,
-                              AeroportoControllerOrigem.text,
-                              AeroportoControllerDestino.text,
+                              AeroportoControllerOrigem.text.toUpperCase(),
+                              AeroportoControllerDestino.text.toUpperCase(),
                               TipoDeViagemController.text
                           );
                           print(travelCode);

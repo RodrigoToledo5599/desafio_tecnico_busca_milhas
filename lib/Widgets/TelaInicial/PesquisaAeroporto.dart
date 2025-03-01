@@ -23,8 +23,6 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
      
 
   void search(String airport) async {
-    // print(airport);
-    // print("aokpowsokwowokwo");
     List<AirPortModel> temporary = await this.airPortVM.getAirports(airport);
     setState(() {
       this.airPorts = temporary;
@@ -73,7 +71,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                       ),
                       ElevatedButton(
                           onPressed:(){
-                            search(widget.controller.text);
+                            search(widget.controller.text.toUpperCase());
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromRGBO(245, 247, 249, 1),

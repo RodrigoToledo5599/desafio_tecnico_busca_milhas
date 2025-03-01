@@ -6,11 +6,8 @@ import 'package:intl/intl.dart';
 
 
 class Repository {
-
-
   var client = HttpClient();
   String url = env().url;
-
 
   Future<List<dynamic>> getAirports(String parameter) async {
     if(parameter.isEmpty){
@@ -29,9 +26,7 @@ class Repository {
     }
   }
 
-
-
-  Future<HttpClientResponse> createTravelOptions(
+  Future<HttpClientResponse> createTravelOptionsCode(
       String companhias,
       String dataIda,
       String? dataVolta,
@@ -50,9 +45,14 @@ class Repository {
       "Destino": destino,
       "Tipo": tipo
     });
-    print(body);
     request.write(body);
     final response = await request.close();
+    return response;
+  }
+
+  Future<HttpClientResponse> queryTravelOptions(String code) async{
+    HttpClientRequest request = await this.client.getUrl(Uri.parse(this.url + "/busca/${code}"));
+    HttpClientResponse response = await request.close();
     return response;
   }
 }

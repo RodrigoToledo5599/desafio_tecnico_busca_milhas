@@ -10,7 +10,7 @@ void main() async{
 
 
   test('createTravelOptions', () async{
-    travelOptVM.createTravelOptions("AZUL", "3/4/2025", "3/6/2025", "AAA", "AAB", "Ida");
+    travelOptVM.createTravelOptionsCode("AZUL", "3/4/2025", "3/6/2025", "AAA", "AAB", "Ida");
     
 
 
