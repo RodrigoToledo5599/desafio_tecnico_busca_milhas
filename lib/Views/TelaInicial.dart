@@ -147,7 +147,6 @@ class TelaInicialState extends State<TelaInicial> {
                           );
                         }
                         else{}
-
                       },
                       child: Text("Enviar")
                   ),

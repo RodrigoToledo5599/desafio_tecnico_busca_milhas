@@ -8,7 +8,7 @@ void main() async{
   TravelOptionsViewModel travelOptVM = new TravelOptionsViewModel();
   // var resp = await travelOptVM.createTravelOptionsCode("AZUL", "3/04/2025", "3/06/2025", "AAA", "AAB", "Ida");
   // var resp2 = await travelOptVM.queryTravelOptions(resp!["Busca"]);
-  var resp2 = await travelOptVM.queryTravelOptions("8c53f45c-37e6-4919-aefc-b6f414666d99");
+  var resp2 = await travelOptVM.queryTravelOptions("7848e286-8ea3-40af-84ae-6ce84c3391d6");
   print("Companhia: "+resp2[0].Companhia!);
   print("Sentido: "+resp2[0].Sentido!);
   print("Origem: "+resp2[0].Origem!);
@@ -24,21 +24,5 @@ void main() async{
   print(resp2[0].Valor!);
   print("Milhas: \n");
   print(resp2[0].Milhas!);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // testes para rodar abaixo:
 
 }
