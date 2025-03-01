@@ -6,7 +6,7 @@ void main() async{
 
   AirPortViewModel airPortVM = new AirPortViewModel();
   TravelOptionsViewModel travelOptVM = new TravelOptionsViewModel();
-  var resp = await travelOptVM.createTravelOptions(["AZUL","GOL"], "3/04/2025", "3/06/2025", "AAA", "AAB", "Ida");
+  var resp = await travelOptVM.createTravelOptions("AZUL", "3/04/2025", "3/06/2025", "AAA", "AAB", "Ida");
   print(resp);
 
 

@@ -7,6 +7,7 @@ import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectCompanhia
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectData.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectTipoDeViagem.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectNPassageiros.dart';
+import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
 
 class TelaInicial extends StatefulWidget{
@@ -29,6 +30,7 @@ class TelaInicialState extends State<TelaInicial> {
   TextEditingController NPassageirosBebesController = TextEditingController();
 
   TravelOptionsViewModel tovm = TravelOptionsViewModel();
+  SessionData sd = SessionData();
 
 
   void printAllResults(){
@@ -123,17 +125,20 @@ class TelaInicialState extends State<TelaInicial> {
                   ),
                   SizedBox(height:70),
                   ElevatedButton(
-                      onPressed:(){
-                        // tovm.createTravelOptions(
-                        //     CompanhiaAereaController.text,
-                        //     DataControllerIda.text,
-                        //     DataControllerVolta.text,
-                        //     AeroportoControllerOrigem.text,
-                        //     AeroportoControllerDestino.text,
-                        //     TipoDeViagemController.text
-                        // );
-                        this.printAllResults();
+                      onPressed:() async
+                      {
+                        // this.printAllResults();
                         if(this.assuringThereAreMoreAdultsThanBabies() == true){
+                          Map<String,dynamic>? travelCode = await tovm.createTravelOptions(
+                              CompanhiaAereaController.text,
+                              DataControllerIda.text,
+                              DataControllerVolta.text,
+                              AeroportoControllerOrigem.text,
+                              AeroportoControllerDestino.text,
+                              TipoDeViagemController.text
+                          );
+                          print(travelCode);
+                          sd.setCodigoViagemOptions(travelCode!["Busca"]);
                           Navigator.push(
                               context,
                               MaterialPageRoute(

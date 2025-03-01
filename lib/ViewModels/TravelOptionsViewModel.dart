@@ -10,7 +10,7 @@ class TravelOptionsViewModel {
 
 
   Future<Map<String,dynamic>>? createTravelOptions(
-      List<String> companhias,
+      String companhias,
       String dataIda,
       String? dataVolta,
       String origem,
@@ -22,7 +22,6 @@ class TravelOptionsViewModel {
     HttpClientResponse responseBodyNotFuture = await Future.value(response);
     String responseBody = await responseBodyNotFuture.transform(utf8.decoder).join();
     Map<String,dynamic> result = jsonDecode(responseBody);
-    // print(result);
     return result;
   }
 
