@@ -63,9 +63,14 @@ class TelaInicialState extends State<TelaInicial> {
     return true;
   }
   List<String> AerialCompaniesListFormat(){
-    CompanhiaAereaController.text = CompanhiaAereaController.text.substring(1, CompanhiaAereaController.text.length - 1);
-    CompanhiaAereaController.text = CompanhiaAereaController.text.replaceAll(" ", "");
+    if(CompanhiaAereaController.text.substring(0,1) == '['){
+      CompanhiaAereaController.text = CompanhiaAereaController.text.substring(1, CompanhiaAereaController.text.length - 1);
+    }
+    CompanhiaAereaController.text = CompanhiaAereaController.text;
     List<String> companhiasList = CompanhiaAereaController.text.split(",");
+    for(int i =0; i < companhiasList.length; i++){
+      companhiasList[i] = companhiasList[i].trim();
+    }
     return companhiasList;
   }
 
@@ -182,7 +187,6 @@ class TelaInicialState extends State<TelaInicial> {
                               AeroportoControllerDestino.text.toUpperCase(),
                               TipoDeViagemController.text
                           );
-                          print(travelCode);
                           sd.setCodigoViagemOptions(travelCode!["Busca"]);
                           Navigator.push(
                               context,

@@ -74,7 +74,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                             search(widget.controller.text.toUpperCase());
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromRGBO(245, 247, 249, 1),
+                            backgroundColor: Color.fromRGBO(255, 255, 255, 1),
                             side: BorderSide.none,
                             shadowColor: Colors.transparent,
                             // foregroundColor: Color.fromRGBO(0, 127, 255, 1),
@@ -82,7 +82,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                             textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                             shape: RoundedRectangleBorder(
                               side:BorderSide(
-                                color:Color.fromRGBO(245, 247, 249, 1),
+                                color:Color.fromRGBO(255, 255, 255, 1),
                                 width: 0.0,
                               ),
                             ),
@@ -101,7 +101,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                           });
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromRGBO(245, 247, 249, 1),
+                          backgroundColor: Color.fromRGBO(255, 255, 255, 1),
                           side: BorderSide.none,
                           shadowColor: Colors.transparent,
                           // foregroundColor: Color.fromRGBO(0, 127, 255, 1),
@@ -109,7 +109,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                           textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                           shape: RoundedRectangleBorder(
                             side:BorderSide(
-                              color:Color.fromRGBO(245, 247, 249, 1),
+                              color:Color.fromRGBO(255, 255, 255, 1),
                               width: 0.0,
                             ),
                           ),

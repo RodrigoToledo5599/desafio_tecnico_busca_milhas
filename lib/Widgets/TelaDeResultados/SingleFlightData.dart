@@ -26,8 +26,7 @@ class SingleFlightDataState extends State<SingleFlightData>{
           Navigator.push(
             context,
             MaterialPageRoute(
-              // builder: (context) => TelaFlightData(Flight: widget.Flight)
-              builder: (context) => TelaInicial()
+              builder: (context) => TelaFlightData(Flight: widget.Flight)
             )
           )
         },

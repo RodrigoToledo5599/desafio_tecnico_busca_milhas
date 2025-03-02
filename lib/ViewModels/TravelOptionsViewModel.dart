@@ -11,7 +11,6 @@ class TravelOptionsViewModel {
 
   Future<Map<String,dynamic>>? createTravelOptionsCode(List<String> companhias, String dataIda, String? dataVolta, String origem, String destino, String tipo) async
   {
-    print("print viewModel: ${companhias}");
     final response = repo.createTravelOptionsCode(companhias, dataIda, dataVolta, origem, destino, tipo);
     HttpClientResponse responseBodyNotFuture = await Future.value(response);
     String responseBody = await responseBodyNotFuture.transform(utf8.decoder).join();

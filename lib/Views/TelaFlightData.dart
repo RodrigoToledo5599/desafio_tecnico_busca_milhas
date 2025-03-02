@@ -1,3 +1,4 @@
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/TelaFlightDataBottomBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
@@ -26,6 +27,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: UpBar(),
+        bottomNavigationBar: TelaFlightDataBottomBar(),
         body:SingleChildScrollView(
             child: Container(
                 width: MediaQuery.sizeOf(context).width * 1,
