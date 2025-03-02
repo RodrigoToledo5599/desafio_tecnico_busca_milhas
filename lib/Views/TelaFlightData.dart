@@ -1,3 +1,4 @@
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/Conexoes.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/TelaFlightDataBottomBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,11 +19,11 @@ class SpaceBetweenRows extends StatelessWidget{
 }
 
 class RowSidePadding extends StatelessWidget{
-  double sidePadding = 0.05;
+  double sidePadding = 0.1;
   @override
   Widget build(BuildContext context){
     return SizedBox(
-      width: MediaQuery.sizeOf(context).height * this.sidePadding,
+      width: MediaQuery.sizeOf(context).width * this.sidePadding,
     );
   }
 }
@@ -134,6 +135,17 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                   fontSize: this.fontsize,
                               ),
                             ),
+                            RowSidePadding(),
+                          ]
+                      ),
+                      SpaceBetweenRows(),
+                      SpaceBetweenRows(),
+                      SpaceBetweenRows(),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children:[
+                            RowSidePadding(),
+                            Conexoes(conexoes: widget.Flight.Conexoes!),
                             RowSidePadding(),
                           ]
                       ),
