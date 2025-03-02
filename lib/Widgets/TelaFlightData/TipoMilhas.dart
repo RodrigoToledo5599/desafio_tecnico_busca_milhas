@@ -30,34 +30,87 @@ class TipoMilhas extends StatelessWidget{
         child:Column(
             children:[
               for(var item in this.Milhas!)
-                Container(
-                    child: Column(
-                        children:[
-                          Row(
-                              children:[
-                                Text("Preço adulto: ${item["Adulto"]}"),
-                              ]
+                Column(
+                  children: [
+                    Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.blue,
+                            width: 2.0,
                           ),
-                          Row(
-                              children:[
-                                Text("Preço criança: ${item["Crianca"]}"),
-                              ]
-                          ),
-                          Row(
-                              children:[
-                                Text("Preço bebe: ${item["Bebe"]}"),
-                              ]
-                          ),
-                          Row(
-                              children:[
-                                Text("Preço Total: ${this.precoTotal(item["Adulto"], item["Crianca"], item["Bebe"], item["TaxaEmbarque"])}"),
-                              ]
-                          ),
-
-
-                        ]
-                    )
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                        child: Column(
+                            children:[
+                              Row(
+                                  children:[
+                                    Text(
+                                      "Tipo: ${item["TipoValor"]}",
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ]
+                              ),
+                              Row(
+                                  children:[
+                                    Text(
+                                      "Preço adulto: ${item["Adulto"]}",
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ]
+                              ),
+                              Row(
+                                  children:[
+                                    Text(
+                                      "Preço criança: ${item["Crianca"]}",
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ]
+                              ),
+                              Row(
+                                  children:[
+                                    Text(
+                                      "Preço bebe: ${item["Bebe"]}",
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ]
+                              ),
+                              Row(
+                                  children:[
+                                    Text(
+                                      "Preço Total: ${this.precoTotal(item["Adulto"], item["Crianca"], item["Bebe"], item["TaxaEmbarque"])}",
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ]
+                              ),
+                            ]
+                        )
+                    ),
+                    SizedBox(height: 10)
+                  ],
                 )
+
+
             ]
         )
     );

@@ -78,13 +78,13 @@ class ConexoesState extends State<Conexoes>{
             Column(
               children:[
                 Container(
-                  padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.blue, // Cor da borda azul
-                        width: 2.0, // Espessura da borda
+                        color: Colors.blue,
+                        width: 2.0,
                       ),
-                      borderRadius: BorderRadius.circular(0), // Arredondamento das bordas
+                      borderRadius: BorderRadius.circular(0),
                     ),
                     child:Column(
                         mainAxisAlignment: MainAxisAlignment.start,
