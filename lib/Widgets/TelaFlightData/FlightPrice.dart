@@ -70,27 +70,37 @@ class FlightPriceState extends State<FlightPrice>{
           if(TipoMilhasOuValor)
             Column(
               children:[
-                Text(
-                "Valor",
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Valor",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
                 TipoValor(Valor: widget.Valor, NAdultos: NAdultos, NCriancas: NCriancas, NBebes: NBebes),
               ]
             )
           else
             Column(
                 children:[
-                  Text(
-                    "Milhas",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Milhas",
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
                   ),
                   TipoMilhas(Milhas: widget.Milhas, NAdultos: NAdultos, NCriancas: NCriancas, NBebes: NBebes)
                 ]
