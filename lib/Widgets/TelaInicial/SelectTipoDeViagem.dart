@@ -16,30 +16,72 @@ class SelectTipoDeViagem extends StatefulWidget{
 
 class SelectTipoDeViagemState extends State<SelectTipoDeViagem>{
   final List<String> values = <String>['Ida','IdaVolta'];
+  bool switchValue = true;
+  String IdaOuIdaVolta = "IdaVolta";
   String? msg = "Tipo de viagem";
+
+
+  void TipoDeViagemChange(){
+    if(switchValue == true){
+      setState(() {
+        this.IdaOuIdaVolta = "IdaVolta";
+        widget.controller.text = this.IdaOuIdaVolta;
+      });
+    }
+    if(switchValue == false){
+      setState(() {
+        this.IdaOuIdaVolta = "Ida";
+        widget.controller.text = this.IdaOuIdaVolta;;
+      });
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context){
     return SingleChildScrollView(
         child: Container(
-          width: MediaQuery.sizeOf(context).width * 0.6,
-          child: Row(
-              children:[
-                DropdownButton<String>(
-                  hint: Text("${msg}"),
-                  items: values.map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (value){
-                    setState(() {
-                      widget.controller.text = value!;
-                      msg = value;
-                    });
-                  },
-                )
-              ]
+          width: MediaQuery.sizeOf(context).width * 0.8,
+          child: Column(
+            children:[
+              Row(
+                children: [
+                  Text(
+                    "Tipo De Viagem",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children:[
+                    Switch(
+                      value: this.switchValue,
+                      activeColor: Colors.blue,
+                      onChanged: (bool value) {
+                        setState(() {
+                          this.switchValue = value;
+                          TipoDeViagemChange();
+                        });
+                      },
+                    ),
+                    Text(
+                      "${this.IdaOuIdaVolta}",
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16
+                      ),
+                    ),
+                  ]
+              ),
+            ]
           ),
         )
     );
