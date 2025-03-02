@@ -1,9 +1,0 @@
-
-
-
-class FixingDateFromDateTimeField{
-
-  String TurningDateTimeFieldIntoString()
-
-
-}

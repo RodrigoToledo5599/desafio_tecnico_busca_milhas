@@ -20,12 +20,42 @@ class SelectData extends StatefulWidget{
 }
 
 class SelectDataState extends State<SelectData>{
-  TimeOfDay time = TimeOfDay(hour: 12, minute: 00);
+  String minutesShowing = "00";
+  String hoursShowing = "00";
+  TimeOfDay time = TimeOfDay(hour: 12, minute: 0);
   final _formKey = GlobalKey<FormState>();
   DateTime today = DateTime.now();
   DateTime? selectedDate;
   DateTime? selectedTime;
   DateTime? selectedDateTime;
+
+
+  bool convertToHoursFormat(){
+    if(time.hour < 10 && time.minute < 10){
+      setState(() {
+        this.hoursShowing = "0"+ time.hour.toString();
+        this.minutesShowing = "0"+ time.minute.toString();
+      });
+      return true;
+    }
+    if(time.minute < 10){
+      setState(() {
+        this.minutesShowing = "0"+ time.minute.toString();
+      });
+      return true;
+    }
+    if(time.hour < 10){
+      setState(() {
+        this.hoursShowing = "0"+ time.hour.toString();
+      });
+      return true;
+    }
+    setState(() {
+      this.minutesShowing = time.minute.toString();
+      this.hoursShowing = time.hour.toString();
+    });
+    return true;
+  }
 
   @override
   Widget build(BuildContext context){
@@ -66,7 +96,7 @@ class SelectDataState extends State<SelectData>{
                           child:Align(
                             alignment: Alignment.center,
                             child: Text(
-                                "${time.hour}:${time.minute}",
+                                "${hoursShowing}:${minutesShowing}",
                               style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w900,
@@ -85,6 +115,7 @@ class SelectDataState extends State<SelectData>{
                               time = newTime!;
                               widget.Horascontroller.text = "${newTime.hour}:${newTime.minute}";
                             });
+                            convertToHoursFormat();
                           },
                           icon: Icon(
                               Icons.alarm,
