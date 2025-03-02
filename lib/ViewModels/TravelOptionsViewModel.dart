@@ -9,13 +9,13 @@ class TravelOptionsViewModel {
 
   Repository repo = Repository();
 
-  Future<Map<String,dynamic>>? createTravelOptionsCode(String companhias, String dataIda, String? dataVolta, String origem, String destino, String tipo) async
+  Future<Map<String,dynamic>>? createTravelOptionsCode(List<String> companhias, String dataIda, String? dataVolta, String origem, String destino, String tipo) async
   {
-    companhias = companhias.substring(1, companhias.length - 1);
-    companhias = companhias.replaceAll(" ", "");
-    List<String> companhiasList = companhias.split(",");
-    print("print viewModel: ${companhiasList}");
-    final response = repo.createTravelOptionsCode(companhiasList, dataIda, dataVolta, origem, destino, tipo);
+    // companhias = companhias.substring(1, companhias.length - 1);
+    // companhias = companhias.replaceAll(" ", "");
+    // List<String> companhiasList = companhias.split(",");
+    print("print viewModel: ${companhias}");
+    final response = repo.createTravelOptionsCode(companhias, dataIda, dataVolta, origem, destino, tipo);
     HttpClientResponse responseBodyNotFuture = await Future.value(response);
     String responseBody = await responseBodyNotFuture.transform(utf8.decoder).join();
     Map<String,dynamic?> result = jsonDecode(responseBody);

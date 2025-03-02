@@ -62,6 +62,12 @@ class TelaInicialState extends State<TelaInicial> {
     });
     return true;
   }
+  List<String> AerialCompaniesListFormat(){
+    CompanhiaAereaController.text = CompanhiaAereaController.text.substring(1, CompanhiaAereaController.text.length - 1);
+    CompanhiaAereaController.text = CompanhiaAereaController.text.replaceAll(" ", "");
+    List<String> companhiasList = CompanhiaAereaController.text.split(",");
+    return companhiasList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +175,7 @@ class TelaInicialState extends State<TelaInicial> {
                         this.printAllResults();
                         if(this.assuringThereAreMoreAdultsThanBabies() == true){
                           Map<String,dynamic>? travelCode = await tovm.createTravelOptionsCode(
-                              CompanhiaAereaController.text,
+                              AerialCompaniesListFormat(),
                               DataControllerIda.text,
                               DataControllerVolta.text,
                               AeroportoControllerOrigem.text.toUpperCase(),
