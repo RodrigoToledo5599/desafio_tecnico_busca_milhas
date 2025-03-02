@@ -79,13 +79,13 @@ class SelectDataState extends State<SelectData>{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children:[
                       Container(
-                          width: 76,
-                          height: 40,
+                          width: 82,
+                          height: 42,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             color: Colors.white,
                             border: Border.all(
-                              width: 3,
+                              width: 2,
                               color: Colors.blue,
                               style: BorderStyle.solid,
                             ),
