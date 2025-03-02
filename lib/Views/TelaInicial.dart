@@ -76,26 +76,48 @@ class TelaInicialState extends State<TelaInicial> {
           child: SingleChildScrollView(
             child:Column(
                 children:[
+                  SizedBox(height:20),
                   Row(
                     children:[
-                      SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
-                      Text("Origem"),
+                      SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
+                      Text(
+                          "Origem",
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16
+                          ),
+                      ),
                     ]
                   ),
                   SizedBox(height: 20),
                   PesquisaAeroporto(controller: AeroportoControllerOrigem),
                   Row(
                       children:[
-                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
-                        Text("Destino"),
+                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
+                        Text(
+                            "Destino",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16
+                            ),
+                        ),
                       ]
                   ),
                   SizedBox(height: 20),
                   PesquisaAeroporto(controller: AeroportoControllerDestino),
                   Row(
                       children:[
-                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
-                        Text("Ida"),
+                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
+                        Text(
+                            "Ida",
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.blue
+                            ),
+                        ),
                       ]
                   ),
                   SelectData(
@@ -105,8 +127,15 @@ class TelaInicialState extends State<TelaInicial> {
                   SizedBox(height: 20),
                   Row(
                       children:[
-                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.11),
-                        Text("Volta (Opcional)"),
+                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
+                        Text(
+                          "Volta (Opcional)",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.blue
+                          ),
+                        ),
                       ]
                   ),
                   SelectData(
@@ -125,6 +154,16 @@ class TelaInicialState extends State<TelaInicial> {
                   ),
                   SizedBox(height:70),
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue, // Button color
+                        foregroundColor: Colors.white, // Text color
+                        elevation: 5, // Shadow elevation
+                        shadowColor: Colors.black, // Shadow color
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10), // Rounded corners
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12), // Padding
+                      ),
                       onPressed:() async
                       {
                         this.printAllResults();
@@ -148,7 +187,14 @@ class TelaInicialState extends State<TelaInicial> {
                         }
                         else{}
                       },
-                      child: Text("Enviar")
+                      child: Text(
+                          "Enviar",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white
+                        ),
+                      )
                   ),
                   Text("${warningMsg}"),
                   SizedBox(height: 50),

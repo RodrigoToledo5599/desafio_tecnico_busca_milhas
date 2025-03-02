@@ -88,7 +88,9 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                             ),
                           ),
                           child: Icon(
-                              Icons.search
+                              Icons.search,
+                              color: Colors.blue,
+                              size: 25,
                           ),
                       ),
                       ElevatedButton(
@@ -113,7 +115,9 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                           ),
                         ),
                         child: Icon(
-                            Icons.close
+                            Icons.close,
+                            color: Colors.blue,
+                            size: 25,
                         ),
                       ),
                     ]

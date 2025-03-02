@@ -35,7 +35,14 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("N° de Adultos: "),
+                      Text(
+                          "N° de Adultos: ",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.blue
+                          ),
+                      ),
                       Container(
                         child: TextFormField(
                             controller: widget.adultosController,
@@ -57,7 +64,14 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("N° de Crianças: "),
+                      Text(
+                          "N° de Crianças: ",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.blue
+                          ),
+                      ),
                       Container(
                           child: TextFormField(
                             controller: widget.criancasController,
@@ -79,17 +93,19 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("N° de bebes: "),
+                      Text(
+                          "N° de bebes: ",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.blue
+                          ),
+                      ),
                       Container(
                           child: TextFormField(
                             controller: widget.bebesController,
-                            decoration:
-                            InputDecoration(
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.white,
-                                ),
-                              ),
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
                             ),
                             keyboardType: TextInputType.number,
                           ),

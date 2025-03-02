@@ -52,70 +52,30 @@ class SelectDataState extends State<SelectData>{
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children:[
                       Container(
-                          width: 40,
+                          width: 90,
                           height: 40,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(5),
-                              topLeft: Radius.circular(5),
-                              bottomLeft: Radius.circular(5),
-                              bottomRight: Radius.circular(5),
-                            ),
+                            borderRadius: BorderRadius.circular(5),
                             color: Colors.blue,
                             border: Border.all(
                               width: 0,
+                              color: Colors.transparent,
                               style: BorderStyle.solid,
                             ),
                           ),
                           child:Align(
                             alignment: Alignment.center,
                             child: Text(
-                                "${time.hour}",
+                                "${time.hour} : ${time.minute}",
                               style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.w600,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w800,
                                 color: Colors.white
                               ),
                             ),
                           )
                       ),
-                      Text(
-                          ":",
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.blue
-                          ),
-                      ),
-                      Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(5),
-                              topLeft: Radius.circular(5),
-                              bottomLeft: Radius.circular(5),
-                              bottomRight: Radius.circular(5),
-                            ),
-                            color: Colors.blue,
-                            border: Border.all(
-                              width: 0,
-                              style: BorderStyle.solid,
-                            ),
-                          ),
-                          child:Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              "${time.minute}",
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white
-                              ),
-                            ),
-                          )
-                      ),
-                      ElevatedButton(
+                      IconButton(
                           onPressed: () async {
                             TimeOfDay? newTime = await showTimePicker(
                                 context: context,
@@ -126,7 +86,11 @@ class SelectDataState extends State<SelectData>{
                               widget.Horascontroller.text = "${newTime.hour}:${newTime.minute}";
                             });
                           },
-                          child: Text("Pick Time")
+                          icon: Icon(
+                              Icons.alarm,
+                              color: Colors.blue,
+                              size: 40,
+                          )
                       )
                     ]
                 ),
