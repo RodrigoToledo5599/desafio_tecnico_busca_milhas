@@ -1,4 +1,5 @@
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/Conexoes.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/FlightPrice.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/TelaFlightDataBottomBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -149,6 +150,18 @@ class TelaFlightDataState extends State<TelaFlightData>{
                             RowSidePadding(),
                           ]
                       ),
+                      SpaceBetweenRows(),
+                      SpaceBetweenRows(),
+                      SpaceBetweenRows(),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children:[
+                            FlightPrice(
+                                Valor: widget.Flight.Valor,
+                                Milhas: widget.Flight.Milhas
+                            )
+                          ]
+                      )
                     ]
                 ),
               )
