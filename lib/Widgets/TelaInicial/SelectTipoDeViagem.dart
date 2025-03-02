@@ -59,7 +59,7 @@ class SelectTipoDeViagemState extends State<SelectTipoDeViagem>{
               ),
               SizedBox(height: 20),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children:[
                     Switch(
                       value: this.switchValue,
@@ -79,6 +79,10 @@ class SelectTipoDeViagemState extends State<SelectTipoDeViagem>{
                           fontSize: 16
                       ),
                     ),
+                    SizedBox(),
+                    SizedBox(),
+                    SizedBox(),
+
                   ]
               ),
             ]
