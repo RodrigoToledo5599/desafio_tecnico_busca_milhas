@@ -64,7 +64,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             Text(
-                              "${widget.Flight.NumeroVoo}",
+                              "Número do Voo: ${widget.Flight.NumeroVoo}",
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
@@ -120,7 +120,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             Text(
-                              "N° Conexões: ",
+                              "Número de Conexões: ",
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,

@@ -5,15 +5,12 @@ import 'package:flutter/cupertino.dart';
 
 
 class ConexaoRow extends StatelessWidget{
-
   String text;
   String fieldName;
-
   ConexaoRow({
     Key? key,
     required this.fieldName,
     required this.text,
-
   }) : super(key: key);
 
   @override
@@ -41,8 +38,6 @@ class ConexaoRow extends StatelessWidget{
     );
   }
 }
-
-
 
 
 class Conexoes extends StatefulWidget {
@@ -83,6 +78,7 @@ class ConexoesState extends State<Conexoes>{
             Column(
               children:[
                 Container(
+                  padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.blue, // Cor da borda azul
