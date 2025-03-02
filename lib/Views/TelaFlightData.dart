@@ -28,16 +28,26 @@ class TelaFlightDataState extends State<TelaFlightData>{
       home: Scaffold(
         appBar: UpBar(),
         bottomNavigationBar: TelaFlightDataBottomBar(),
-        body:SingleChildScrollView(
-            child: Container(
-                width: MediaQuery.sizeOf(context).width * 1,
-                child:Column(
-                    children:[
+        body: Container(
+          width: MediaQuery.sizeOf(context).width * 1,
+          child: SingleChildScrollView(
+              child: Container(
+                  color: Colors.green,
+                  height: MediaQuery.sizeOf(context).height * 1,
+                  child:Column(
+                      children:[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                            children:[
+                              Text("${widget.Flight.Companhia}")
+                            ]
+                        )
+                      ]
+                  )
+              )
+          ),
+        )
 
-                    ]
-                )
-            )
-        ),
       ),
     );
   }

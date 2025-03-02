@@ -62,16 +62,22 @@ class TelaInicialState extends State<TelaInicial> {
     });
     return true;
   }
-  List<String> AerialCompaniesListFormat(){
-    if(CompanhiaAereaController.text.substring(0,1) == '['){
-      CompanhiaAereaController.text = CompanhiaAereaController.text.substring(1, CompanhiaAereaController.text.length - 1);
+  List<String> AerialCompaniesListFormat(String companhiasAereas){
+    if(companhiasAereas.substring(0,1) == '['){
+      companhiasAereas = companhiasAereas.substring(1, companhiasAereas.length - 1);
     }
-    CompanhiaAereaController.text = CompanhiaAereaController.text;
-    List<String> companhiasList = CompanhiaAereaController.text.split(",");
+    List<String> companhiasList = companhiasAereas.split(",");
     for(int i =0; i < companhiasList.length; i++){
       companhiasList[i] = companhiasList[i].trim();
     }
     return companhiasList;
+  }
+
+  void savingSessionData(String travelCode,int nAdultos, int nCriancas, nBebes){
+    sd.setCodigoViagemOptions(travelCode);
+    sd.setNAdultos(nAdultos);
+    sd.setNCriancas(nCriancas);
+    sd.setNBebes(nBebes);
   }
 
   @override
@@ -180,14 +186,19 @@ class TelaInicialState extends State<TelaInicial> {
                         this.printAllResults();
                         if(this.assuringThereAreMoreAdultsThanBabies() == true){
                           Map<String,dynamic>? travelCode = await tovm.createTravelOptionsCode(
-                              AerialCompaniesListFormat(),
+                              AerialCompaniesListFormat(CompanhiaAereaController.text),
                               DataControllerIda.text,
                               DataControllerVolta.text,
                               AeroportoControllerOrigem.text.toUpperCase(),
                               AeroportoControllerDestino.text.toUpperCase(),
                               TipoDeViagemController.text
                           );
-                          sd.setCodigoViagemOptions(travelCode!["Busca"]);
+                          savingSessionData(
+                            travelCode!["Busca"],
+                            int.parse(NPassageirosAdultosController.text),
+                            int.parse(NPassageirosCriancasController.text),
+                            int.parse(NPassageirosBebesController.text)
+                          );
                           Navigator.push(
                               context,
                               MaterialPageRoute(

@@ -20,6 +20,46 @@ class SessionData{
   }
 
 
+  Future<void> setNAdultos(int Nadultos) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt("Nadultos", Nadultos);
+  }
+
+  Future<int?> getNAdultos() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? result = prefs.getInt("Nadultos");
+    return result;
+  }
+
+
+
+
+  Future<void> setNCriancas(int Ncriancas) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt("Ncriancas", Ncriancas);
+  }
+
+  Future<int?> getNCriancas() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? result = prefs.getInt("Ncriancas");
+    return result;
+  }
+
+
+
+  Future<void> setNBebes(int Nbebes) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt("Nbebes", Nbebes);
+  }
+
+  Future<int?> getNBebes() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? result = prefs.getInt("Nbebes");
+    return result;
+  }
+
+
+
 
 
 
