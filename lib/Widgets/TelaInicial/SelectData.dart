@@ -30,31 +30,28 @@ class SelectDataState extends State<SelectData>{
   DateTime? selectedDateTime;
 
 
-  bool convertToHoursFormat(){
-    if(time.hour < 10 && time.minute < 10){
-      setState(() {
-        this.hoursShowing = "0"+ time.hour.toString();
-        this.minutesShowing = "0"+ time.minute.toString();
-      });
-      return true;
-    }
-    if(time.minute < 10){
-      setState(() {
-        this.minutesShowing = "0"+ time.minute.toString();
-      });
-      return true;
-    }
+  void convertToHoursFormat(){
     if(time.hour < 10){
       setState(() {
         this.hoursShowing = "0"+ time.hour.toString();
+        this.minutesShowing = "0"+ time.minute.toString();
       });
-      return true;
     }
-    setState(() {
-      this.minutesShowing = time.minute.toString();
-      this.hoursShowing = time.hour.toString();
-    });
-    return true;
+    if(time.minute < 10) {
+      setState(() {
+        this.minutesShowing = "0" + time.minute.toString();
+      });
+    }
+    if(time.hour >= 10){
+      setState(() {
+        this.hoursShowing = time.hour.toString();
+      });
+    }
+    if(time.minute >= 10){
+      setState(() {
+        this.minutesShowing = time.minute.toString();
+      });
+    }
   }
 
   @override
@@ -115,7 +112,7 @@ class SelectDataState extends State<SelectData>{
                               time = newTime!;
                               widget.Horascontroller.text = "${newTime.hour}:${newTime.minute}";
                             });
-                            convertToHoursFormat();
+                            this.convertToHoursFormat();
                           },
                           icon: Icon(
                               Icons.alarm,
