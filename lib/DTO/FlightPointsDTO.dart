@@ -10,7 +10,7 @@ class FlightPointsDTO{
   int? Crianca;
   int? Bebe;
   bool? Executivo;
-  dynamic? TaxaEmbarque;
+  double? TaxaEmbarque;
   String? TipoMilhas;
 
 

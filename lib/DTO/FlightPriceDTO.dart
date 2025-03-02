@@ -7,7 +7,7 @@ class FlightPriceDTO{
   int? Crianca;
   int? Bebe;
   bool? Executivo;
-  dynamic? TaxaEmbarque;
+  double? TaxaEmbarque;
   String? TipoValor;
 
 }
