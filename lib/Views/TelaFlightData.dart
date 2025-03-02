@@ -7,11 +7,11 @@ import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectCompanhia
 
 
 class TelaFlightData extends StatefulWidget{
-  // FlightModel Flight = FlightModel();
+  FlightModel Flight = FlightModel();
 
   TelaFlightData({
     Key? key,
-    // required this.Flight
+    required this.Flight
   }) : super(key: key);
   TelaFlightDataState createState() => TelaFlightDataState();
 }
@@ -28,10 +28,10 @@ class TelaFlightDataState extends State<TelaFlightData>{
         appBar: UpBar(),
         body:SingleChildScrollView(
             child: Container(
-                width: MediaQuery.sizeOf(context).width * 0.8,
+                width: MediaQuery.sizeOf(context).width * 1,
                 child:Column(
                     children:[
-                      SelectCompanhiaAerea(controller: textController)
+
                     ]
                 )
             )

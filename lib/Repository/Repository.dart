@@ -27,7 +27,7 @@ class Repository {
   }
 
   Future<HttpClientResponse> createTravelOptionsCode(
-      String companhias,
+      List<String> companhias,
       String dataIda,
       String? dataVolta,
       String origem,
@@ -38,7 +38,7 @@ class Repository {
     HttpClientRequest request = await this.client.postUrl(Uri.parse(this.url + "busca/criar"));
     request.headers.set(HttpHeaders.contentTypeHeader, 'application/json');
     final body = jsonEncode({
-      "Companhias": [companhias],
+      "Companhias": companhias,
       "DataIda": dataIda,
       "DataVolta": dataVolta,
       "Origem": origem,

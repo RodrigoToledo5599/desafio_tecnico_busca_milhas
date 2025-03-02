@@ -20,52 +20,69 @@ class SelectCompanhiaAereaState extends State<SelectCompanhiaAerea> {
     'AZUL',
     'TAP'
   ];
-  bool v = false;
   Map<String, bool> selectedAirlines = {
-    'AMERICAN AIRLINES': false,
-    'GOL': false,
-    'IBERIA': false,
-    'INTERLINE': false,
-    'LATAM': false,
-    'AZUL': false,
-    'TAP': false
+    'AMERICAN AIRLINES': true,
+    'GOL': true,
+    'IBERIA': true,
+    'INTERLINE': true,
+    'LATAM': true,
+    'AZUL': true,
+    'TAP': true
   };
+
+  void savingAirCompanies(){
+    List<String> savedCompanies = [];
+    for(String item in airlines){
+       if(selectedAirlines[item] == true){
+         savedCompanies.add(item);
+       }
+    }
+    widget.controller.text = savedCompanies.toString();
+    print(widget.controller.text);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.purple,
+      color: Colors.white,
       width: MediaQuery.sizeOf(context).width * 0.8,
-      child: Column(
-        children: airlines.map((item) {
-          return Row(
-            children: [
-              Checkbox(
-                side: BorderSide(
-                  color: CheckBoxStyle.getBorderSideColor(),
-                  width: 2.0,
-                ),
-                checkColor: Colors.white,
-                // value: this.selectedAirlines[item],
-                value: this.v,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(3),
-                ),
-                onChanged: (bool? value) {
-                  print("100 ${item}  ${selectedAirlines[item]}");
-                  setState(() {
-                    // selectedAirlines[item] = value ?? false;
-                  });
-                },
-              ),
-              Text(
-                item,
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
-          );
-        }).toList(),
+      child:
+      Column(
+        children:[
+          Column(
+            children: airlines.map((item) {
+              return Row(
+                children: [
+                  Checkbox(
+                    side: BorderSide(
+                      color: CheckBoxStyle.getBorderSideColor(),
+                      width: 2.0,
+                    ),
+                    checkColor: Colors.white,
+                    value: this.selectedAirlines[item],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                    onChanged: (bool? value) {
+                      setState(() {
+                        selectedAirlines[item] = !selectedAirlines[item]!;
+                      });
+                      this.savingAirCompanies();
+                    },
+                  ),
+                  Text(
+                    item,
+                    style: TextStyle(
+                        color: Colors.blue
+                    ),
+                  ),
+                ],
+              );
+            }).toList(),
+          ),
+        ]
       ),
+
     );
   }
 }
