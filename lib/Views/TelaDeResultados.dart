@@ -1,6 +1,7 @@
 import 'package:desafio_tecnico_busca_milhas/Models/AirPortModel.dart';
 import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaDeResultados/ResultadosBottomBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
@@ -55,6 +56,7 @@ class TelaDeResultadosState extends State<TelaDeResultados>{
       debugShowCheckedModeBanner: false,
       home:Scaffold(
         appBar: UpBar(),
+        bottomNavigationBar: ResultadosBottomBar(),
         body: FutureBuilder<List<FlightModel>?>(
           future: Future.value(this.flightsAvailable),
           builder: (context, snapshot){

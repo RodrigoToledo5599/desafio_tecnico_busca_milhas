@@ -49,7 +49,7 @@ class SelectDataState extends State<SelectData>{
                 ),
                 SizedBox(height:10),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children:[
                       Container(
                           width: 90,
