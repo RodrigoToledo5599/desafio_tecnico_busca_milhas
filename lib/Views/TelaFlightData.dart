@@ -156,10 +156,12 @@ class TelaFlightDataState extends State<TelaFlightData>{
                       Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children:[
+                            RowSidePadding(),
                             FlightPrice(
                                 Valor: widget.Flight.Valor,
                                 Milhas: widget.Flight.Milhas
-                            )
+                            ),
+                            RowSidePadding(),
                           ]
                       )
                     ]

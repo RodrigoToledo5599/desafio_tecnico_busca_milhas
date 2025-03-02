@@ -1,3 +1,5 @@
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/TipoValor.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/TipoMilhas.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
@@ -27,6 +29,8 @@ class FlightPriceState extends State<FlightPrice>{
   int? NCriancas;
   int? NBebes;
 
+  bool TipoMilhasOuValor = false;      // false = Valor | true = Milhas
+
   void getSessionData() async{
     int? adulto = await widget.sessionData.getNAdultos();
     int? crianca = await widget.sessionData.getNCriancas();
@@ -46,11 +50,50 @@ class FlightPriceState extends State<FlightPrice>{
   @override
   Widget build(BuildContext context){
     return Container(
+      width: MediaQuery.sizeOf(context).width * 0.8,
       child:Column(
         children:[
-          Text("numero de adultos : ${NAdultos}"),
-          Text("numero de kids : ${NCriancas}"),
-          Text("numero de bebes : ${NBebes}"),
+          Row(
+            children: [
+              Switch(
+                value: TipoMilhasOuValor,
+                activeColor: Colors.blue,
+                onChanged: (bool value) {
+                  setState(() {
+                    TipoMilhasOuValor = !TipoMilhasOuValor;
+                  });
+                },
+              ),
+            ],
+          ),
+          if(TipoMilhasOuValor)
+            Column(
+              children:[
+                Text(
+                "Valor",
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
+                ),
+              ),
+                TipoValor(Valor: widget.Valor, NAdultos: NAdultos, NCriancas: NCriancas, NBebes: NBebes),
+              ]
+            )
+          else
+            Column(
+                children:[
+                  Text(
+                    "Milhas",
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
+                  ),
+                  TipoMilhas(Milhas: widget.Milhas, NAdultos: NAdultos, NCriancas: NCriancas, NBebes: NBebes)
+                ]
+            ),
         ]
       )
     );
