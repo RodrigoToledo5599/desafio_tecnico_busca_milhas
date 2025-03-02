@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaDeResultados/SingleFlightData.dart';
-import 'package:desafio_tecnico_busca_milhas/Views/TelaInicial.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
 
@@ -67,7 +66,7 @@ class TelaDeResultadosState extends State<TelaDeResultados>{
               return Center(child: Text("Error loading tasks"));
             }
             if (!snapshot.hasData || snapshot.data!.isEmpty) {
-              return Center(child: Text("No tasks available"));
+              return Center(child: Text("No flights available"));
             }
             List<FlightModel> flights = snapshot.data!;
             return SingleChildScrollView(

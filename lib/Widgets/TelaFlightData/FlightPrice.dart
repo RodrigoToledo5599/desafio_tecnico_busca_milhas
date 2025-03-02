@@ -1,3 +1,4 @@
+import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/TipoValor.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/TipoMilhas.dart';
 import 'package:flutter/material.dart';

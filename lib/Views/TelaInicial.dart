@@ -42,9 +42,9 @@ class TelaInicialState extends State<TelaInicial> {
     print("${HorarioControllerVolta.text}");
     print("${CompanhiaAereaController.text}");
     print("${TipoDeViagemController.text}");
-    print("${NPassageirosAdultosController.text}");
-    print("${NPassageirosCriancasController.text}");
-    print("${NPassageirosBebesController.text}");
+    print("Nadultos: ${NPassageirosAdultosController.text}");
+    print("Ncriancas: ${NPassageirosCriancasController.text}");
+    print("Nbebes: ${NPassageirosBebesController.text}");
   }
 
   bool assuringThereAreMoreAdultsThanBabies(){
@@ -172,12 +172,12 @@ class TelaInicialState extends State<TelaInicial> {
                   SizedBox(height:70),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue, // Button color
-                        foregroundColor: Colors.white, // Text color
-                        elevation: 5, // Shadow elevation
-                        shadowColor: Colors.black, // Shadow color
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        elevation: 5,
+                        shadowColor: Colors.black,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10), // Rounded corners
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12), // Padding
                       ),
@@ -193,6 +193,8 @@ class TelaInicialState extends State<TelaInicial> {
                               AeroportoControllerDestino.text.toUpperCase(),
                               TipoDeViagemController.text
                           );
+                          print("VTNC: ");
+                          print(travelCode);
                           savingSessionData(
                             travelCode!["Busca"],
                             int.parse(NPassageirosAdultosController.text),

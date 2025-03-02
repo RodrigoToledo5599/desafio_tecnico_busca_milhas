@@ -31,11 +31,11 @@ class RowSidePadding extends StatelessWidget{
 
 
 class TelaFlightData extends StatefulWidget{
-  FlightModel Flight = FlightModel();
+  FlightModel? Flight = FlightModel();
 
   TelaFlightData({
     Key? key,
-    required this.Flight
+    this.Flight
   }) : super(key: key);
   TelaFlightDataState createState() => TelaFlightDataState();
 }
@@ -65,7 +65,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             Text(
-                              "Número do Voo: ${widget.Flight.NumeroVoo}",
+                              "Número do Voo: ${widget.Flight!.NumeroVoo}",
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
@@ -81,7 +81,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             Text(
-                              "Duração:  ${widget.Flight.Duracao}",
+                              "Duração:  ${widget.Flight!.Duracao}",
                               style: TextStyle(
                                 color: Colors.blue,
                                 fontWeight: FontWeight.w600,
@@ -105,7 +105,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                               ),
                             ),
                             Text(
-                              "${widget.Flight.Companhia}",
+                              "${widget.Flight!.Companhia}",
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
@@ -129,7 +129,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                               ),
                             ),
                             Text(
-                              "${widget.Flight.NumeroConexoes}",
+                              "${widget.Flight!.NumeroConexoes}",
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
@@ -146,7 +146,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           mainAxisAlignment: MainAxisAlignment.start,
                           children:[
                             RowSidePadding(),
-                            Conexoes(conexoes: widget.Flight.Conexoes!),
+                            Conexoes(conexoes: widget.Flight!.Conexoes!),
                             RowSidePadding(),
                           ]
                       ),
@@ -158,8 +158,8 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             FlightPrice(
-                                Valor: widget.Flight.Valor,
-                                Milhas: widget.Flight.Milhas
+                                Valor: widget.Flight!.Valor,
+                                Milhas: widget.Flight!.Milhas
                             ),
                             RowSidePadding(),
                           ]

@@ -3,11 +3,20 @@
 
 class FlightPriceDTO{
 
-  int? Adulto;
+  double? Adulto;
   int? Crianca;
-  int? Bebe;
+  double? Bebe;
   bool? Executivo;
   double? TaxaEmbarque;
   String? TipoValor;
+
+  FlightPriceDTO({
+    this.Adulto,
+    this.Crianca,
+    this.Bebe,
+    this.Executivo,
+    this.TaxaEmbarque,
+    this.TipoValor
+  });
 
 }

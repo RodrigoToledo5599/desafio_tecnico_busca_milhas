@@ -69,7 +69,10 @@ class SelectDataState extends State<SelectData>{
                     setState(() {
                       selectedDate = value!;
                       if(selectedDate != null || selectedDate != ""){
-                        widget.Datacontroller.text = DateFormat.yMd().format(selectedDate!);
+                        String day = value.day.toString();
+                        String month = value.month.toString();
+                        String year = value.year.toString();
+                        widget.Datacontroller.text = "${day}/${month}/${year}";
                       }
                     });
                   },

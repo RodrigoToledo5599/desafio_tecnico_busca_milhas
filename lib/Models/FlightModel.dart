@@ -1,6 +1,6 @@
-import 'package:desafio_tecnico_busca_milhas/DTO/FlightPointsDTO.dart';
-import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
-import 'package:desafio_tecnico_busca_milhas/Models/FlightConnectionModel.dart';
+// import 'package:desafio_tecnico_busca_milhas/DTO/FlightPointsDTO.dart';
+// import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
+// import 'package:desafio_tecnico_busca_milhas/Models/FlightConnectionModel.dart';
 
 
 class FlightModel{
@@ -13,7 +13,7 @@ class FlightModel{
   String? Duracao;
   String? NumeroVoo;
   int? NumeroConexoes;
-  // FlightPriceDTO? Valor;
+  // List<FlightPriceDTO>? Valor;
   // FlightPointsDTO? Milhas;
   // FlightConnectionModel? Conexoes;
   List<dynamic>? Valor;
