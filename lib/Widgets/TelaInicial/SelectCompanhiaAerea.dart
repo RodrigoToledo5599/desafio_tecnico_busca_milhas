@@ -21,13 +21,13 @@ class SelectCompanhiaAereaState extends State<SelectCompanhiaAerea> {
     'TAP'
   ];
   Map<String, bool> selectedAirlines = {
-    'AMERICAN AIRLINES': true,
-    'GOL': true,
-    'IBERIA': true,
-    'INTERLINE': true,
-    'LATAM': true,
-    'AZUL': true,
-    'TAP': true
+    'AMERICAN AIRLINES': false,
+    'GOL': false,
+    'IBERIA': false,
+    'INTERLINE': false,
+    'LATAM': false,
+    'AZUL': false,
+    'TAP': false
   };
 
   void savingAirCompanies(){

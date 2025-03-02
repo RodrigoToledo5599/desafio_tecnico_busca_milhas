@@ -36,7 +36,10 @@ class SelectTipoDeViagemState extends State<SelectTipoDeViagem>{
     }
   }
 
-
+  void initState() {
+    super.initState();
+    widget.controller.text = "IdaVolta";
+  }
 
   @override
   Widget build(BuildContext context){
