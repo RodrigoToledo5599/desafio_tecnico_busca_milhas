@@ -74,7 +74,16 @@ class TelaDeResultadosState extends State<TelaDeResultados>{
                 width: MediaQuery.sizeOf(context).width * 1,
                 child: Column(
                   children:[
-                    Text("Voos encontrados"),
+                    SizedBox(height:20),
+                    Text(
+                      "Voos encontrados",
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20
+                      ),
+                    ),
+                    SizedBox(height:20),
                     Column(
                       children:
                       flights.map((flight) {

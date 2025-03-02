@@ -12,7 +12,7 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
     return AppBar(
       actions: [
         Container(
-          color: Color.fromRGBO(255, 255, 255,1),
+          color: Colors.blue,
           width: MediaQuery.sizeOf(context).width * 1,
           child:
           Row(
@@ -24,24 +24,32 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
                         SizedBox(width: MediaQuery.sizeOf(context).width * 0.075),
                         Icon(
                           Icons.account_circle,
-                          size:30,
+                          size: 40,
+                          color: Colors.white,
                         ),
                         Text(
                           " Account",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20
+                          ),
                         ),
                       ]
                   ),
-                  color: Color.fromRGBO(255, 255, 255, 1),
+                  color: Colors.blue,
                 ),
                 Container(
-                    color: Color.fromRGBO(255, 255, 255, 1),
+                    color: Colors.blue,
                     child:
                       Row(
                         children:[
                           Text(
                             "",
                           ),
-                          SizedBox(width: MediaQuery.sizeOf(context).width * 0.075),
+                          SizedBox(
+                              width: MediaQuery.sizeOf(context).width * 0.075,
+                          ),
                         ]
                       )
                 ),
@@ -49,7 +57,7 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
           ),
         ),
       ],
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue,
     );
   }
   @override

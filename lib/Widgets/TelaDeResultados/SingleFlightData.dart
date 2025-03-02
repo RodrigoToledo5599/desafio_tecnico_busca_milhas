@@ -17,8 +17,6 @@ class SingleFlightData extends StatefulWidget{
 
 
 class SingleFlightDataState extends State<SingleFlightData>{
-
-
   @override
   Widget build(BuildContext context){
     return
@@ -37,11 +35,10 @@ class SingleFlightDataState extends State<SingleFlightData>{
         child: Container(
             decoration: BoxDecoration(
               color: Colors.blue,
-              borderRadius: BorderRadius.circular(8), // Rounded corners
+              borderRadius: BorderRadius.circular(8),
             ),
             width: MediaQuery.sizeOf(context).width * 0.8,
             padding: const EdgeInsets.all(12.0),
-            height: 100,
             child: Column(
                 children:[
                   Row(
@@ -94,7 +91,7 @@ class SingleFlightDataState extends State<SingleFlightData>{
                           ),
                         ),
                       ]
-                  )
+                  ),
                 ]
             )
         ),
