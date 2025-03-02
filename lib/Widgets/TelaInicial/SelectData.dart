@@ -35,7 +35,7 @@ class SelectDataState extends State<SelectData>{
               children:[
                 DateTimeField(
                   value: selectedDate,
-                  dateFormat: DateFormat.yMd(),
+                  dateFormat: DateFormat("dd/MM/yyyy"),
                   mode: DateTimeFieldPickerMode.date,
                   initialPickerDateTime: this.today,
                   onChanged: (DateTime? value) {
@@ -52,25 +52,25 @@ class SelectDataState extends State<SelectData>{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children:[
                       Container(
-                          width: 90,
+                          width: 76,
                           height: 40,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            color: Colors.blue,
+                            color: Colors.white,
                             border: Border.all(
-                              width: 0,
-                              color: Colors.transparent,
+                              width: 3,
+                              color: Colors.blue,
                               style: BorderStyle.solid,
                             ),
                           ),
                           child:Align(
                             alignment: Alignment.center,
                             child: Text(
-                                "${time.hour} : ${time.minute}",
+                                "${time.hour}:${time.minute}",
                               style: TextStyle(
                                 fontSize: 25,
-                                fontWeight: FontWeight.w800,
-                                color: Colors.white
+                                fontWeight: FontWeight.w900,
+                                color: Colors.blue
                               ),
                             ),
                           )
