@@ -140,6 +140,54 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           ]
                       ),
                       SpaceBetweenRows(),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children:[
+                            RowSidePadding(),
+                            Text(
+                              "Embarque: ",
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w600,
+                                fontSize: this.fontsize,
+                              ),
+                            ),
+                            Text(
+                              "${widget.Flight!.Embarque}",
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w600,
+                                fontSize: this.fontsize,
+                              ),
+                            ),
+                            RowSidePadding(),
+                          ]
+                      ),
+                      SpaceBetweenRows(),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children:[
+                            RowSidePadding(),
+                            Text(
+                              "Desembarque: ",
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w600,
+                                fontSize: this.fontsize,
+                              ),
+                            ),
+                            Text(
+                              "${widget.Flight!.Desembarque}",
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w600,
+                                fontSize: this.fontsize,
+                              ),
+                            ),
+                            RowSidePadding(),
+                          ]
+                      ),
+                      SpaceBetweenRows(),
                       SpaceBetweenRows(),
                       SpaceBetweenRows(),
                       Row(
