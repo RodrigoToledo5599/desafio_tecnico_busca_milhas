@@ -79,7 +79,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${item.Adulto}",
+                                  "${item.Adulto!.toStringAsFixed(2)}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -100,7 +100,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${item.Crianca}",
+                                  "${item.Crianca!.toStringAsFixed(2)}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -121,7 +121,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${item.Bebe}",
+                                  "${item.Bebe!.toStringAsFixed(2)}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -142,7 +142,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${item.TaxaEmbarque}",
+                                  "${item.TaxaEmbarque!.toStringAsFixed(2)}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -163,7 +163,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${this.precoTotal(item.Adulto, item.Crianca, item.Bebe, item.TaxaEmbarque)}",
+                                  "${this.precoTotal(item.Adulto, item.Crianca, item.Bebe, item.TaxaEmbarque)!.toStringAsFixed(2)}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
