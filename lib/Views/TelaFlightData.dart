@@ -65,7 +65,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             Text(
-                              "Número do Voo: ${widget.Flight!.NumeroVoo}",
+                              "Número do Voo:   ${widget.Flight!.NumeroVoo}",
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
@@ -97,7 +97,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             Text(
-                              "Companhia: ",
+                              "Companhia:   ",
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
@@ -121,7 +121,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             Text(
-                              "Número de Conexões: ",
+                              "Número de Conexões:  ",
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
@@ -145,7 +145,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             Text(
-                              "Embarque: ",
+                              "Embarque:  ",
                               style: TextStyle(
                                 color: Colors.blue,
                                 fontWeight: FontWeight.w600,
@@ -169,7 +169,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             Text(
-                              "Desembarque: ",
+                              "Desembarque:   ",
                               style: TextStyle(
                                 color: Colors.blue,
                                 fontWeight: FontWeight.w600,
