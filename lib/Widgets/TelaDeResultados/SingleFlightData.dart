@@ -31,6 +31,8 @@ class SingleFlightDataState extends State<SingleFlightData>{
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
+          shadowColor: Colors.transparent,
+          overlayColor:Colors.transparent,
         ),
         child: Container(
             decoration: BoxDecoration(
