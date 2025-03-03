@@ -8,17 +8,17 @@ import 'package:desafio_tecnico_busca_milhas/Models/AirPortModel.dart';
 
 class PesquisaAeroporto extends StatefulWidget{
   final TextEditingController? controller;
-
+  final LabelText;
   PesquisaAeroporto({
     Key? key,
-    required this.controller
+    required this.controller,
+    required this.LabelText,
   }) : super(key: key);
   PesquisaAeroportoState createState() => PesquisaAeroportoState();
 }
 
 class PesquisaAeroportoState extends State<PesquisaAeroporto>{
   final _formKey = GlobalKey<FormState>();
-  String? defaultText = "opjqapojiwpo";
   AirPortViewModel airPortVM = new AirPortViewModel();
   List<AirPortModel> airPorts = [];
      
@@ -52,6 +52,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                           controller: widget.controller,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
+                            labelText: widget.LabelText,
                             fillColor: Color.fromRGBO(245, 247, 249, 1),
                             filled: true,
                             enabledBorder: OutlineInputBorder(

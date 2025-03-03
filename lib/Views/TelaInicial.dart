@@ -109,33 +109,17 @@ class TelaInicialState extends State<TelaInicial> {
                   Row(
                     children:[
                       SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
-                      Text(
-                          "Origem",
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16
-                          ),
-                      ),
                     ]
                   ),
                   SizedBox(height: 20),
-                  PesquisaAeroporto(controller: AeroportoControllerOrigem),
+                  PesquisaAeroporto(controller: AeroportoControllerOrigem, LabelText: "Origem"),
                   Row(
                       children:[
                         SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
-                        Text(
-                            "Destino",
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16
-                            ),
-                        ),
                       ]
                   ),
                   SizedBox(height: 20),
-                  PesquisaAeroporto(controller: AeroportoControllerDestino),
+                  PesquisaAeroporto(controller: AeroportoControllerDestino, LabelText: "Destino"),
                   Row(
                       children:[
                         SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
