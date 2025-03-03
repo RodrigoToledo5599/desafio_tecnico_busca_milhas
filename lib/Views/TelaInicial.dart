@@ -131,7 +131,6 @@ class TelaInicialState extends State<TelaInicial> {
             child:Column(
                 children:[
                   SizedBox(height:20),
-                  Text("${widget.warningMsg}"),
                   SizedBox(height:20),
                   Row(
                     children:[
@@ -209,6 +208,15 @@ class TelaInicialState extends State<TelaInicial> {
                         ),
                         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12), // Padding
                       ),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    "${widget.warningMsg}",
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),
                   ),
                   SizedBox(height: 50),
                 ]

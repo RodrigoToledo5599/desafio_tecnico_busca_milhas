@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
 
