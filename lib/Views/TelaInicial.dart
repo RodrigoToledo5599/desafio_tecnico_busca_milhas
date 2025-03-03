@@ -39,15 +39,9 @@ class TelaInicialState extends State<TelaInicial> {
     int NBabies = int.parse(this.NPassageirosBebesController.text);
     int NAdults = int.parse(this.NPassageirosAdultosController.text);
     if(NAdults < NBabies){
-      setState((){
-        widget.warningMsg = "Não é possível ter mais bebes do que adultos";
-      });
       this.NPassageirosBebesController.text = (NAdults - 1).toString();
       return false;
     }
-    setState((){
-      widget.warningMsg = "";
-    });
     return true;
   }
 
@@ -80,29 +74,23 @@ class TelaInicialState extends State<TelaInicial> {
         NPassageirosBebes: this.NPassageirosBebesController.text
     );
     if(Services.checkIfAllRequiredFieldsAreFilled()){
-      if(this.assuringThereAreMoreAdultsThanBabies()){
-        var AerialCompaniesListFormat = Services.AerialCompaniesListFormat();
-        Map<String,dynamic>? travelCode = await tovm.createTravelOptionsCode(
+      this.assuringThereAreMoreAdultsThanBabies();
+      var AerialCompaniesListFormat = Services.AerialCompaniesListFormat();
+      Map<String,dynamic>? travelCode = await tovm.createTravelOptionsCode(
             AerialCompaniesListFormat,
             DataControllerIda.text,
             DataControllerVolta.text,
             AeroportoControllerOrigem.text.toUpperCase(),
             AeroportoControllerDestino.text.toUpperCase(),
             TipoDeViagemController.text
-        );
-        Services.savingSessionData(travelCode!["Busca"]);
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => TelaDeResultados()
-            )
-        );
-      }
-      else{
-        setState(() {
-          widget.warningMsg = "Não é possivel ter mais bebes do que adultos";
-        });
-      }
+      );
+      Services.savingSessionData(travelCode!["Busca"]);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => TelaDeResultados()
+        )
+      );
     }
     else{
       setState(() {
