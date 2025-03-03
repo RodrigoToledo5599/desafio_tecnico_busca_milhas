@@ -7,7 +7,7 @@ import 'package:desafio_tecnico_busca_milhas/Models/AirPortModel.dart';
 
 
 class PesquisaAeroporto extends StatefulWidget{
-  final TextEditingController controller;
+  final TextEditingController? controller;
 
   PesquisaAeroporto({
     Key? key,
@@ -18,6 +18,7 @@ class PesquisaAeroporto extends StatefulWidget{
 
 class PesquisaAeroportoState extends State<PesquisaAeroporto>{
   final _formKey = GlobalKey<FormState>();
+  String? defaultText = "opjqapojiwpo";
   AirPortViewModel airPortVM = new AirPortViewModel();
   List<AirPortModel> airPorts = [];
      
@@ -53,7 +54,6 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                           decoration: InputDecoration(
                             fillColor: Color.fromRGBO(245, 247, 249, 1),
                             filled: true,
-                            hintText: '',
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color.fromRGBO(245, 247, 249, 1),
@@ -71,7 +71,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                       ),
                       ElevatedButton(
                           onPressed:(){
-                            search(widget.controller.text.toUpperCase());
+                            search(widget.controller!.text.toUpperCase());
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromRGBO(255, 255, 255, 1),
@@ -96,7 +96,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                       ElevatedButton(
                         onPressed:(){
                           setState(() {
-                            widget.controller.text = "";
+                            widget.controller!.text = "";
                             this.airPorts = [];
                           });
                         },
@@ -140,21 +140,35 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                             }
                             this.airPorts = snapshot.data!;
                             return Container(
-                              // color: Colors.purple,
                               height: MediaQuery.sizeOf(context).height * 0.3,
                               width: MediaQuery.sizeOf(context).width * 0.75,
                               child:SingleChildScrollView(
                                 child:Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: this.airPorts.map((airport){
-                                    return Text(
-                                        "${airport.Nome} - ${airport.Iata}\n",
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 2,
-                                        softWrap: false,
-                                        style: TextStyle(
-                                            fontSize: 12
-                                      ),
+                                    return
+                                    ElevatedButton(onPressed: () =>{
+                                      setState(() {
+                                        this.airPorts = [];
+                                        widget.controller!.text = airport.Iata.toString();
+                                      }),
+                                    },
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.white,
+                                          shadowColor: Colors.transparent,
+                                          overlayColor:Colors.transparent,
+                                        ),
+                                        child:Text(
+                                          "${airport.Nome} - ${airport.Iata}\n",
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                          softWrap: false,
+                                          style: TextStyle(
+                                            color: Colors.blue,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                          ),
+                                        )
                                     );
                                   }).toList(),
                                 ),
