@@ -31,7 +31,7 @@ class TipoValor extends StatelessWidget{
     return Container(
       child:Column(
         children:[
-          for(var item in this.Valor!)
+          for(dynamic item in this.Valor!)
             Column(
               children: [
                 Container(
@@ -46,9 +46,18 @@ class TipoValor extends StatelessWidget{
                     child: Column(
                         children:[
                           Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
-                                  "Tipo: ${item["TipoValor"]}",
+                                  "Tipo:",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  "${item["TipoValor"]}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -58,9 +67,18 @@ class TipoValor extends StatelessWidget{
                               ]
                           ),
                           Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
-                                  "Preço adulto: ${item["Adulto"]}",
+                                  "Preço adulto: ",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  "${item["Adulto"]}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -70,9 +88,18 @@ class TipoValor extends StatelessWidget{
                               ]
                           ),
                           Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
-                                  "Preço criança: ${item["Crianca"]}",
+                                  "Preço criança:",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  "${item["Crianca"]}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -82,9 +109,18 @@ class TipoValor extends StatelessWidget{
                               ]
                           ),
                           Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
-                                  "Preço bebe: ${item["Bebe"]}",
+                                  "Preço bebe:",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  "${item["Bebe"]}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -94,9 +130,39 @@ class TipoValor extends StatelessWidget{
                               ]
                           ),
                           Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
-                                  "Preço Total: ${this.precoTotal(item["Adulto"], item["Crianca"], item["Bebe"], item["TaxaEmbarque"])}",
+                                  "Preço Taxa:",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  "${item["TaxaEmbarque"]}",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ]
+                          ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children:[
+                                Text(
+                                  "Preço Total:",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  "${this.precoTotal(item["Adulto"], item["Crianca"], item["Bebe"], item["TaxaEmbarque"])}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,

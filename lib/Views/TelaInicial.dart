@@ -80,6 +80,18 @@ class TelaInicialState extends State<TelaInicial> {
     sd.setNBebes(nBebes);
   }
 
+  void ensuringTheNullsWillBe0s(){
+    if(NPassageirosAdultosController.text == ""){
+      NPassageirosAdultosController.text = "0";
+    }
+    if(NPassageirosCriancasController.text == ""){
+      NPassageirosCriancasController.text = "0";
+    }
+    if(NPassageirosBebesController.text == ""){
+      NPassageirosBebesController.text = "0";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -183,7 +195,8 @@ class TelaInicialState extends State<TelaInicial> {
                       ),
                       onPressed:() async
                       {
-                        this.printAllResults();
+                        this.ensuringTheNullsWillBe0s();
+                        // this.printAllResults();
                         if(this.assuringThereAreMoreAdultsThanBabies() == true){
                           Map<String,dynamic>? travelCode = await tovm.createTravelOptionsCode(
                               AerialCompaniesListFormat(CompanhiaAereaController.text),

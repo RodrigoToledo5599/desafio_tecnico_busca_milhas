@@ -23,12 +23,10 @@ class SelectNPassageiros extends StatefulWidget{
 
 class SelectNPassageirosState extends State<SelectNPassageiros>{
 
-  List<int> values = [0,1,2,3,4,5,6,7,8,9,10];
-
   @override
   Widget build(BuildContext context){
     return Container(
-      width: MediaQuery.sizeOf(context).width * 0.6,
+      width: MediaQuery.sizeOf(context).width * 0.8,
         child: SingleChildScrollView(
           child: Column(
               children:[
@@ -36,7 +34,7 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                          "N° de Adultos: ",
+                          "Número de Adultos: ",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
@@ -65,7 +63,7 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                          "N° de Crianças: ",
+                          "Número de Crianças: ",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
@@ -94,7 +92,7 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                          "N° de bebes: ",
+                          "Número de Bebes: ",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
