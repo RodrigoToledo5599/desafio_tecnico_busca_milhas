@@ -113,12 +113,6 @@ class TelaInicialState extends State<TelaInicial> {
                   ),
                   SizedBox(height: 20),
                   PesquisaAeroporto(controller: AeroportoControllerOrigem, LabelText: "Origem"),
-                  Row(
-                      children:[
-                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
-                      ]
-                  ),
-                  SizedBox(height: 20),
                   PesquisaAeroporto(controller: AeroportoControllerDestino, LabelText: "Destino"),
                   Row(
                       children:[
