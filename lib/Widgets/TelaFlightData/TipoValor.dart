@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
 
 
 
 class TipoValor extends StatelessWidget{
 
-  List<dynamic>? Valor;
+  List<FlightPriceDTO>? Valor;
   int? NAdultos;
   int? NCriancas;
   int? NBebes;
@@ -20,9 +21,9 @@ class TipoValor extends StatelessWidget{
   }) : super(key : key);
 
 
-  dynamic? precoTotal(dynamic PrecoAdulto, dynamic PrecoCrianca, dynamic PrecoBebe, double taxa)
+  dynamic? precoTotal(dynamic PrecoAdulto, dynamic PrecoCrianca, dynamic PrecoBebe, double? taxa)
   {
-    double? total = (NAdultos! * PrecoAdulto) + (NCriancas! * PrecoCrianca) + (NBebes! * PrecoBebe) + taxa;
+    double? total = (NAdultos! * PrecoAdulto) + (NCriancas! * PrecoCrianca) + (NBebes! * PrecoBebe) + taxa!;
     return total;
   }
 
@@ -31,7 +32,7 @@ class TipoValor extends StatelessWidget{
     return Container(
       child:Column(
         children:[
-          for(dynamic item in this.Valor!)
+          for(FlightPriceDTO item in this.Valor!)
             Column(
               children: [
                 Container(
@@ -57,7 +58,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${item["TipoValor"]}",
+                                  "${item.TipoValor}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -78,7 +79,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${item["Adulto"]}",
+                                  "${item.Adulto}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -99,7 +100,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${item["Crianca"]}",
+                                  "${item.Crianca}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -120,7 +121,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${item["Bebe"]}",
+                                  "${item.Bebe}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -141,7 +142,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${item["TaxaEmbarque"]}",
+                                  "${item.TaxaEmbarque}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
@@ -162,7 +163,7 @@ class TipoValor extends StatelessWidget{
                                   ),
                                 ),
                                 Text(
-                                  "${this.precoTotal(item["Adulto"], item["Crianca"], item["Bebe"], item["TaxaEmbarque"])}",
+                                  "${this.precoTotal(item.Adulto, item.Crianca, item.Bebe, item.TaxaEmbarque)}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,

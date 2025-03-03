@@ -1,3 +1,4 @@
+import 'package:desafio_tecnico_busca_milhas/DTO/FlightPointsDTO.dart';
 import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/TipoValor.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/TipoMilhas.dart';
@@ -10,8 +11,8 @@ import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
 class FlightPrice extends StatefulWidget{
 
-  List<dynamic>? Valor;
-  List<dynamic>? Milhas;
+  List<FlightPriceDTO>? Valor;
+  List<FlightPointsDTO>? Milhas;
   SessionData sessionData = SessionData();
 
   FlightPrice({

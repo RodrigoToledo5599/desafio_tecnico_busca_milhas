@@ -19,4 +19,16 @@ class FlightPriceDTO{
     this.TipoValor
   });
 
+
+  factory FlightPriceDTO.fromJson(dynamic json){
+    return FlightPriceDTO(
+      Adulto: json["Adulto"],
+      Crianca: json["Crianca"],
+      Bebe: json["Bebe"],
+      Executivo: json["Executivo"],
+      TaxaEmbarque: json["TaxaEmbarque"],
+      TipoValor: json["TipoValor"],
+    );
+  }
+
 }

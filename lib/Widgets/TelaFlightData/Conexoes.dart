@@ -1,3 +1,4 @@
+import 'package:desafio_tecnico_busca_milhas/DTO/FlightConnectionDTO.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -42,7 +43,7 @@ class ConexaoRow extends StatelessWidget{
 
 class Conexoes extends StatefulWidget {
 
-  List<dynamic> conexoes;
+  List<FlightConnectionDTO> conexoes;
 
   Conexoes({
     Key? key,
@@ -89,16 +90,16 @@ class ConexoesState extends State<Conexoes>{
                     child:Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children:[
-                          ConexaoRow(text: item["Origem"],fieldName: "Origem"),
-                          ConexaoRow(text: item["Destino"],fieldName: "Destino"),
-                          ConexaoRow(text: item["NumeroVoo"],fieldName: "NumeroVoo"),
-                          ConexaoRow(text: item["Duracao"],fieldName: "Duracao"),
-                          ConexaoRow(text: item["DataDesembarque"],fieldName: "DataDesembarque"),
-                          ConexaoRow(text: item["Desembarque"],fieldName: "Desembarque"),
-                          ConexaoRow(text: item["DesembarqueCompleto"],fieldName: "DesembarqueCompleto"),
-                          ConexaoRow(text: item["DataEmbarque"],fieldName: "DataEmbarque"),
-                          ConexaoRow(text: item["Embarque"],fieldName: "Embarque"),
-                          ConexaoRow(text: item["EmbarqueCompleto"],fieldName: "EmbarqueCompleto"),
+                          ConexaoRow(text: item.Origem,fieldName: "Origem"),
+                          ConexaoRow(text: item.Destino,fieldName: "Destino"),
+                          ConexaoRow(text: item.NumeroVoo,fieldName: "NumeroVoo"),
+                          ConexaoRow(text: item.Duracao,fieldName: "Duracao"),
+                          ConexaoRow(text: item.DataDesembarque,fieldName: "DataDesembarque"),
+                          ConexaoRow(text: item.Desembarque,fieldName: "Desembarque"),
+                          ConexaoRow(text: item.DesembarqueCompleto,fieldName: "DesembarqueCompleto"),
+                          ConexaoRow(text: item.DataEmbarque,fieldName: "DataEmbarque"),
+                          ConexaoRow(text: item.Embarque,fieldName: "Embarque"),
+                          ConexaoRow(text: item.EmbarqueCompleto,fieldName: "EmbarqueCompleto"),
                         ]
                     )
                 ),

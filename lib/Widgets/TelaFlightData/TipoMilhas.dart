@@ -1,3 +1,4 @@
+import 'package:desafio_tecnico_busca_milhas/DTO/FlightPointsDTO.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -5,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 
 class TipoMilhas extends StatelessWidget{
 
-  List<dynamic>? Milhas;
+  List<FlightPointsDTO>? Milhas;
   int? NAdultos;
   int? NCriancas;
   int? NBebes;
@@ -18,9 +19,9 @@ class TipoMilhas extends StatelessWidget{
     required this.NBebes,
   }) : super(key : key);
 
-  dynamic? precoTotal(dynamic PrecoAdulto, dynamic PrecoCrianca, dynamic PrecoBebe, double taxa)
+  dynamic? precoTotal(dynamic PrecoAdulto, dynamic PrecoCrianca, dynamic PrecoBebe, double? taxa)
   {
-    double? total = (NAdultos! * PrecoAdulto) + (NCriancas! * PrecoCrianca) + (NBebes! * PrecoBebe) + taxa;
+    double? total = (NAdultos! * PrecoAdulto) + (NCriancas! * PrecoCrianca) + (NBebes! * PrecoBebe) + taxa!;
     return total;
   }
 
@@ -55,7 +56,7 @@ class TipoMilhas extends StatelessWidget{
                                       ),
                                     ),
                                     Text(
-                                      "${item["TipoValor"]}",
+                                      "${item.TipoMilhas}",
                                       style: TextStyle(
                                         color: Colors.blue,
                                         fontWeight: FontWeight.w600,
@@ -76,7 +77,7 @@ class TipoMilhas extends StatelessWidget{
                                       ),
                                     ),
                                     Text(
-                                      "${item["Adulto"]}",
+                                      "${item.Adulto}",
                                       style: TextStyle(
                                         color: Colors.blue,
                                         fontWeight: FontWeight.w600,
@@ -97,7 +98,7 @@ class TipoMilhas extends StatelessWidget{
                                       ),
                                     ),
                                     Text(
-                                      "${item["Crianca"]}",
+                                      "${item.Crianca}",
                                       style: TextStyle(
                                         color: Colors.blue,
                                         fontWeight: FontWeight.w600,
@@ -118,7 +119,7 @@ class TipoMilhas extends StatelessWidget{
                                       ),
                                     ),
                                     Text(
-                                      "${item["Bebe"]}",
+                                      "${item.Bebe}",
                                       style: TextStyle(
                                         color: Colors.blue,
                                         fontWeight: FontWeight.w600,
@@ -139,7 +140,7 @@ class TipoMilhas extends StatelessWidget{
                                       ),
                                     ),
                                     Text(
-                                      "${item["TaxaEmbarque"]}",
+                                      "${item.TaxaEmbarque}",
                                       style: TextStyle(
                                         color: Colors.blue,
                                         fontWeight: FontWeight.w600,
@@ -160,7 +161,7 @@ class TipoMilhas extends StatelessWidget{
                                       ),
                                     ),
                                     Text(
-                                      "${this.precoTotal(item["Adulto"], item["Crianca"], item["Bebe"], item["TaxaEmbarque"])}",
+                                      "${this.precoTotal(item.Adulto, item.Crianca, item.Bebe, item.TaxaEmbarque)}",
                                       style: TextStyle(
                                         color: Colors.blue,
                                         fontWeight: FontWeight.w600,

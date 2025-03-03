@@ -206,8 +206,6 @@ class TelaInicialState extends State<TelaInicial> {
                               AeroportoControllerDestino.text.toUpperCase(),
                               TipoDeViagemController.text
                           );
-                          print("VTNC: ");
-                          print(travelCode);
                           savingSessionData(
                             travelCode!["Busca"],
                             int.parse(NPassageirosAdultosController.text),

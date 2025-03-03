@@ -1,20 +1,24 @@
 
 
 
-class FlightConnectionModel{
-  
+class FlightConnectionDTO{
+
   String NumeroVoo;
   String EmbarqueCompleto;
   String DesembarqueCompleto;
+  String DataDesembarque;
   String Embarque;
+  String DataEmbarque;
   String Desembarque;
   String Origem;
   String Destino;
   String Duracao;
 
-  FlightConnectionModel({
+  FlightConnectionDTO({
     required this.NumeroVoo,
     required this.EmbarqueCompleto,
+    required this.DataDesembarque,
+    required this.DataEmbarque,
     required this.DesembarqueCompleto,
     required this.Embarque,
     required this.Desembarque,
@@ -23,15 +27,17 @@ class FlightConnectionModel{
     required this.Duracao
   });
 
-  factory FlightConnectionModel.fromJson(Map<String, dynamic> json){
-    return FlightConnectionModel(
-      NumeroVoo: json['NumeroVoo'], 
+  factory FlightConnectionDTO.fromJson(dynamic json){
+    return FlightConnectionDTO(
+      NumeroVoo: json['NumeroVoo'],
       EmbarqueCompleto: json['EmbarqueCompleto'],
+      DataEmbarque: json["DataEmbarque"],
+      DataDesembarque: json['DataDesembarque'],
       DesembarqueCompleto: json['DesembarqueCompleto'],
       Embarque: json['Embarque'],
       Desembarque: json['Desembarque'],
-      Origem: json['Origem'], 
-      Destino: json['Destino'], 
+      Origem: json['Origem'],
+      Destino: json['Destino'],
       Duracao: json['Duracao'],
     );
   }
@@ -40,6 +46,6 @@ class FlightConnectionModel{
   String toString(){
     return "FlightConnectionModel(NumeroVoo: ${NumeroVoo}), Origem: ${Origem} Destino: ${Destino}";
   }
-  
+
 
 }

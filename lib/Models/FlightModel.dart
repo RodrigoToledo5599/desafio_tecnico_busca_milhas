@@ -1,6 +1,6 @@
-// import 'package:desafio_tecnico_busca_milhas/DTO/FlightPointsDTO.dart';
-// import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
-// import 'package:desafio_tecnico_busca_milhas/Models/FlightConnectionModel.dart';
+import 'package:desafio_tecnico_busca_milhas/DTO/FlightPointsDTO.dart';
+import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
+import 'package:desafio_tecnico_busca_milhas/DTO/FlightConnectionDTO.dart';
 
 
 class FlightModel{
@@ -13,12 +13,9 @@ class FlightModel{
   String? Duracao;
   String? NumeroVoo;
   int? NumeroConexoes;
-  // List<FlightPriceDTO>? Valor;
-  // FlightPointsDTO? Milhas;
-  // FlightConnectionModel? Conexoes;
-  List<dynamic>? Valor;
-  List<dynamic>? Milhas;
-  List<dynamic>? Conexoes;
+  List<FlightPriceDTO>? Valor;
+  List<FlightPointsDTO>? Milhas;
+  List<FlightConnectionDTO>? Conexoes;
 
   FlightModel({
     this.Companhia,
@@ -36,6 +33,21 @@ class FlightModel{
   });
 
   factory FlightModel.fromJson(Map<String, dynamic> json){
+
+    List<FlightPriceDTO> FlightPrices = [];
+    List<FlightPointsDTO> FlightPoints = [];
+    List<FlightConnectionDTO> FlightConnections = [];
+
+    for(var item in json["Valor"]){
+      FlightPrices.add(FlightPriceDTO.fromJson(item));
+    }
+    for(var item in json["Milhas"]){
+      FlightPoints.add(FlightPointsDTO.fromJson(item));
+    }
+    for(var item in json["Conexoes"]){
+      FlightConnections.add(FlightConnectionDTO.fromJson(item));
+    }
+
     return FlightModel(
       Companhia: json["Companhia"],
       Sentido: json["Sentido"],
@@ -46,9 +58,9 @@ class FlightModel{
       Duracao: json["Duracao"],
       NumeroVoo: json["NumeroVoo"],
       NumeroConexoes: json["NumeroConexoes"],
-      Valor: json["Valor"],
-      Milhas: json["Milhas"],
-      Conexoes: json["Conexoes"]
+      Valor: FlightPrices,
+      Milhas: FlightPoints,
+      Conexoes: FlightConnections
     );
   }
 
