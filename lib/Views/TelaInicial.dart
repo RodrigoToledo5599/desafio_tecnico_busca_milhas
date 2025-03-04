@@ -1,6 +1,7 @@
 import 'package:desafio_tecnico_busca_milhas/Services/TelaInicialService.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectDataETipoDeViagem.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
 import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/PesquisaAeroporto.dart';
@@ -36,7 +37,7 @@ class TelaInicialState extends State<TelaInicial> {
   TravelOptionsViewModel tovm = TravelOptionsViewModel();
 
   // primeiro metodo a ser invocado após o botão de enviar ser pressionado.
-  void ensuringTheNullsWillBe0s(){
+  void ensuringTheNullsWontBeNulls(){
     if(NPassageirosAdultosController.text == ""){
       NPassageirosAdultosController.text = "0";
     }
@@ -46,10 +47,16 @@ class TelaInicialState extends State<TelaInicial> {
     if(NPassageirosBebesController.text == ""){
       NPassageirosBebesController.text = "0";
     }
+    if(TipoDeViagemController.text == "Ida"){
+      print("chegou aq");
+      DataControllerVolta.text = "01/01/9999";
+      HorarioControllerVolta.text = "00:00";
+    }
+
   }
 
   Future<bool> sendingScript() async {
-    this.ensuringTheNullsWillBe0s();
+    this.ensuringTheNullsWontBeNulls();
     TelaInicialService Services = TelaInicialService(
         AeroportoOrigem: this.AeroportoControllerOrigem.text,
         AeroportoDestino: this.AeroportoControllerDestino.text,
@@ -71,7 +78,7 @@ class TelaInicialState extends State<TelaInicial> {
     }
     if(Services.assuringThereAreMoreAdultsThanBabies() == false){
       setState(() {
-        widget.warningMsg = "Não é permitido ter mais crianças do que adultos";
+        widget.warningMsg = "Não é permitido ter mais bebês do que adultos";
       });
       return false;
     }
@@ -85,6 +92,7 @@ class TelaInicialState extends State<TelaInicial> {
         TipoDeViagemController.text
     );
     Services.savingSessionData(travelCode!["Busca"]);
+    Services.printAllResults();
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -123,46 +131,16 @@ class TelaInicialState extends State<TelaInicial> {
                   SizedBox(height: 20),
                   PesquisaAeroporto(controller: AeroportoControllerOrigem, LabelText: "Origem"),
                   PesquisaAeroporto(controller: AeroportoControllerDestino, LabelText: "Destino"),
-                  Row(
-                      children:[
-                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
-                        Text(
-                            "Ida",
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.blue
-                            ),
-                        ),
-                      ]
-                  ),
-                  SelectData(
-                      Datacontroller: DataControllerIda,
-                      Horascontroller: HorarioControllerIda,
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                      children:[
-                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
-                        Text(
-                          "Volta (Opcional)",
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.blue
-                          ),
-                        ),
-                      ]
-                  ),
-                  SelectData(
-                      Datacontroller: DataControllerVolta,
-                      Horascontroller: HorarioControllerVolta,
+                  SizedBox(height:30),
+                  SelectDataETipoDeViagem(
+                      TipoDeViagemController: TipoDeViagemController,
+                      DataControllerIda: DataControllerIda,
+                      HorarioControllerIda: HorarioControllerIda,
+                      DataControllerVolta: DataControllerVolta,
+                      HorarioControllerVolta: HorarioControllerVolta
                   ),
                   
                   SelectCompanhiaAerea(controller: CompanhiaAereaController),
-                  SizedBox(height:30),
-                  SelectTipoDeViagem(controller: TipoDeViagemController),
-                  SizedBox(height:50),
                   SelectNPassageiros(
                     adultosController: NPassageirosAdultosController ,
                     bebesController: NPassageirosBebesController,
@@ -193,13 +171,24 @@ class TelaInicialState extends State<TelaInicial> {
                       ),
                   ),
                   SizedBox(height: 20),
-                  Text(
-                    "${widget.warningMsg}",
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                    ),
+                  Row(
+                    children: [
+                      SizedBox(width:MediaQuery.sizeOf(context).width * 0.1),
+                      Container(
+                        width:MediaQuery.sizeOf(context).width * 0.8,
+                        child: Text(
+                          "${widget.warningMsg}",
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width:MediaQuery.sizeOf(context).width * 0.1),
+                    ],
                   ),
                   SizedBox(height: 50),
                 ]

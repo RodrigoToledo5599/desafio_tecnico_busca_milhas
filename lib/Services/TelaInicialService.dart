@@ -35,14 +35,14 @@ class TelaInicialService{
   // METHODS ============================================================================
 
   void printAllResults(){
-    print("${AeroportoOrigem}");
-    print("${AeroportoDestino}");
-    print("${DataIda}");
-    print("${HorarioIda}");
-    print("${DataVolta}");
-    print("${HorarioVolta}");
-    print("${CompanhiaAerea}");
-    print("${TipoDeViagem}");
+    print("Origem: ${AeroportoOrigem}");
+    print("Destino: ${AeroportoDestino}");
+    print("Ida: ${DataIda}");
+    print("Horário Ida: ${HorarioIda}");
+    print("Volta: ${DataVolta}");
+    print("Horário Volta: ${HorarioVolta}");
+    print("Copanhia(s) Aéreas: ${CompanhiaAerea}");
+    print("Tipo de Viagem: ${TipoDeViagem}");
     print("Nadultos: ${NPassageirosAdultos}");
     print("Ncriancas: ${NPassageirosCriancas}");
     print("Nbebes: ${NPassageirosBebes}");
@@ -68,36 +68,23 @@ class TelaInicialService{
   }
 
   bool checkIfAllRequiredFieldsAreFilled(){
-    bool aprovado = true;
+    print("Tipo De viagem: ${TipoDeViagem}");
     if(AeroportoOrigem == null || AeroportoOrigem == ""){
-      aprovado = false;
-      return aprovado;
+      return false;
     }
     else if(AeroportoDestino == null || AeroportoDestino == ""){
-      aprovado = false;
-      return aprovado;
+      return false;
     }
     else if(DataIda == null || DataIda == ""){
-      aprovado = false;
-      return aprovado;
+      return false;
     }
     else if(DataVolta == null || DataVolta == ""){
-      aprovado = false;
-      return aprovado;
-    }
-    else if(HorarioIda == null || HorarioIda == ""){
-      aprovado = false;
-      return aprovado;
-    }
-    else if(HorarioVolta== null || HorarioVolta == ""){
-      aprovado = false;
-      return aprovado;
+      return false;
     }
     else if(CompanhiaAerea == null || CompanhiaAerea == "[]"){
-      aprovado = false;
-      return aprovado;
+      return false;
     }
-    return aprovado;
+    return true;
   }
 
   bool assuringThereAreMoreAdultsThanBabies(){

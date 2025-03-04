@@ -77,54 +77,53 @@ class SelectDataState extends State<SelectData>{
                     });
                   },
                 ),
-                SizedBox(height:10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:[
-                      Container(
-                          width: 82,
-                          height: 42,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.white,
-                            border: Border.all(
-                              width: 2,
-                              color: Colors.blue,
-                              style: BorderStyle.solid,
-                            ),
-                          ),
-                          child:Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                                "${hoursShowing}:${minutesShowing}",
-                              style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.blue
-                              ),
-                            ),
-                          )
-                      ),
-                      IconButton(
-                          onPressed: () async {
-                            TimeOfDay? newTime = await showTimePicker(
-                                context: context,
-                                initialTime: time
-                            );
-                            setState(() {
-                              time = newTime!;
-                              widget.Horascontroller.text = "${newTime.hour}:${newTime.minute}";
-                            });
-                            this.convertToHoursFormat();
-                          },
-                          icon: Icon(
-                              Icons.alarm,
-                              color: Colors.blue,
-                              size: 40,
-                          )
-                      )
-                    ]
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children:[
+                //       Container(
+                //           width: 82,
+                //           height: 42,
+                //           decoration: BoxDecoration(
+                //             borderRadius: BorderRadius.circular(5),
+                //             color: Colors.white,
+                //             border: Border.all(
+                //               width: 2,
+                //               color: Colors.blue,
+                //               style: BorderStyle.solid,
+                //             ),
+                //           ),
+                //           child:Align(
+                //             alignment: Alignment.center,
+                //             child: Text(
+                //                 "${hoursShowing}:${minutesShowing}",
+                //               style: TextStyle(
+                //                 fontSize: 25,
+                //                 fontWeight: FontWeight.w900,
+                //                 color: Colors.blue
+                //               ),
+                //             ),
+                //           )
+                //       ),
+                //       IconButton(
+                //           onPressed: () async {
+                //             TimeOfDay? newTime = await showTimePicker(
+                //                 context: context,
+                //                 initialTime: time
+                //             );
+                //             setState(() {
+                //               time = newTime!;
+                //               widget.Horascontroller.text = "${newTime.hour}:${newTime.minute}";
+                //             });
+                //             this.convertToHoursFormat();
+                //           },
+                //           icon: Icon(
+                //               Icons.alarm,
+                //               color: Colors.blue,
+                //               size: 40,
+                //           )
+                //       )
+                //     ]
+                // ),
                 SizedBox(height:40),
               ]
           ),
