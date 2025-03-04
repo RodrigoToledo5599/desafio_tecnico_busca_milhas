@@ -35,16 +35,7 @@ class TelaInicialState extends State<TelaInicial> {
 
   TravelOptionsViewModel tovm = TravelOptionsViewModel();
 
-  bool assuringThereAreMoreAdultsThanBabies(){
-    int NBabies = int.parse(this.NPassageirosBebesController.text);
-    int NAdults = int.parse(this.NPassageirosAdultosController.text);
-    if(NAdults < NBabies){
-      this.NPassageirosBebesController.text = (NAdults - 1).toString();
-      return false;
-    }
-    return true;
-  }
-
+  // primeiro metodo a ser invocado após o botão de enviar ser pressionado.
   void ensuringTheNullsWillBe0s(){
     if(NPassageirosAdultosController.text == ""){
       NPassageirosAdultosController.text = "0";
@@ -57,9 +48,8 @@ class TelaInicialState extends State<TelaInicial> {
     }
   }
 
-  void sendingScript() async {
+  Future<bool> sendingScript() async {
     this.ensuringTheNullsWillBe0s();
-    this.assuringThereAreMoreAdultsThanBabies();
     TelaInicialService Services = TelaInicialService(
         AeroportoOrigem: this.AeroportoControllerOrigem.text,
         AeroportoDestino: this.AeroportoControllerDestino.text,
@@ -73,30 +63,35 @@ class TelaInicialState extends State<TelaInicial> {
         NPassageirosCriancas: this.NPassageirosCriancasController.text,
         NPassageirosBebes: this.NPassageirosBebesController.text
     );
-    if(Services.checkIfAllRequiredFieldsAreFilled()){
-      this.assuringThereAreMoreAdultsThanBabies();
-      var AerialCompaniesListFormat = Services.AerialCompaniesListFormat();
-      Map<String,dynamic>? travelCode = await tovm.createTravelOptionsCode(
-            AerialCompaniesListFormat,
-            DataControllerIda.text,
-            DataControllerVolta.text,
-            AeroportoControllerOrigem.text.toUpperCase(),
-            AeroportoControllerDestino.text.toUpperCase(),
-            TipoDeViagemController.text
-      );
-      Services.savingSessionData(travelCode!["Busca"]);
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => TelaDeResultados()
-        )
-      );
-    }
-    else{
+    if(Services.checkIfAllRequiredFieldsAreFilled() == false){
       setState(() {
         widget.warningMsg = "Preencha todos os campos para continuar";
       });
+      return false;
     }
+    if(Services.assuringThereAreMoreAdultsThanBabies() == false){
+      setState(() {
+        widget.warningMsg = "Não é permitido ter mais crianças do que adultos";
+      });
+      return false;
+    }
+    var AerialCompaniesListFormat = Services.AerialCompaniesListFormat();
+    Map<String,dynamic>? travelCode = await tovm.createTravelOptionsCode(
+        AerialCompaniesListFormat,
+        DataControllerIda.text,
+        DataControllerVolta.text,
+        AeroportoControllerOrigem.text.toUpperCase(),
+        AeroportoControllerDestino.text.toUpperCase(),
+        TipoDeViagemController.text
+    );
+    Services.savingSessionData(travelCode!["Busca"]);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => TelaDeResultados()
+        )
+    );
+    return true;
   }
 
 

@@ -97,13 +97,17 @@ class TelaInicialService{
       aprovado = false;
       return aprovado;
     }
-    else if(NPassageirosAdultos == null || NPassageirosAdultos == ""){
-      aprovado = false;
-      return aprovado;
-    }
     return aprovado;
   }
 
+  bool assuringThereAreMoreAdultsThanBabies(){
+    int NBabies = int.parse(NPassageirosBebes!);
+    int NAdults = int.parse(NPassageirosAdultos!);
+    if(NAdults < NBabies){
+      return false;
+    }
+    return true;
+  }
 
 
 
