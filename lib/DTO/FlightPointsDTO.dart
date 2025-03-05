@@ -12,6 +12,8 @@ class FlightPointsDTO{
   bool? Executivo;
   double? TaxaEmbarque;
   String? TipoMilhas;
+  int? BagagemDespachada;
+  int? BagagemMao;
 
 
   FlightPointsDTO({
@@ -20,7 +22,9 @@ class FlightPointsDTO{
     this.Bebe,
     this.Executivo,
     this.TaxaEmbarque,
-    this.TipoMilhas
+    this.TipoMilhas,
+    this.BagagemDespachada,
+    this.BagagemMao
   });
 
   factory FlightPointsDTO.fromJson(dynamic json){
@@ -31,6 +35,8 @@ class FlightPointsDTO{
       Executivo: json["Executivo"],
       TaxaEmbarque: json["TaxaEmbarque"],
       TipoMilhas: json["TipoMilhas"],
+      BagagemDespachada: json["LimiteBagagem"]["BagagemDespachada"]["23kg"],
+      BagagemMao: json["LimiteBagagem"]["BagagemMao"]["10kg"],
     );
   }
 

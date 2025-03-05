@@ -31,7 +31,9 @@ class FlightPriceState extends State<FlightPrice>{
   int? NCriancas;
   int? NBebes;
 
-  bool TipoMilhasOuValor = false;      // false = Valor | true = Milhas
+  bool TipoMilhasOuValor = false;
+  bool exibirDetalhes = false;
+  String buttonText = "Exibir Detalhes";
 
   void getSessionData() async{
     int? adulto = await widget.sessionData.getNAdultos();
@@ -55,59 +57,89 @@ class FlightPriceState extends State<FlightPrice>{
       width: MediaQuery.sizeOf(context).width * 0.8,
       child:Column(
         children:[
-          Row(
-            children: [
-              Switch(
-                value: TipoMilhasOuValor,
-                activeColor: Colors.blue,
-                onChanged: (bool value) {
-                  setState(() {
-                    TipoMilhasOuValor = !TipoMilhasOuValor;
-                  });
-                },
-              ),
-            ],
+          ElevatedButton(
+              onPressed: () =>{
+                setState(() {
+                  exibirDetalhes = !exibirDetalhes;
+                  if(exibirDetalhes == false){
+                    buttonText = "Exibir Detalhes";
+                  }
+                  else if(exibirDetalhes == true){
+                    buttonText = "Fechar Detalhes";
+                  }
+                })
+              },
+              child: Text(
+                  "${buttonText}",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                  ),
+              )
           ),
-          if(TipoMilhasOuValor)
-            Column(
-              children:[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Valor",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                ),
-                TipoValor(Valor: widget.Valor, NAdultos: NAdultos, NCriancas: NCriancas, NBebes: NBebes),
-              ]
-            )
+          SizedBox(height:20),
+          if(exibirDetalhes == false)
+            Column()
           else
             Column(
                 children:[
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
-                        "Milhas",
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
-                        ),
+                      Switch(
+                        value: TipoMilhasOuValor,
+                        activeColor: Colors.blue,
+                        onChanged: (bool value) {
+                          setState(() {
+                            TipoMilhasOuValor = !TipoMilhasOuValor;
+                          });
+                        },
                       ),
                     ],
                   ),
-                  TipoMilhas(Milhas: widget.Milhas, NAdultos: NAdultos, NCriancas: NCriancas, NBebes: NBebes)
+                  if(TipoMilhasOuValor)
+                    Column(
+                        children:[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Valor",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                          TipoValor(Valor: widget.Valor, NAdultos: NAdultos, NCriancas: NCriancas, NBebes: NBebes),
+                        ]
+                    )
+                  else
+                    Column(
+                        children:[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Milhas",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                          TipoMilhas(Milhas: widget.Milhas, NAdultos: NAdultos, NCriancas: NCriancas, NBebes: NBebes)
+                        ]
+                    ),
                 ]
             ),
+          SizedBox(height:40),
         ]
-      )
+      ),
     );
   }
 

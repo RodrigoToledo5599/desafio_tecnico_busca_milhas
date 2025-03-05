@@ -9,6 +9,8 @@ class FlightPriceDTO{
   bool? Executivo;
   double? TaxaEmbarque;
   String? TipoValor;
+  int? BagagemDespachada;
+  int? BagagemMao;
 
   FlightPriceDTO({
     this.Adulto,
@@ -16,7 +18,9 @@ class FlightPriceDTO{
     this.Bebe,
     this.Executivo,
     this.TaxaEmbarque,
-    this.TipoValor
+    this.TipoValor,
+    this.BagagemDespachada,
+    this.BagagemMao
   });
 
 
@@ -28,6 +32,8 @@ class FlightPriceDTO{
       Executivo: json["Executivo"],
       TaxaEmbarque: json["TaxaEmbarque"],
       TipoValor: json["TipoValor"],
+      BagagemDespachada: json["LimiteBagagem"]["BagagemDespachada"]["23kg"],
+      BagagemMao: json["LimiteBagagem"]["BagagemMao"]["10kg"],
     );
   }
 

@@ -23,7 +23,7 @@ class TipoValor extends StatelessWidget{
 
   dynamic? precoTotal(dynamic PrecoAdulto, dynamic PrecoCrianca, dynamic PrecoBebe, double? taxa)
   {
-    double? total = (NAdultos! * PrecoAdulto) + (NCriancas! * PrecoCrianca) + (NBebes! * PrecoBebe) + taxa!;
+    double? total = (NAdultos! * PrecoAdulto) + (NCriancas! * PrecoCrianca) + (taxa! *(NAdultos! + NCriancas!));
     return total;
   }
 
@@ -164,6 +164,48 @@ class TipoValor extends StatelessWidget{
                                 ),
                                 Text(
                                   "${this.precoTotal(item.Adulto, item.Crianca, item.Bebe, item.TaxaEmbarque)!.toStringAsFixed(2)}",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ]
+                          ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children:[
+                                Text(
+                                  "Limite Bagagem Despachada:",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  "23kg: ${item.BagagemDespachada}",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ]
+                          ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children:[
+                                Text(
+                                  "Limite Bagagem Mão:",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Text(
+                                  "10kg: ${item.BagagemMao}",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
