@@ -47,7 +47,6 @@ class TelaInicialState extends State<TelaInicial> {
       n_passageiros_bebes_controller.text = "0";
     }
     if(tipo_de_viagem_controller.text == "Ida"){
-      print("chegou aq");
       data_controller_volta.text = "01/01/9999";
       horario_controller_volta.text = "00:00";
     }

@@ -65,7 +65,7 @@ class ConexoesState extends State<Conexoes>{
         children:[
           Row(
             children:[
-              Text(
+              const Text(
                 "Conexões",
                 style: TextStyle(
                   color: Colors.blue,

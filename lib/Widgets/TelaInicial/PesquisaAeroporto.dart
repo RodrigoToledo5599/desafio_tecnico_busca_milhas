@@ -53,15 +53,15 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             labelText: widget.label_text,
-                            fillColor: Color.fromRGBO(245, 247, 249, 1),
+                            fillColor: const Color.fromRGBO(245, 247, 249, 1),
                             filled: true,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color.fromRGBO(245, 247, 249, 1),
+                            enabledBorder: const OutlineInputBorder(
+                              borderSide:  BorderSide(
+                                color:  Color.fromRGBO(245, 247, 249, 1),
                                 width: 2.0,
                               ),
                             ),
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color.fromRGBO(245, 247, 249, 1),
                                 width: 0.0,
@@ -75,20 +75,19 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                             search(widget.controller!.text.toUpperCase());
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+                            backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
                             side: BorderSide.none,
                             shadowColor: Colors.transparent,
-                            // foregroundColor: Color.fromRGBO(0, 127, 255, 1),
-                            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 15),
-                            textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                            shape: RoundedRectangleBorder(
-                              side:BorderSide(
+                            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                            textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            shape: const RoundedRectangleBorder(
+                              side: BorderSide(
                                 color:Color.fromRGBO(255, 255, 255, 1),
                                 width: 0.0,
                               ),
                             ),
                           ),
-                          child: Icon(
+                          child: const Icon(
                               Icons.search,
                               color: Colors.blue,
                               size: 25,
@@ -102,20 +101,20 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                           });
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+                          backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
                           side: BorderSide.none,
                           shadowColor: Colors.transparent,
                           // foregroundColor: Color.fromRGBO(0, 127, 255, 1),
-                          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 15),
-                          textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          shape: RoundedRectangleBorder(
+                          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                          textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          shape: const RoundedRectangleBorder(
                             side:BorderSide(
                               color:Color.fromRGBO(255, 255, 255, 1),
                               width: 0.0,
                             ),
                           ),
                         ),
-                        child: Icon(
+                        child: const Icon(
                             Icons.close,
                             color: Colors.blue,
                             size: 25,
@@ -123,21 +122,19 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                       ),
                     ]
                   ),
-                  SizedBox(
-                    height:20
-                  ),
+                  const SizedBox(height:20),
                   Container(
                       child:FutureBuilder<List<AirPortModel>?>(
                           future: Future.value(this.airPorts),
                           builder: (context, snapshot){
                             if (snapshot.connectionState == ConnectionState.waiting) {
-                              return Center(child: CircularProgressIndicator()); // Show loading spinner
+                              return const Center(child: CircularProgressIndicator());
                             }
                             if (snapshot.hasError) {
-                              return Center(child: Text("Error loading Airports"));
+                              return const Center(child: Text("Error loading Airports"));
                             }
                             if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                              return Center(child: Text(""));
+                              return const Center(child: Text(""));
                             }
                             this.airPorts = snapshot.data!;
                             return Container(
@@ -157,14 +154,14 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.white,
                                           shadowColor: Colors.transparent,
-                                          overlayColor:Colors.transparent,
+                                          overlayColor: Colors.transparent,
                                         ),
                                         child:Text(
                                           "${airport.Nome} - ${airport.Iata}\n",
                                           overflow: TextOverflow.ellipsis,
                                           maxLines: 2,
                                           softWrap: false,
-                                          style: TextStyle(
+                                          style: const  TextStyle(
                                             color: Colors.blue,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 12,

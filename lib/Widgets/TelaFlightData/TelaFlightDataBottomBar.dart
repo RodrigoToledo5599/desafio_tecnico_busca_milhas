@@ -14,7 +14,7 @@ class TelaFlightDataBottomBar extends StatelessWidget {
       color: Colors.blue,
       child: Row(
           children:[
-            IconButton(
+           IconButton(
                 onPressed: () => {
                   Navigator.push(
                       context,
@@ -23,7 +23,7 @@ class TelaFlightDataBottomBar extends StatelessWidget {
                       )
                   )
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.keyboard_return,
                   color: Colors.white,
                   size: 40,

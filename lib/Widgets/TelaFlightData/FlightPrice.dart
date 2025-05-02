@@ -78,9 +78,9 @@ class FlightPriceState extends State<FlightPrice>{
                   ),
               )
           ),
-          SizedBox(height:20),
+          const SizedBox(height:20),
           if(exibir_detalhes == false)
-            Column()
+            const Column()
           else
             Column(
                 children:[
@@ -103,7 +103,7 @@ class FlightPriceState extends State<FlightPrice>{
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 "Valor",
                                 style: TextStyle(
                                   color: Colors.blue,
@@ -122,7 +122,7 @@ class FlightPriceState extends State<FlightPrice>{
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 "Milhas",
                                 style: TextStyle(
                                   color: Colors.blue,
@@ -137,7 +137,7 @@ class FlightPriceState extends State<FlightPrice>{
                     ),
                 ]
             ),
-          SizedBox(height:40),
+          const SizedBox(height:40),
         ]
       ),
     );

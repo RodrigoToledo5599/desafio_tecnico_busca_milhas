@@ -3,6 +3,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
 
 
+class EstilizacaoDosCampos{
+  static getTextStyling(){
+    return const TextStyle(
+      color: Colors.blue,
+      fontWeight: FontWeight.w600,
+      fontSize: 12,
+    );
+  }
+}
+
+
 
 class TipoValor extends StatelessWidget{
 
@@ -49,7 +60,7 @@ class TipoValor extends StatelessWidget{
                           Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
-                                Text(
+                                 const Text(
                                   "Tipo:",
                                   style: TextStyle(
                                     color: Colors.blue,
@@ -59,7 +70,7 @@ class TipoValor extends StatelessWidget{
                                 ),
                                 Text(
                                   "${item.TipoValor}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 12,
@@ -70,9 +81,9 @@ class TipoValor extends StatelessWidget{
                           Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
-                                Text(
+                                const Text(
                                   "Preço adulto: ",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 12,
@@ -80,7 +91,7 @@ class TipoValor extends StatelessWidget{
                                 ),
                                 Text(
                                   "${item.Adulto!.toStringAsFixed(2)}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 12,
@@ -91,7 +102,7 @@ class TipoValor extends StatelessWidget{
                           Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
-                                Text(
+                                const Text(
                                   "Preço criança:",
                                   style: TextStyle(
                                     color: Colors.blue,
@@ -101,7 +112,7 @@ class TipoValor extends StatelessWidget{
                                 ),
                                 Text(
                                   "${item.Crianca!.toStringAsFixed(2)}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 12,
@@ -112,7 +123,7 @@ class TipoValor extends StatelessWidget{
                           Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
-                                Text(
+                                const Text(
                                   "Preço bebe:",
                                   style: TextStyle(
                                     color: Colors.blue,
@@ -122,7 +133,7 @@ class TipoValor extends StatelessWidget{
                                 ),
                                 Text(
                                   "${item.Bebe!.toStringAsFixed(2)}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 12,
@@ -133,7 +144,7 @@ class TipoValor extends StatelessWidget{
                           Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
-                                Text(
+                                const Text(
                                   "Preço Taxa:",
                                   style: TextStyle(
                                     color: Colors.blue,
@@ -143,7 +154,7 @@ class TipoValor extends StatelessWidget{
                                 ),
                                 Text(
                                   "${item.TaxaEmbarque!.toStringAsFixed(2)}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 12,
@@ -154,7 +165,7 @@ class TipoValor extends StatelessWidget{
                           Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
-                                Text(
+                                const Text(
                                   "Preço Total:",
                                   style: TextStyle(
                                     color: Colors.blue,
@@ -164,7 +175,7 @@ class TipoValor extends StatelessWidget{
                                 ),
                                 Text(
                                   "${this.precoTotal(item.Adulto, item.Crianca, item.Bebe, item.TaxaEmbarque)!.toStringAsFixed(2)}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 12,
@@ -175,7 +186,7 @@ class TipoValor extends StatelessWidget{
                           Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
-                                Text(
+                                const Text(
                                   "Limite Bagagem Despachada:",
                                   style: TextStyle(
                                     color: Colors.blue,
@@ -185,7 +196,7 @@ class TipoValor extends StatelessWidget{
                                 ),
                                 Text(
                                   "23kg: ${item.BagagemDespachada}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 12,
@@ -196,7 +207,7 @@ class TipoValor extends StatelessWidget{
                           Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
-                                Text(
+                                const Text(
                                   "Limite Bagagem Mão:",
                                   style: TextStyle(
                                     color: Colors.blue,
@@ -206,7 +217,7 @@ class TipoValor extends StatelessWidget{
                                 ),
                                 Text(
                                   "10kg: ${item.BagagemMao}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 12,
@@ -217,7 +228,7 @@ class TipoValor extends StatelessWidget{
                         ]
                     )
                 ),
-                SizedBox(height: 10)
+                const SizedBox(height: 10)
               ],
             )
 

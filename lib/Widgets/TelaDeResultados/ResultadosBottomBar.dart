@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaInicial.dart';
 
 
-
 class ResultadosBottomBar extends StatelessWidget {
   ResultadosBottomBar({Key? key}) : super(key: key);
 
@@ -23,7 +22,7 @@ class ResultadosBottomBar extends StatelessWidget {
                     )
                 )
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.keyboard_return,
                 color: Colors.white,
                 size: 40,

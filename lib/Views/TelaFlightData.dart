@@ -10,17 +10,19 @@ import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';
 
 
 class SpaceBetweenRows extends StatelessWidget{
-  double spacebetweenRows = 0.01;
+  const SpaceBetweenRows({super.key});
+  final double space_between_rows = 0.01;
   @override
   Widget build(BuildContext context){
     return SizedBox(
-      height: MediaQuery.sizeOf(context).height * this.spacebetweenRows,
+      height: MediaQuery.sizeOf(context).height * this.space_between_rows,
     );
   }
 }
 
 class RowSidePadding extends StatelessWidget{
-  double sidePadding = 0.1;
+  const RowSidePadding({super.key});
+  final double sidePadding = 0.1;
   @override
   Widget build(BuildContext context){
     return SizedBox(
@@ -32,7 +34,6 @@ class RowSidePadding extends StatelessWidget{
 
 class TelaFlightData extends StatefulWidget{
   FlightModel? Flight = FlightModel();
-
   TelaFlightData({
     Key? key,
     this.Flight

@@ -22,12 +22,12 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
                   child: Row(
                       children:[
                         SizedBox(width: MediaQuery.sizeOf(context).width * 0.075),
-                        Icon(
+                        const Icon(
                           Icons.account_circle,
                           size: 40,
                           color: Colors.white,
                         ),
-                        Text(
+                        const Text(
                           " Account",
                           style: TextStyle(
                             color: Colors.white,
@@ -37,7 +37,7 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
                         ),
                       ]
                   ),
-                  color: Colors.blue,
+                  color:  Colors.blue,
                 ),
                 Container(
                     color: Colors.blue,
