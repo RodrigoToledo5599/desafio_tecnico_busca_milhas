@@ -11,11 +11,10 @@ import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';
 
 class SpaceBetweenRows extends StatelessWidget{
   const SpaceBetweenRows({super.key});
-  final double space_between_rows = 0.01;
   @override
   Widget build(BuildContext context){
     return SizedBox(
-      height: MediaQuery.sizeOf(context).height * this.space_between_rows,
+      height: 14,
     );
   }
 }
@@ -44,7 +43,7 @@ class TelaFlightData extends StatefulWidget{
 
 class TelaFlightDataState extends State<TelaFlightData>{
   TextEditingController textController = TextEditingController();
-  double fontsize = 15;
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,134 +58,169 @@ class TelaFlightDataState extends State<TelaFlightData>{
                 child:Column(
                     children:[
                       SizedBox(
-                        height: MediaQuery.sizeOf(context).height * 0.05,
+                        height: 30,
                       ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children:[
-                            RowSidePadding(),
-                            Text(
-                              "Número do Voo:   ${widget.Flight!.NumeroVoo}",
-                              style: TextStyle(
+                      Padding(
+                        child:
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children:[
+                              Text(
+                                "Número do Voo:   ${widget.Flight!.NumeroVoo}",
+                                style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
-                                  fontSize: this.fontsize,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
-                            RowSidePadding(),
-                          ]
+                            ]
+                        ),
+                        padding: EdgeInsets.fromLTRB(
+                          MediaQuery.of(context).size.width * 0.1,  // Left
+                          0.0,                 // Top
+                          MediaQuery.of(context).size.width * 0.1,  // Right
+                          14,                // Bottom
+                        ),
                       ),
-                      SpaceBetweenRows(),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children:[
-                            RowSidePadding(),
-                            Text(
-                              "Duração:  ${widget.Flight!.Duracao}",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.w600,
-                                fontSize: this.fontsize,
-                              ),
-                            ),
-                            RowSidePadding(),
-                          ]
-                      ),
-                      SpaceBetweenRows(),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children:[
-                            RowSidePadding(),
-                            Text(
-                              "Companhia:   ",
-                              style: TextStyle(
+                      Padding(
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children:[
+                              Text(
+                                "Duração:  ${widget.Flight!.Duracao}",
+                                style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
-                                  fontSize: this.fontsize,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "${widget.Flight!.Companhia}",
-                              style: TextStyle(
+                            ]
+                        ),
+                        padding: EdgeInsets.fromLTRB(
+                          MediaQuery.of(context).size.width * 0.1,  // Left
+                          0.0,                 // Top
+                          MediaQuery.of(context).size.width * 0.1,  // Right
+                          14,                // Bottom
+                        ),
+                      ),
+                      Padding(
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children:[
+                              Text(
+                                "Companhia:   ",
+                                style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
-                                  fontSize: this.fontsize,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
+                              Text(
+                                "${widget.Flight!.Companhia}",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                ),
+                              ),
 
-                          ]
-                      ),
-                      SpaceBetweenRows(),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children:[
-                            RowSidePadding(),
-                            Text(
-                              "Número de Conexões:  ",
-                              style: TextStyle(
+                            ]
+                        ),
+                        padding: EdgeInsets.fromLTRB(
+                          MediaQuery.of(context).size.width * 0.1,  // Left
+                          0.0,                 // Top
+                          MediaQuery.of(context).size.width * 0.1,  // Right
+                          14,                // Bottom
+                          ),
+                        ),
+
+                      Padding(
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children:[
+                              Text(
+                                "Número de Conexões:  ",
+                                style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
-                                  fontSize: this.fontsize,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "${widget.Flight!.NumeroConexoes}",
-                              style: TextStyle(
+                              Text(
+                                "${widget.Flight!.NumeroConexoes}",
+                                style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
-                                  fontSize: this.fontsize,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
-                            RowSidePadding(),
-                          ]
+                            ]
+                        ),
+                        padding: EdgeInsets.fromLTRB(
+                          MediaQuery.of(context).size.width * 0.1,  // Left
+                          0.0,                 // Top
+                          MediaQuery.of(context).size.width * 0.1,  // Right
+                          14,                // Bottom
+                        ),
                       ),
-                      SpaceBetweenRows(),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children:[
-                            RowSidePadding(),
-                            Text(
-                              "Embarque:  ",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.w600,
-                                fontSize: this.fontsize,
+                      Padding(
+                        child:Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children:[
+                              Text(
+                                "Embarque:  ",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "${widget.Flight!.Embarque}",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.w600,
-                                fontSize: this.fontsize,
+                              Text(
+                                "${widget.Flight!.Embarque}",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
-                            RowSidePadding(),
-                          ]
+
+                            ]
+                        ),
+                        padding: EdgeInsets.fromLTRB(
+                          MediaQuery.of(context).size.width * 0.1,  // Left
+                          0.0,                 // Top
+                          MediaQuery.of(context).size.width * 0.1,  // Right
+                          14,                // Bottom
+                        ),
                       ),
-                      SpaceBetweenRows(),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children:[
-                            RowSidePadding(),
-                            Text(
-                              "Desembarque:   ",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.w600,
-                                fontSize: this.fontsize,
+                      Padding(
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children:[
+                              Text(
+                                "Desembarque:   ",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "${widget.Flight!.Desembarque}",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.w600,
-                                fontSize: this.fontsize,
+                              Text(
+                                "${widget.Flight!.Desembarque}",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
-                            RowSidePadding(),
-                          ]
+                            ]
+                        ),
+                        padding: EdgeInsets.fromLTRB(
+                          MediaQuery.of(context).size.width * 0.1,  // Left
+                          0.0,                 // Top
+                          MediaQuery.of(context).size.width * 0.1,  // Right
+                          14,                // Bottom
+                        ),
                       ),
                       SpaceBetweenRows(),
                       SpaceBetweenRows(),
