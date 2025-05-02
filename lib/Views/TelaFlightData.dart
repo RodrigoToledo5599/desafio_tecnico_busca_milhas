@@ -55,200 +55,192 @@ class TelaFlightDataState extends State<TelaFlightData>{
         body: Container(
           width: MediaQuery.sizeOf(context).width * 1,
               child:SingleChildScrollView(
-                child:Column(
-                    children:[
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Padding(
-                        child:
+                child: Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      MediaQuery.sizeOf(context).width * 0.1,  // Left
+                      30,  // Top
+                      MediaQuery.sizeOf(context).width * 0.1,  // Right
+                      14, // Bottom
+                    ),
+                    child: Column(
+                      children:[
+                        Padding(
+                          child:
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children:[
+                                Text(
+                                  "Número do Voo:   ${widget.Flight!.NumeroVoo}",
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ]
+                          ),
+                          padding: EdgeInsets.fromLTRB(
+                            0,  // Left
+                            0,  // Top
+                            0,  // Right
+                            14, // Bottom
+                          ),
+                        ),
+                        Padding(
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children:[
+                                Text(
+                                  "Duração:  ${widget.Flight!.Duracao}",
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ]
+                          ),
+                          padding: EdgeInsets.fromLTRB(
+                            0,  // Left
+                            0,  // Top
+                            0,  // Right
+                            14, // Bottom
+                          ),
+                        ),
+                        Padding(
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children:[
+                                Text(
+                                  "Companhia:   ",
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  "${widget.Flight!.Companhia}",
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ]
+                          ),
+                          padding: const EdgeInsets.fromLTRB(
+                            0,  // Left
+                            0,  // Top
+                            0,  // Right
+                            14, // Bottom
+                          ),
+                        ),
+                        Padding(
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children:[
+                                Text(
+                                  "Número de Conexões:  ",
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  "${widget.Flight!.NumeroConexoes}",
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ]
+                          ),
+                          padding: const EdgeInsets.fromLTRB(
+                            0,  // Left
+                            0,  // Top
+                            0,  // Right
+                            14, // Bottom
+                          ),
+                        ),
+                        Padding(
+                          child:Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children:[
+                                Text(
+                                  "Embarque:  ",
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  "${widget.Flight!.Embarque}",
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ]
+                          ),
+                          padding: const EdgeInsets.fromLTRB(
+                            0,  // Left
+                            0,  // Top
+                            0,  // Right
+                            14, // Bottom
+                          ),
+                        ),
+                        Padding(
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children:[
+                                Text(
+                                  "Desembarque:   ",
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  "${widget.Flight!.Desembarque}",
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ]
+                          ),
+                          padding: const EdgeInsets.fromLTRB(
+                            0,  // Left
+                            0,  // Top
+                            0,  // Right
+                            14, // Bottom
+                          ),
+                        ),
                         Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children:[
-                              Text(
-                                "Número do Voo:   ${widget.Flight!.NumeroVoo}",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                ),
-                              ),
+                              Conexoes(conexoes: widget.Flight!.Conexoes!),
                             ]
                         ),
-                        padding: EdgeInsets.fromLTRB(
-                          MediaQuery.of(context).size.width * 0.1,  // Left
-                          0.0,                 // Top
-                          MediaQuery.of(context).size.width * 0.1,  // Right
-                          14,                // Bottom
-                        ),
-                      ),
-                      Padding(
-                        child: Row(
+                        Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children:[
-                              Text(
-                                "Duração:  ${widget.Flight!.Duracao}",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                ),
+                              FlightPrice(
+                                  valor: widget.Flight!.Valor,
+                                  milhas: widget.Flight!.Milhas
                               ),
                             ]
-                        ),
-                        padding: EdgeInsets.fromLTRB(
-                          MediaQuery.of(context).size.width * 0.1,  // Left
-                          0.0,                 // Top
-                          MediaQuery.of(context).size.width * 0.1,  // Right
-                          14,                // Bottom
-                        ),
-                      ),
-                      Padding(
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children:[
-                              Text(
-                                "Companhia:   ",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                ),
-                              ),
-                              Text(
-                                "${widget.Flight!.Companhia}",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                ),
-                              ),
-
-                            ]
-                        ),
-                        padding: EdgeInsets.fromLTRB(
-                          MediaQuery.of(context).size.width * 0.1,  // Left
-                          0.0,                 // Top
-                          MediaQuery.of(context).size.width * 0.1,  // Right
-                          14,                // Bottom
-                          ),
-                        ),
-
-                      Padding(
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children:[
-                              Text(
-                                "Número de Conexões:  ",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                ),
-                              ),
-                              Text(
-                                "${widget.Flight!.NumeroConexoes}",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ]
-                        ),
-                        padding: EdgeInsets.fromLTRB(
-                          MediaQuery.of(context).size.width * 0.1,  // Left
-                          0.0,                 // Top
-                          MediaQuery.of(context).size.width * 0.1,  // Right
-                          14,                // Bottom
-                        ),
-                      ),
-                      Padding(
-                        child:Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children:[
-                              Text(
-                                "Embarque:  ",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                ),
-                              ),
-                              Text(
-                                "${widget.Flight!.Embarque}",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                ),
-                              ),
-
-                            ]
-                        ),
-                        padding: EdgeInsets.fromLTRB(
-                          MediaQuery.of(context).size.width * 0.1,  // Left
-                          0.0,                 // Top
-                          MediaQuery.of(context).size.width * 0.1,  // Right
-                          14,                // Bottom
-                        ),
-                      ),
-                      Padding(
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children:[
-                              Text(
-                                "Desembarque:   ",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                ),
-                              ),
-                              Text(
-                                "${widget.Flight!.Desembarque}",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ]
-                        ),
-                        padding: EdgeInsets.fromLTRB(
-                          MediaQuery.of(context).size.width * 0.1,  // Left
-                          0.0,                 // Top
-                          MediaQuery.of(context).size.width * 0.1,  // Right
-                          14,                // Bottom
-                        ),
-                      ),
-                      SpaceBetweenRows(),
-                      SpaceBetweenRows(),
-                      SpaceBetweenRows(),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children:[
-                            RowSidePadding(),
-                            Conexoes(conexoes: widget.Flight!.Conexoes!),
-                            RowSidePadding(),
-                          ]
-                      ),
-                      SpaceBetweenRows(),
-                      SpaceBetweenRows(),
-                      SpaceBetweenRows(),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children:[
-                            RowSidePadding(),
-                            FlightPrice(
-                                valor: widget.Flight!.Valor,
-                                milhas: widget.Flight!.Milhas
-                            ),
-                            RowSidePadding(),
-                          ]
-                      )
-                    ]
-                ),
+                        )
+                      ]
+                    ),
+                )
               )
         )
       ),
