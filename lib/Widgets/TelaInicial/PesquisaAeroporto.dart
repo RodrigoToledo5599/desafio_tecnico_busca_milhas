@@ -32,8 +32,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
 
   @override
   Widget build(BuildContext context){
-    return SingleChildScrollView(
-      child: Container(
+    return  Container(
         width: MediaQuery.sizeOf(context).width * 1,
         child: Column(
           children:[
@@ -180,8 +179,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
             ),
           ]
         ),
-      )
-    );
+      );
   }
 }
 

@@ -5,6 +5,7 @@ import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.d
 import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectDataETipoDeViagem.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/PesquisaAeroporto2.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/PesquisaAeroporto.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectCompanhiaAerea.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectNPassageiros.dart';
@@ -140,7 +141,7 @@ class TelaInicialState extends State<TelaInicial> {
                   ),
                   SizedBox(height: 20),
                   PesquisaAeroporto(controller: aeroporto_controller_origem, label_text: "Origem"),
-                  PesquisaAeroporto(controller: aeroporto_controller_destino, label_text: "Destino"),
+                  PesquisaAeroporto2(controller: aeroporto_controller_destino, label_text: "Destino"),
                   SizedBox(height:30),
                   SelectDataETipoDeViagem(
                       tipo_de_viagem_controller: tipo_de_viagem_controller,
