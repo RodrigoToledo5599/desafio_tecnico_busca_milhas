@@ -71,7 +71,7 @@ class FlightPriceState extends State<FlightPrice>{
               },
               child: Text(
                   "${button_text}",
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.blue,
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -105,7 +105,7 @@ class FlightPriceState extends State<FlightPrice>{
                             children: [
                               const Text(
                                 "Valor",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
                                   fontSize: 20,
@@ -124,7 +124,7 @@ class FlightPriceState extends State<FlightPrice>{
                             children: [
                               const Text(
                                 "Milhas",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w600,
                                   fontSize: 20,
@@ -137,7 +137,7 @@ class FlightPriceState extends State<FlightPrice>{
                     ),
                 ]
             ),
-          const SizedBox(height:40),
+          const SizedBox(height:20),
         ]
       ),
     );

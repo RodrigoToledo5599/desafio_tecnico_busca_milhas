@@ -79,7 +79,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 ),
                               ]
                           ),
-                          padding: EdgeInsets.fromLTRB(
+                          padding: const EdgeInsets.fromLTRB(
                             0,  // Left
                             0,  // Top
                             0,  // Right
