@@ -57,17 +57,17 @@ class TelaInicialState extends State<TelaInicial> {
   Future<bool> sendingScript() async {
     this.ensuringTheNullsWontBeNulls();
     TelaInicialService Services = TelaInicialService(
-        AeroportoOrigem: this.aeroporto_controller_origem.text,
-        AeroportoDestino: this.aeroporto_controller_destino.text,
-        DataIda: this.data_controller_ida.text,
-        DataVolta: this.data_controller_volta.text,
-        HorarioIda: this.horario_controller_ida.text,
-        HorarioVolta: this.horario_controller_volta.text,
-        CompanhiaAerea: this.companhia_aerea_controller.text,
-        TipoDeViagem: this.tipo_de_viagem_controller.text,
-        NPassageirosAdultos: this.n_passageiros_adultos_controller.text,
-        NPassageirosCriancas: this.n_passageiros_criancas_controller.text,
-        NPassageirosBebes: this.n_passageiros_bebes_controller.text
+        aeroporto_origem: this.aeroporto_controller_origem.text,
+        aeroporto_destino: this.aeroporto_controller_destino.text,
+        data_ida: this.data_controller_ida.text,
+        data_volta: this.data_controller_volta.text,
+        horario_ida: this.horario_controller_ida.text,
+        horario_volta: this.horario_controller_volta.text,
+        companhia_aerea: this.companhia_aerea_controller.text,
+        tipo_de_viagem: this.tipo_de_viagem_controller.text,
+        n_passageiros_adultos: this.n_passageiros_adultos_controller.text,
+        n_passageiros_criancas: this.n_passageiros_criancas_controller.text,
+        n_passageiros_bebes: this.n_passageiros_bebes_controller.text
     );
     if(Services.checkIfAllRequiredFieldsAreFilled() == false){
       setState(() {

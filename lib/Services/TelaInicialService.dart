@@ -4,63 +4,63 @@ import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
 
 class TelaInicialService{
-  String? AeroportoOrigem;
-  String? AeroportoDestino;
-  String? DataIda;
-  String? DataVolta;
-  String? HorarioIda;
-  String? HorarioVolta;
-  String? CompanhiaAerea;
-  String? TipoDeViagem;
-  String? NPassageirosAdultos;
-  String? NPassageirosCriancas;
-  String? NPassageirosBebes;
+  String? aeroporto_origem;
+  String? aeroporto_destino;
+  String? data_ida;
+  String? data_volta;
+  String? horario_ida;
+  String? horario_volta;
+  String? companhia_aerea;
+  String? tipo_de_viagem;
+  String? n_passageiros_adultos;
+  String? n_passageiros_criancas;
+  String? n_passageiros_bebes;
 
   SessionData sd = SessionData();
 
   TelaInicialService({
-    this.AeroportoOrigem,
-    this.AeroportoDestino,
-    this.DataIda,
-    this.DataVolta,
-    this.HorarioIda,
-    this.HorarioVolta,
-    this.CompanhiaAerea,
-    this.TipoDeViagem,
-    this.NPassageirosAdultos,
-    this.NPassageirosCriancas,
-    this.NPassageirosBebes,
+    this.aeroporto_origem,
+    this.aeroporto_destino,
+    this.data_ida,
+    this.data_volta,
+    this.horario_ida,
+    this.horario_volta,
+    this.companhia_aerea,
+    this.tipo_de_viagem,
+    this.n_passageiros_adultos,
+    this.n_passageiros_criancas,
+    this.n_passageiros_bebes,
   });
 
   // METHODS ============================================================================
 
   void printAllResults(){
-    print("Origem: ${AeroportoOrigem}");
-    print("Destino: ${AeroportoDestino}");
-    print("Ida: ${DataIda}");
-    print("Horário Ida: ${HorarioIda}");
-    print("Volta: ${DataVolta}");
-    print("Horário Volta: ${HorarioVolta}");
-    print("Copanhia(s) Aéreas: ${CompanhiaAerea}");
-    print("Tipo de Viagem: ${TipoDeViagem}");
-    print("Nadultos: ${NPassageirosAdultos}");
-    print("Ncriancas: ${NPassageirosCriancas}");
-    print("Nbebes: ${NPassageirosBebes}");
+    print("Origem: ${aeroporto_origem}");
+    print("Destino: ${aeroporto_destino}");
+    print("Ida: ${data_ida}");
+    print("Horário Ida: ${horario_ida}");
+    print("Volta: ${data_volta}");
+    print("Horário Volta: ${horario_volta}");
+    print("Copanhia(s) Aéreas: ${companhia_aerea}");
+    print("Tipo de Viagem: ${tipo_de_viagem}");
+    print("Nadultos: ${n_passageiros_adultos}");
+    print("Ncriancas: ${n_passageiros_criancas}");
+    print("Nbebes: ${n_passageiros_bebes}");
   }
 
   // travelCode!["Busca"]
   void savingSessionData(String travelCode){
     sd.setCodigoViagemOptions(travelCode);
-    sd.setNAdultos(int.parse(NPassageirosAdultos!));
-    sd.setNCriancas(int.parse(NPassageirosCriancas!));
-    sd.setNBebes(int.parse(NPassageirosBebes!));
+    sd.setNAdultos(int.parse(n_passageiros_adultos!));
+    sd.setNCriancas(int.parse(n_passageiros_criancas!));
+    sd.setNBebes(int.parse(n_passageiros_bebes!));
   }
 
   List<String> AerialCompaniesListFormat(){
-    if(CompanhiaAerea!.substring(0,1) == '['){
-      CompanhiaAerea = CompanhiaAerea!.substring(1, CompanhiaAerea!.length - 1);
+    if(companhia_aerea!.substring(0,1) == '['){
+      companhia_aerea = companhia_aerea!.substring(1, companhia_aerea!.length - 1);
     }
-    List<String> companhiasList = CompanhiaAerea!.split(",");
+    List<String> companhiasList = companhia_aerea!.split(",");
     for(int i =0; i < companhiasList.length; i++){
       companhiasList[i] = companhiasList[i].trim();
     }
@@ -68,28 +68,28 @@ class TelaInicialService{
   }
 
   bool checkIfAllRequiredFieldsAreFilled(){
-    print("Tipo De viagem: ${TipoDeViagem}");
-    if(AeroportoOrigem == null || AeroportoOrigem == ""){
+    print("Tipo De viagem: ${tipo_de_viagem}");
+    if(aeroporto_origem == null || aeroporto_origem == ""){
       return false;
     }
-    else if(AeroportoDestino == null || AeroportoDestino == ""){
+    else if(aeroporto_destino == null || aeroporto_destino == ""){
       return false;
     }
-    else if(DataIda == null || DataIda == ""){
+    else if(data_ida == null || data_ida == ""){
       return false;
     }
-    else if(DataVolta == null || DataVolta == ""){
+    else if(data_volta == null || data_volta == ""){
       return false;
     }
-    else if(CompanhiaAerea == null || CompanhiaAerea == "[]"){
+    else if(companhia_aerea == null || companhia_aerea == "[]"){
       return false;
     }
     return true;
   }
 
   bool assuringThereAreMoreAdultsThanBabies(){
-    int NBabies = int.parse(NPassageirosBebes!);
-    int NAdults = int.parse(NPassageirosAdultos!);
+    int NBabies = int.parse(n_passageiros_bebes!);
+    int NAdults = int.parse(n_passageiros_adultos!);
     if(NAdults < NBabies){
       return false;
     }
