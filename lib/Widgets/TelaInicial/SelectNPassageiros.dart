@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 
 class SelectNPassageiros extends StatefulWidget{
   
-  TextEditingController adultosController = TextEditingController();
-  TextEditingController criancasController = TextEditingController();
-  TextEditingController bebesController = TextEditingController();
+  TextEditingController adultos_controller = TextEditingController();
+  TextEditingController criancas_controller = TextEditingController();
+  TextEditingController bebes_controller = TextEditingController();
 
   SelectNPassageiros({
-    required this.adultosController,
-    required this.bebesController,
-    required this.criancasController,
+    required this.adultos_controller,
+    required this.bebes_controller,
+    required this.criancas_controller,
     Key? key,
     }) : super(key: key);
   SelectNPassageirosState createState() => SelectNPassageirosState();
@@ -43,7 +43,7 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                       ),
                       Container(
                         child: TextFormField(
-                            controller: widget.adultosController,
+                            controller: widget.adultos_controller,
                             decoration:
                             InputDecoration(
                               border: OutlineInputBorder(
@@ -72,7 +72,7 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                       ),
                       Container(
                           child: TextFormField(
-                            controller: widget.criancasController,
+                            controller: widget.criancas_controller,
                             decoration:
                             InputDecoration(
                               border: OutlineInputBorder(
@@ -101,7 +101,7 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                       ),
                       Container(
                           child: TextFormField(
-                            controller: widget.bebesController,
+                            controller: widget.bebes_controller,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(),
                             ),

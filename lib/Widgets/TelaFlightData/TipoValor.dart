@@ -7,23 +7,23 @@ import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
 class TipoValor extends StatelessWidget{
 
   List<FlightPriceDTO>? Valor;
-  int? NAdultos;
-  int? NCriancas;
-  int? NBebes;
+  int? n_adultos;
+  int? n_criancas;
+  int? n_bebes;
 
 
   TipoValor({
     Key? key,
     required this.Valor,
-    required this.NAdultos,
-    required this.NCriancas,
-    required this.NBebes,
+    required this.n_adultos,
+    required this.n_criancas,
+    required this.n_bebes,
   }) : super(key : key);
 
 
-  dynamic? precoTotal(dynamic PrecoAdulto, dynamic PrecoCrianca, dynamic PrecoBebe, double? taxa)
+  dynamic? precoTotal(dynamic preco_adulto, dynamic preco_crianca, dynamic preco_bebe, double? taxa)
   {
-    double? total = (NAdultos! * PrecoAdulto) + (NCriancas! * PrecoCrianca) + (taxa! *(NAdultos! + NCriancas!));
+    double? total = (n_adultos! * preco_adulto) + (n_criancas! * preco_crianca) + (taxa! *(n_adultos! + n_criancas!));
     return total;
   }
 

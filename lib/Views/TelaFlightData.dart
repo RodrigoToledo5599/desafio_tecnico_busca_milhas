@@ -206,8 +206,8 @@ class TelaFlightDataState extends State<TelaFlightData>{
                           children:[
                             RowSidePadding(),
                             FlightPrice(
-                                Valor: widget.Flight!.Valor,
-                                Milhas: widget.Flight!.Milhas
+                                valor: widget.Flight!.Valor,
+                                milhas: widget.Flight!.Milhas
                             ),
                             RowSidePadding(),
                           ]

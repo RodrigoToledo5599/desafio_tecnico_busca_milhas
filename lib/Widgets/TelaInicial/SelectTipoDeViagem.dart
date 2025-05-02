@@ -16,22 +16,22 @@ class SelectTipoDeViagem extends StatefulWidget{
 
 class SelectTipoDeViagemState extends State<SelectTipoDeViagem>{
   final List<String> values = <String>['Ida','IdaVolta'];
-  bool switchValue = true;
-  String IdaOuIdaVolta = "IdaVolta";
+  bool switch_value = true;
+  String ida_ou_idavolta = "IdaVolta";
   String? msg = "Tipo de viagem";
 
 
   void TipoDeViagemChange(){
-    if(switchValue == true){
+    if(switch_value == true){
       setState(() {
-        this.IdaOuIdaVolta = "IdaVolta";
-        widget.controller.text = this.IdaOuIdaVolta;
+        this.ida_ou_idavolta = "IdaVolta";
+        widget.controller.text = this.ida_ou_idavolta;
       });
     }
-    if(switchValue == false){
+    if(switch_value == false){
       setState(() {
-        this.IdaOuIdaVolta = "Ida";
-        widget.controller.text = this.IdaOuIdaVolta;;
+        this.ida_ou_idavolta = "Ida";
+        widget.controller.text = this.ida_ou_idavolta;;
       });
     }
   }
@@ -65,17 +65,17 @@ class SelectTipoDeViagemState extends State<SelectTipoDeViagem>{
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children:[
                     Switch(
-                      value: this.switchValue,
+                      value: this.switch_value,
                       activeColor: Colors.blue,
                       onChanged: (bool value) {
                         setState(() {
-                          this.switchValue = value;
+                          this.switch_value = value;
                           TipoDeViagemChange();
                         });
                       },
                     ),
                     Text(
-                      "${this.IdaOuIdaVolta}",
+                      "${this.ida_ou_idavolta}",
                       style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.w600,

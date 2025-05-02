@@ -19,7 +19,7 @@ class ResultadosBottomBar extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => TelaInicial(warningMsg: "")
+                        builder: (context) => TelaInicial(warning_msg: "")
                     )
                 )
               },

@@ -11,45 +11,45 @@ import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectNPassagei
 
 
 class TelaInicial extends StatefulWidget{
-  String warningMsg;
+  String warning_msg;
 
   TelaInicial({
     Key? key,
-    required this.warningMsg,
+    required this.warning_msg,
   }) : super(key: key);
   TelaInicialState createState() => TelaInicialState();
 }
 
 class TelaInicialState extends State<TelaInicial> {
-  TextEditingController AeroportoControllerOrigem = TextEditingController();
-  TextEditingController AeroportoControllerDestino = TextEditingController();
-  TextEditingController DataControllerIda = TextEditingController();
-  TextEditingController HorarioControllerIda = TextEditingController();
-  TextEditingController DataControllerVolta = TextEditingController();
-  TextEditingController HorarioControllerVolta = TextEditingController();
-  TextEditingController CompanhiaAereaController = TextEditingController();
-  TextEditingController TipoDeViagemController = TextEditingController();
-  TextEditingController NPassageirosAdultosController = TextEditingController();
-  TextEditingController NPassageirosCriancasController = TextEditingController();
-  TextEditingController NPassageirosBebesController = TextEditingController();
+  TextEditingController aeroporto_controller_origem = TextEditingController();
+  TextEditingController aeroporto_controller_destino = TextEditingController();
+  TextEditingController data_controller_ida = TextEditingController();
+  TextEditingController horario_controller_ida = TextEditingController();
+  TextEditingController data_controller_volta = TextEditingController();
+  TextEditingController horario_controller_volta = TextEditingController();
+  TextEditingController companhia_aerea_controller = TextEditingController();
+  TextEditingController tipo_de_viagem_controller = TextEditingController();
+  TextEditingController n_passageiros_adultos_controller = TextEditingController();
+  TextEditingController n_passageiros_criancas_controller = TextEditingController();
+  TextEditingController n_passageiros_bebes_controller = TextEditingController();
 
   TravelOptionsViewModel tovm = TravelOptionsViewModel();
 
   // primeiro metodo a ser invocado após o botão de enviar ser pressionado.
   void ensuringTheNullsWontBeNulls(){
-    if(NPassageirosAdultosController.text == ""){
-      NPassageirosAdultosController.text = "0";
+    if(n_passageiros_adultos_controller.text == ""){
+      n_passageiros_adultos_controller.text = "0";
     }
-    if(NPassageirosCriancasController.text == ""){
-      NPassageirosCriancasController.text = "0";
+    if(n_passageiros_criancas_controller.text == ""){
+      n_passageiros_criancas_controller.text = "0";
     }
-    if(NPassageirosBebesController.text == ""){
-      NPassageirosBebesController.text = "0";
+    if(n_passageiros_bebes_controller.text == ""){
+      n_passageiros_bebes_controller.text = "0";
     }
-    if(TipoDeViagemController.text == "Ida"){
+    if(tipo_de_viagem_controller.text == "Ida"){
       print("chegou aq");
-      DataControllerVolta.text = "01/01/9999";
-      HorarioControllerVolta.text = "00:00";
+      data_controller_volta.text = "01/01/9999";
+      horario_controller_volta.text = "00:00";
     }
 
   }
@@ -57,50 +57,50 @@ class TelaInicialState extends State<TelaInicial> {
   Future<bool> sendingScript() async {
     this.ensuringTheNullsWontBeNulls();
     TelaInicialService Services = TelaInicialService(
-        AeroportoOrigem: this.AeroportoControllerOrigem.text,
-        AeroportoDestino: this.AeroportoControllerDestino.text,
-        DataIda: this.DataControllerIda.text,
-        DataVolta: this.DataControllerVolta.text,
-        HorarioIda: this.HorarioControllerIda.text,
-        HorarioVolta: this.HorarioControllerVolta.text,
-        CompanhiaAerea: this.CompanhiaAereaController.text,
-        TipoDeViagem: this.TipoDeViagemController.text,
-        NPassageirosAdultos: this.NPassageirosAdultosController.text,
-        NPassageirosCriancas: this.NPassageirosCriancasController.text,
-        NPassageirosBebes: this.NPassageirosBebesController.text
+        AeroportoOrigem: this.aeroporto_controller_origem.text,
+        AeroportoDestino: this.aeroporto_controller_destino.text,
+        DataIda: this.data_controller_ida.text,
+        DataVolta: this.data_controller_volta.text,
+        HorarioIda: this.horario_controller_ida.text,
+        HorarioVolta: this.horario_controller_volta.text,
+        CompanhiaAerea: this.companhia_aerea_controller.text,
+        TipoDeViagem: this.tipo_de_viagem_controller.text,
+        NPassageirosAdultos: this.n_passageiros_adultos_controller.text,
+        NPassageirosCriancas: this.n_passageiros_criancas_controller.text,
+        NPassageirosBebes: this.n_passageiros_bebes_controller.text
     );
     if(Services.checkIfAllRequiredFieldsAreFilled() == false){
       setState(() {
-        widget.warningMsg = "Preencha todos os campos para continuar";
+        widget.warning_msg = "Preencha todos os campos para continuar";
       });
       return false;
     }
-    if(int.parse(this.NPassageirosAdultosController.text) < 1){
+    if(int.parse(this.n_passageiros_adultos_controller.text) < 1){
       setState(() {
-        widget.warningMsg = "Deve ter pelo menos 1 adulto";
+        widget.warning_msg= "Deve ter pelo menos 1 adulto";
       });
       return false;
     }
-    if(int.parse(this.NPassageirosBebesController.text) + int.parse(this.NPassageirosCriancasController.text) + int.parse(this.NPassageirosAdultosController.text) > 9){
+    if(int.parse(this.n_passageiros_bebes_controller.text) + int.parse(this.n_passageiros_criancas_controller.text) + int.parse(this.n_passageiros_adultos_controller.text) > 9){
       setState(() {
-        widget.warningMsg = "Número máximo de 9 passageiros foi excedido";
+        widget.warning_msg = "Número máximo de 9 passageiros foi excedido";
       });
       return false;
     }
     if(Services.assuringThereAreMoreAdultsThanBabies() == false){
       setState(() {
-        widget.warningMsg = "Não é permitido ter mais bebês do que adultos";
+        widget.warning_msg = "Não é permitido ter mais bebês do que adultos";
       });
       return false;
     }
     var AerialCompaniesListFormat = Services.AerialCompaniesListFormat();
     Map<String,dynamic>? travelCode = await tovm.createTravelOptionsCode(
         AerialCompaniesListFormat,
-        DataControllerIda.text,
-        DataControllerVolta.text,
-        AeroportoControllerOrigem.text.toUpperCase(),
-        AeroportoControllerDestino.text.toUpperCase(),
-        TipoDeViagemController.text
+        data_controller_ida.text,
+        data_controller_volta.text,
+        aeroporto_controller_origem.text.toUpperCase(),
+        aeroporto_controller_destino.text.toUpperCase(),
+        tipo_de_viagem_controller.text
     );
     Services.savingSessionData(travelCode!["Busca"]);
     Services.printAllResults();
@@ -140,22 +140,22 @@ class TelaInicialState extends State<TelaInicial> {
                     ]
                   ),
                   SizedBox(height: 20),
-                  PesquisaAeroporto(controller: AeroportoControllerOrigem, LabelText: "Origem"),
-                  PesquisaAeroporto(controller: AeroportoControllerDestino, LabelText: "Destino"),
+                  PesquisaAeroporto(controller: aeroporto_controller_origem, label_text: "Origem"),
+                  PesquisaAeroporto(controller: aeroporto_controller_destino, label_text: "Destino"),
                   SizedBox(height:30),
                   SelectDataETipoDeViagem(
-                      TipoDeViagemController: TipoDeViagemController,
-                      DataControllerIda: DataControllerIda,
-                      HorarioControllerIda: HorarioControllerIda,
-                      DataControllerVolta: DataControllerVolta,
-                      HorarioControllerVolta: HorarioControllerVolta
+                      tipo_de_viagem_controller: tipo_de_viagem_controller,
+                      data_controller_ida: data_controller_ida,
+                      horario_controller_ida: horario_controller_ida,
+                      data_controller_volta: data_controller_volta,
+                      horario_controller_volta: horario_controller_volta
                   ),
                   
-                  SelectCompanhiaAerea(controller: CompanhiaAereaController),
+                  SelectCompanhiaAerea(controller: companhia_aerea_controller),
                   SelectNPassageiros(
-                    adultosController: NPassageirosAdultosController ,
-                    bebesController: NPassageirosBebesController,
-                    criancasController: NPassageirosCriancasController,
+                    adultos_controller: n_passageiros_adultos_controller ,
+                    bebes_controller: n_passageiros_bebes_controller,
+                    criancas_controller: n_passageiros_criancas_controller,
                   ),
                   SizedBox(height:70),
                   ElevatedButton(
@@ -188,7 +188,7 @@ class TelaInicialState extends State<TelaInicial> {
                       Container(
                         width:MediaQuery.sizeOf(context).width * 0.8,
                         child: Text(
-                          "${widget.warningMsg}",
+                          "${widget.warning_msg}",
                           overflow: TextOverflow.ellipsis,
                           maxLines: 3,
                           style: TextStyle(

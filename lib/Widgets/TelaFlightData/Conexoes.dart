@@ -7,10 +7,10 @@ import 'package:flutter/cupertino.dart';
 
 class ConexaoRow extends StatelessWidget{
   String text;
-  String fieldName;
+  String field_name;
   ConexaoRow({
     Key? key,
-    required this.fieldName,
+    required this.field_name,
     required this.text,
   }) : super(key: key);
 
@@ -20,7 +20,7 @@ class ConexaoRow extends StatelessWidget{
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children:[
         Text(
-          "${fieldName}: ",
+          "${field_name}: ",
           style: TextStyle(
             color: Colors.blue,
             fontWeight: FontWeight.w600,
@@ -90,16 +90,16 @@ class ConexoesState extends State<Conexoes>{
                     child:Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children:[
-                          ConexaoRow(text: item.Origem,fieldName: "Origem"),
-                          ConexaoRow(text: item.Destino,fieldName: "Destino"),
-                          ConexaoRow(text: item.NumeroVoo,fieldName: "NumeroVoo"),
-                          ConexaoRow(text: item.Duracao,fieldName: "Duracao"),
-                          ConexaoRow(text: item.DataDesembarque,fieldName: "DataDesembarque"),
-                          ConexaoRow(text: item.Desembarque,fieldName: "Desembarque"),
-                          ConexaoRow(text: item.DesembarqueCompleto,fieldName: "DesembarqueCompleto"),
-                          ConexaoRow(text: item.DataEmbarque,fieldName: "DataEmbarque"),
-                          ConexaoRow(text: item.Embarque,fieldName: "Embarque"),
-                          ConexaoRow(text: item.EmbarqueCompleto,fieldName: "EmbarqueCompleto"),
+                          ConexaoRow(text: item.Origem,field_name: "Origem"),
+                          ConexaoRow(text: item.Destino,field_name: "Destino"),
+                          ConexaoRow(text: item.NumeroVoo,field_name: "NumeroVoo"),
+                          ConexaoRow(text: item.Duracao,field_name: "Duracao"),
+                          ConexaoRow(text: item.DataDesembarque,field_name: "DataDesembarque"),
+                          ConexaoRow(text: item.Desembarque,field_name: "Desembarque"),
+                          ConexaoRow(text: item.DesembarqueCompleto,field_name: "DesembarqueCompleto"),
+                          ConexaoRow(text: item.DataEmbarque,field_name: "DataEmbarque"),
+                          ConexaoRow(text: item.Embarque,field_name: "Embarque"),
+                          ConexaoRow(text: item.EmbarqueCompleto,field_name: "EmbarqueCompleto"),
                         ]
                     )
                 ),

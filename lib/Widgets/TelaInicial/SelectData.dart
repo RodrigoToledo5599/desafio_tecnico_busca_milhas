@@ -7,13 +7,13 @@ import 'package:intl/intl.dart';
 
 
 class SelectData extends StatefulWidget{
-  final TextEditingController Datacontroller;
-  final TextEditingController Horascontroller;
+  final TextEditingController data_controller;
+  final TextEditingController horas_controller;
 
   SelectData({
     Key? key,
-    required this.Datacontroller,
-    required this.Horascontroller,
+    required this.data_controller,
+    required this.horas_controller,
   }) : super(key: key);
   SelectDataState createState() => SelectDataState();
 
@@ -72,7 +72,7 @@ class SelectDataState extends State<SelectData>{
                         String day = value.day.toString();
                         String month = value.month.toString();
                         String year = value.year.toString();
-                        widget.Datacontroller.text = "${day}/${month}/${year}";
+                        widget.data_controller.text = "${day}/${month}/${year}";
                       }
                     });
                   },
@@ -112,7 +112,7 @@ class SelectDataState extends State<SelectData>{
                 //             );
                 //             setState(() {
                 //               time = newTime!;
-                //               widget.Horascontroller.text = "${newTime.hour}:${newTime.minute}";
+                //               widget.horas_controller.text = "${newTime.hour}:${newTime.minute}";
                 //             });
                 //             this.convertToHoursFormat();
                 //           },

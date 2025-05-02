@@ -11,7 +11,7 @@ class SelectCompanhiaAerea extends StatefulWidget {
 }
 
 class SelectCompanhiaAereaState extends State<SelectCompanhiaAerea> {
-  final List<String> airlines = [
+  final List<String> air_lines = [
     'AMERICAN AIRLINES',
     'GOL',
     'IBERIA',
@@ -32,7 +32,7 @@ class SelectCompanhiaAereaState extends State<SelectCompanhiaAerea> {
 
   void savingAirCompanies(){
     List<String> savedCompanies = [];
-    for(String item in airlines){
+    for(String item in air_lines){
        if(selectedAirlines[item] == true){
          savedCompanies.add(item);
        }
@@ -50,7 +50,7 @@ class SelectCompanhiaAereaState extends State<SelectCompanhiaAerea> {
       Column(
         children:[
           Column(
-            children: airlines.map((item) {
+            children: air_lines.map((item) {
               return Row(
                 children: [
                   Checkbox(

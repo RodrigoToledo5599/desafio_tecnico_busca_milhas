@@ -8,11 +8,11 @@ import 'package:desafio_tecnico_busca_milhas/Models/AirPortModel.dart';
 
 class PesquisaAeroporto extends StatefulWidget{
   final TextEditingController? controller;
-  final LabelText;
+  final label_text;
   PesquisaAeroporto({
     Key? key,
     required this.controller,
-    required this.LabelText,
+    required this.label_text,
   }) : super(key: key);
   PesquisaAeroportoState createState() => PesquisaAeroportoState();
 }
@@ -52,7 +52,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                           controller: widget.controller,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
-                            labelText: widget.LabelText,
+                            labelText: widget.label_text,
                             fillColor: Color.fromRGBO(245, 247, 249, 1),
                             filled: true,
                             enabledBorder: OutlineInputBorder(

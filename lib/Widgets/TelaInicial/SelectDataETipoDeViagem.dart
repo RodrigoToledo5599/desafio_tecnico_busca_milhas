@@ -4,19 +4,19 @@ import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectData.dart
 
 
 class SelectDataETipoDeViagem extends StatefulWidget{
-  final TextEditingController DataControllerIda;
-  final TextEditingController HorarioControllerIda;
-  final TextEditingController DataControllerVolta;
-  final TextEditingController HorarioControllerVolta;
-  final TextEditingController TipoDeViagemController;
+  final TextEditingController data_controller_ida;
+  final TextEditingController horario_controller_ida;
+  final TextEditingController data_controller_volta;
+  final TextEditingController horario_controller_volta;
+  final TextEditingController tipo_de_viagem_controller;
 
   SelectDataETipoDeViagem({
     Key? key,
-    required this.TipoDeViagemController,
-    required this.DataControllerIda,
-    required this.HorarioControllerIda,
-    required this.DataControllerVolta,
-    required this.HorarioControllerVolta,
+    required this.tipo_de_viagem_controller,
+    required this.data_controller_ida,
+    required this.horario_controller_ida,
+    required this.data_controller_volta,
+    required this.horario_controller_volta,
   }) : super(key: key);
 
 
@@ -26,33 +26,33 @@ class SelectDataETipoDeViagem extends StatefulWidget{
 
 class SelectDataETipoDeViagemState extends State<SelectDataETipoDeViagem>{
   final List<String> values = <String>['Ida','IdaVolta'];
-  bool switchValue = true;
-  String IdaOuIdaVolta = "IdaVolta";
+  bool switch_value = true;
+  String ida_ou_ida_volta = "IdaVolta";
   String? msg = "Tipo de viagem";
 
 
   void TipoDeViagemChange(){
-    if(switchValue == true){
+    if(switch_value == true){
       setState(() {
-        this.IdaOuIdaVolta = "IdaVolta";
-        widget.TipoDeViagemController.text = this.IdaOuIdaVolta;
-        widget.DataControllerVolta.text = "";
-        widget.HorarioControllerVolta.text = "";
+        this.ida_ou_ida_volta = "IdaVolta";
+        widget.tipo_de_viagem_controller.text = this.ida_ou_ida_volta;
+        widget.data_controller_volta.text = "";
+        widget.horario_controller_volta.text = "";
       });
     }
-    if(switchValue == false){
+    if(switch_value == false){
       setState(() {
-        this.IdaOuIdaVolta = "Ida";
-        widget.TipoDeViagemController.text = this.IdaOuIdaVolta;
-        widget.DataControllerVolta.text = "";
-        widget.HorarioControllerVolta.text = "";
+        this.ida_ou_ida_volta = "Ida";
+        widget.tipo_de_viagem_controller.text = this.ida_ou_ida_volta;
+        widget.data_controller_volta.text = "";
+        widget.horario_controller_volta.text = "";
       });
     }
   }
 
   void initState() {
     super.initState();
-    widget.TipoDeViagemController.text = "IdaVolta";
+    widget.tipo_de_viagem_controller.text = "IdaVolta";
   }
 
   @override
@@ -82,17 +82,17 @@ class SelectDataETipoDeViagemState extends State<SelectDataETipoDeViagem>{
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children:[
                           Switch(
-                            value: this.switchValue,
+                            value: this.switch_value,
                             activeColor: Colors.blue,
                             onChanged: (bool value) {
                               setState(() {
-                                this.switchValue = value;
+                                this.switch_value = value;
                                 TipoDeViagemChange();
                               });
                             },
                           ),
                           Text(
-                            "${this.IdaOuIdaVolta}",
+                            "${this.ida_ou_ida_volta}",
                             style: TextStyle(
                                 color: Colors.blue,
                                 fontWeight: FontWeight.w600,
@@ -116,11 +116,11 @@ class SelectDataETipoDeViagemState extends State<SelectDataETipoDeViagem>{
                           ]
                       ),
                       SelectData(
-                        Datacontroller: widget.DataControllerIda,
-                        Horascontroller: widget.HorarioControllerIda,
+                        data_controller: widget.data_controller_ida,
+                        horas_controller: widget.horario_controller_ida,
                       ),
                       SizedBox(height: 20),
-                      if(this.IdaOuIdaVolta == "IdaVolta")
+                      if(this.ida_ou_ida_volta == "IdaVolta")
                         Column(
                           children:[
                             Row(
@@ -137,8 +137,8 @@ class SelectDataETipoDeViagemState extends State<SelectDataETipoDeViagem>{
                                 ]
                             ),
                             SelectData(
-                              Datacontroller: widget.DataControllerVolta,
-                              Horascontroller: widget.HorarioControllerVolta,
+                              data_controller: widget.data_controller_volta,
+                              horas_controller: widget.horario_controller_volta,
                             )
                           ]
                         )
