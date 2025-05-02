@@ -21,7 +21,7 @@ class ConexaoRow extends StatelessWidget{
       children:[
         Text(
           "${field_name}: ",
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.blue,
             fontWeight: FontWeight.w600,
             fontSize: 12,
@@ -29,7 +29,7 @@ class ConexaoRow extends StatelessWidget{
         ),
         Text(
           "${text}",
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.blue,
             fontWeight: FontWeight.w600,
             fontSize: 12,

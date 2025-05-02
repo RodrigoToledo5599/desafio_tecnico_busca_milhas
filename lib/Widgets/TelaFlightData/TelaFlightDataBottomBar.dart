@@ -28,14 +28,11 @@ class TelaFlightDataBottomBar extends StatelessWidget {
                   color: Colors.white,
                   size: 40,
                 )
-
             )
           ]
       ),
     );
   }
-
-
 }
 
 

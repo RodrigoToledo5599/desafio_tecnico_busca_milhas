@@ -3,15 +3,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
 
 
-class EstilizacaoDosCampos{
-  static getTextStyling(){
-    return const TextStyle(
-      color: Colors.blue,
-      fontWeight: FontWeight.w600,
-      fontSize: 12,
-    );
-  }
-}
+// class EstilizacaoDosCampos{
+//   static getTextStyling(){
+//     return const TextStyle(
+//       color: Colors.blue,
+//       fontWeight: FontWeight.w600,
+//       fontSize: 12,
+//     );
+//   }
+// }
 
 
 

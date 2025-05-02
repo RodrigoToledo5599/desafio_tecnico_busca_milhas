@@ -227,13 +227,8 @@ class TipoMilhas extends StatelessWidget{
                     const SizedBox(height: 10)
                   ],
                 )
-
-
             ]
         )
     );
-
   }
-
-
 }
