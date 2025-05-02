@@ -11,7 +11,7 @@ import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectNPassagei
 
 
 class TelaInicial extends StatefulWidget{
-  String warning_msg;
+  String warning_msg = "";
 
   TelaInicial({
     Key? key,
@@ -35,6 +35,13 @@ class TelaInicialState extends State<TelaInicial> {
 
   TravelOptionsViewModel tovm = TravelOptionsViewModel();
 
+  bool CheckingIfWarningMsgIsEmpty(){
+    bool result = widget.warning_msg != "";
+    print('oi o teu resultado ai: ${result}');
+    print(widget.warning_msg);
+    return result;
+  }
+
   // primeiro metodo a ser invocado após o botão de enviar ser pressionado.
   void ensuringTheNullsWontBeNulls(){
     if(n_passageiros_adultos_controller.text == ""){
@@ -54,6 +61,7 @@ class TelaInicialState extends State<TelaInicial> {
   }
 
   Future<bool> sendingScript() async {
+    this.widget.warning_msg = "";
     this.ensuringTheNullsWontBeNulls();
     TelaInicialService Services = TelaInicialService(
         aeroporto_origem: this.aeroporto_controller_origem.text,
@@ -129,41 +137,34 @@ class TelaInicialState extends State<TelaInicial> {
           width: MediaQuery.sizeOf(context).width * 1,
           height: MediaQuery.sizeOf(context).height * 1,
           child: SingleChildScrollView(
-            child:Column(
-                children:[
-                  SizedBox(height:20),
-                  SizedBox(height:20),
-                  Row(
-                    children:[
-                      SizedBox(width: MediaQuery.sizeOf(context).width * 0.1),
-                    ]
-                  ),
-                  SizedBox(height: 20),
-                  PesquisaAeroporto(controller: aeroporto_controller_origem, label_text: "Origem"),
-                  PesquisaAeroporto(controller: aeroporto_controller_destino, label_text: "Destino"),
-                  SizedBox(height:30),
-                  SelectDataETipoDeViagem(
-                      tipo_de_viagem_controller: tipo_de_viagem_controller,
-                      data_controller_ida: data_controller_ida,
-                      horario_controller_ida: horario_controller_ida,
-                      data_controller_volta: data_controller_volta,
-                      horario_controller_volta: horario_controller_volta
-                  ),
-                  
-                  SelectCompanhiaAerea(controller: companhia_aerea_controller),
-                  SelectNPassageiros(
-                    adultos_controller: n_passageiros_adultos_controller ,
-                    bebes_controller: n_passageiros_bebes_controller,
-                    criancas_controller: n_passageiros_criancas_controller,
-                  ),
-                  SizedBox(height:70),
-                  ElevatedButton(
+            child:
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 50, 0, 0,),
+              child: Column(
+                  children:[
+                    PesquisaAeroporto(controller: aeroporto_controller_origem, label_text: "Origem"),
+                    PesquisaAeroporto(controller: aeroporto_controller_destino, label_text: "Destino"),
+                    SelectDataETipoDeViagem(
+                        tipo_de_viagem_controller: tipo_de_viagem_controller,
+                        data_controller_ida: data_controller_ida,
+                        horario_controller_ida: horario_controller_ida,
+                        data_controller_volta: data_controller_volta,
+                        horario_controller_volta: horario_controller_volta
+                    ),
+                    SelectCompanhiaAerea(controller: companhia_aerea_controller),
+                    SelectNPassageiros(
+                      adultos_controller: n_passageiros_adultos_controller ,
+                      bebes_controller: n_passageiros_bebes_controller,
+                      criancas_controller: n_passageiros_criancas_controller,
+                    ),
+                    SizedBox(height:70),
+                    ElevatedButton(
                       onPressed:() async{
                         sendingScript();
                       },
                       child: Text(
-                          "Enviar",
-                          style: TextStyle(
+                        "Enviar",
+                        style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                             color: Colors.white
@@ -179,35 +180,59 @@ class TelaInicialState extends State<TelaInicial> {
                         ),
                         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12), // Padding
                       ),
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      SizedBox(width:MediaQuery.sizeOf(context).width * 0.1),
-                      Container(
-                        width:MediaQuery.sizeOf(context).width * 0.8,
-                        child: Text(
-                          "${widget.warning_msg}",
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 3,
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                          ),
-                        ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(
+                        MediaQuery.sizeOf(context).width * 0.1,
+                        20,
+                        MediaQuery.sizeOf(context).width * 0.1,
+                        50
                       ),
-                      SizedBox(width:MediaQuery.sizeOf(context).width * 0.1),
-                    ],
-                  ),
-                  SizedBox(height: 50),
-                ]
-            )
+                      child:
+                        this.CheckingIfWarningMsgIsEmpty()?
+                          Container(
+                            width: MediaQuery.sizeOf(context).width * 0.8,
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(220, 53, 69, 1),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child:
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                                  // padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  child:Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Flexible(
+                                          child:
+                                            Text(
+                                              "${widget.warning_msg} ",
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 3,
+                                              textAlign: TextAlign.center,
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                        )
+                                      ]
+                                  ),
+
+                                )
+
+                          )
+                        :
+                          Container(
+                          )
+                    )
+                  ]
+              ),
           ),
         )
       )
+    )
     );
   }
-
-
 }
