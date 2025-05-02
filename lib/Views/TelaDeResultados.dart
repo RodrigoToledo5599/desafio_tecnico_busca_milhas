@@ -98,7 +98,7 @@ class TelaDeResultadosState extends State<TelaDeResultados>{
                         );
                       }).toList(),
                     ),
-
+                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
                   ]
 
 

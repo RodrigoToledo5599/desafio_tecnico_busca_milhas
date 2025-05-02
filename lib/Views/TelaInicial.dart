@@ -1,13 +1,12 @@
+import 'package:flutter/material.dart';
+
 import 'package:desafio_tecnico_busca_milhas/Services/TelaInicialService.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectDataETipoDeViagem.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
-import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/PesquisaAeroporto.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectCompanhiaAerea.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectData.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectTipoDeViagem.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectNPassageiros.dart';
 
 
@@ -73,6 +72,18 @@ class TelaInicialState extends State<TelaInicial> {
     if(Services.checkIfAllRequiredFieldsAreFilled() == false){
       setState(() {
         widget.warningMsg = "Preencha todos os campos para continuar";
+      });
+      return false;
+    }
+    if(int.parse(this.NPassageirosAdultosController.text) < 1){
+      setState(() {
+        widget.warningMsg = "Deve ter pelo menos 1 adulto";
+      });
+      return false;
+    }
+    if(int.parse(this.NPassageirosBebesController.text) + int.parse(this.NPassageirosCriancasController.text) + int.parse(this.NPassageirosAdultosController.text) > 9){
+      setState(() {
+        widget.warningMsg = "Número máximo de 9 passageiros foi excedido";
       });
       return false;
     }

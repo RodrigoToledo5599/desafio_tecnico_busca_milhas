@@ -11,14 +11,15 @@ class Repository {
 
   Future<List<dynamic>> getAirports(String parameter) async {
     if(parameter.isEmpty){
-      HttpClientRequest request = await this.client.getUrl(Uri.parse(this.url + "/aeroportos"));
+      HttpClientRequest request = await this.client.getUrl(Uri.parse(this.url + "aeroportos"));
       HttpClientResponse response = await request.close();
       String responseBody = await response.transform(utf8.decoder).join();
+      print(responseBody);
       List<dynamic> result = jsonDecode(responseBody);
       return result;
     }
     else{
-      HttpClientRequest request = await this.client.getUrl(Uri.parse(this.url + "/aeroportos?q=${parameter}"));
+      HttpClientRequest request = await this.client.getUrl(Uri.parse(this.url + "aeroportos?q=${parameter}"));
       HttpClientResponse response = await request.close();
       String responseBody = await response.transform(utf8.decoder).join();
       List<dynamic> result = jsonDecode(responseBody);
@@ -51,7 +52,7 @@ class Repository {
   }
 
   Future<HttpClientResponse> queryTravelOptions(String code) async{
-    HttpClientRequest request = await this.client.getUrl(Uri.parse(this.url + "/busca/${code}"));
+    HttpClientRequest request = await this.client.getUrl(Uri.parse(this.url + "busca/${code}"));
     HttpClientResponse response = await request.close();
     return response;
   }
