@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
+import 'package:iconic/iconic.dart';
 
 
 
-class TelaFlightDataBottomBar extends StatelessWidget {
-  TelaFlightDataBottomBar({Key? key}) : super(key: key);
+class BottomBar<T extends Widget> extends StatelessWidget {
+  final T prev_page;
+  BottomBar({
+    Key? key,
+    required  this.prev_page
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context){
@@ -14,12 +19,12 @@ class TelaFlightDataBottomBar extends StatelessWidget {
       color: Colors.blue,
       child: Row(
           children:[
-           IconButton(
+            IconButton(
                 onPressed: () => {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => TelaDeResultados()
+                          builder: (context) => this.prev_page
                       )
                   )
                 },

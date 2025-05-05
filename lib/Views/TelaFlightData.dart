@@ -1,6 +1,7 @@
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/Conexoes.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/FlightPrice.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/TelaFlightDataBottomBar.dart';
+import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/BottomBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
@@ -51,7 +52,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: UpBar(),
-        bottomNavigationBar: TelaFlightDataBottomBar(),
+        bottomNavigationBar: BottomBar(prev_page:TelaDeResultados()),
         body: Container(
           width: MediaQuery.sizeOf(context).width * 1,
               child:SingleChildScrollView(
