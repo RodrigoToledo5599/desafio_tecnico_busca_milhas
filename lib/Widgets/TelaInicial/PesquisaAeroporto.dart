@@ -19,13 +19,18 @@ class PesquisaAeroporto extends StatefulWidget{
 
 class PesquisaAeroportoState extends State<PesquisaAeroporto>{
   final _formKey = GlobalKey<FormState>();
+  bool is_loading = false;
   AirPortViewModel airPortVM = new AirPortViewModel();
   List<AirPortModel> airPorts = [];
 
 
   void search(String airport) async {
+    setState(() {
+      is_loading = true;
+    });
     List<AirPortModel> temporary = await this.airPortVM.getAirports(airport);
     setState(() {
+      is_loading = false;
       this.airPorts = temporary;
     });
   }
@@ -123,7 +128,10 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                       // const SizedBox(height:20),
                       Container(
                         padding: const EdgeInsets.all(16.0),
-                        child: airPorts.isNotEmpty
+                        child: this.is_loading ?
+                        const Center(child: CircularProgressIndicator())
+                          :
+                        airPorts.isNotEmpty
                             ?
                         Container(
                           height: MediaQuery.sizeOf(context).height * 0.3,
