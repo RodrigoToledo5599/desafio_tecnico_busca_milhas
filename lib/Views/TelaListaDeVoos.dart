@@ -4,19 +4,19 @@ import 'package:desafio_tecnico_busca_milhas/Views/TelaInicial.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/TelaDeResultados/SingleFlightData.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/TelaListaDeVoos/SingleFlightData.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/BottomBar.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
 
 
 
-class TelaDeResultados extends StatefulWidget{
-  TelaDeResultados({Key? key}) : super(key: key);
-  TelaDeResultadosState createState() => TelaDeResultadosState();
+class TelaListaDeVoos extends StatefulWidget{
+  TelaListaDeVoos({Key? key}) : super(key: key);
+  TelaListaDeVoosState createState() => TelaListaDeVoosState();
 }
 
-class TelaDeResultadosState extends State<TelaDeResultados>{
+class TelaListaDeVoosState extends State<TelaListaDeVoos>{
 
   SessionData sd = new SessionData();
   bool is_loading = true;
@@ -58,9 +58,9 @@ class TelaDeResultadosState extends State<TelaDeResultados>{
             appBar: const UpBar(),
             bottomNavigationBar: BottomBar(prev_page: TelaInicial(warning_msg: "")),
             body:
-              Container(
+            Container(
                 child:
-                  Column(
+                Column(
                     children:[
                       const Padding(
                         padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
@@ -88,8 +88,8 @@ class TelaDeResultadosState extends State<TelaDeResultados>{
                       )
 
                     ]
-                  )
-              )
+                )
+            )
 
         )
     );

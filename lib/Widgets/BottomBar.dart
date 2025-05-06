@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
-import 'package:iconic/iconic.dart';
 
 
 

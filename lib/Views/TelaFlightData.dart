@@ -1,6 +1,6 @@
+import 'package:desafio_tecnico_busca_milhas/Views/TelaListaDeVoos.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/Conexoes.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/FlightPrice.dart';
-import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/BottomBar.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
 import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';
@@ -53,7 +53,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: UpBar(),
-        bottomNavigationBar: BottomBar(prev_page:TelaDeResultados()),
+        bottomNavigationBar: BottomBar(prev_page: TelaListaDeVoos()),
         body: Container(
           width: MediaQuery.sizeOf(context).width * 1,
               child:SingleChildScrollView(
