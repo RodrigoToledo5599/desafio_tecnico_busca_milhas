@@ -38,7 +38,7 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: Colors.blue
+                              color: Color.fromRGBO(0, 0, 128, 1)
                           ),
                       ),
                       Container(
@@ -67,7 +67,7 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: Colors.blue
+                              color: Color.fromRGBO(0, 0, 128, 1)
                           ),
                       ),
                       Container(
@@ -96,7 +96,7 @@ class SelectNPassageirosState extends State<SelectNPassageiros>{
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: Colors.blue
+                              color: Color.fromRGBO(0, 0, 128, 1)
                           ),
                       ),
                       Container(

@@ -171,7 +171,7 @@ class TelaInicialState extends State<TelaInicial> {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
+                        backgroundColor: Color.fromRGBO(0, 0, 128, 1),
                         foregroundColor: Colors.white,
                         elevation: 5,
                         shadowColor: Colors.black,

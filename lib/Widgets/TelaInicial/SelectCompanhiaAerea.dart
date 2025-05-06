@@ -73,7 +73,7 @@ class SelectCompanhiaAereaState extends State<SelectCompanhiaAerea> {
                   Text(
                     item,
                     style: const TextStyle(
-                        color: Colors.blue
+                        color: Color.fromRGBO(0, 0, 128, 1)
                     ),
                   ),
                 ],

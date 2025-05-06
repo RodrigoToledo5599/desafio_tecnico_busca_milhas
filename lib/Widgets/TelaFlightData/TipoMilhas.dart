@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 // class EstilizacaoDosCampos{
 //   static getTextStyling(){
 //     return const TextStyle(
-//       color: Colors.blue,
+//       color: Color.fromRGBO(0, 0, 128, 1),
 //       fontWeight: FontWeight.w600,
 //       fontSize: 12,
 //     );
@@ -46,7 +46,7 @@ class TipoMilhas extends StatelessWidget{
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: Colors.blue,
+                            color: Color.fromRGBO(0, 0, 128, 1),
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(0),
@@ -59,7 +59,7 @@ class TipoMilhas extends StatelessWidget{
                                     const Text(
                                       "Tipo:",
                                       style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -67,7 +67,7 @@ class TipoMilhas extends StatelessWidget{
                                     Text(
                                       "${item.TipoMilhas}",
                                       style: const TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       )
@@ -80,7 +80,7 @@ class TipoMilhas extends StatelessWidget{
                                     const Text(
                                       "Preço adulto: ",
                                       style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       )
@@ -88,7 +88,7 @@ class TipoMilhas extends StatelessWidget{
                                     Text(
                                       "${item.Adulto!.toStringAsFixed(2)}",
                                       style: const TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       )
@@ -101,7 +101,7 @@ class TipoMilhas extends StatelessWidget{
                                     const Text(
                                       "Preço criança:",
                                       style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       )
@@ -109,7 +109,7 @@ class TipoMilhas extends StatelessWidget{
                                     Text(
                                       "${item.Crianca!.toStringAsFixed(2)}",
                                       style: const TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -122,7 +122,7 @@ class TipoMilhas extends StatelessWidget{
                                     const Text(
                                       "Preço bebe:",
                                       style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -130,7 +130,7 @@ class TipoMilhas extends StatelessWidget{
                                     Text(
                                       "${item.Bebe!.toStringAsFixed(2)}",
                                       style: const TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -143,7 +143,7 @@ class TipoMilhas extends StatelessWidget{
                                     const Text(
                                       "Preço Taxa:",
                                       style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -151,7 +151,7 @@ class TipoMilhas extends StatelessWidget{
                                     Text(
                                       "${item.TaxaEmbarque!.toStringAsFixed(2)}",
                                       style: const TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -164,7 +164,7 @@ class TipoMilhas extends StatelessWidget{
                                     const Text(
                                       "Preço Total:",
                                       style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -172,7 +172,7 @@ class TipoMilhas extends StatelessWidget{
                                     Text(
                                       "${this.precoTotal(item.Adulto, item.Crianca, item.Bebe, item.TaxaEmbarque)!.toStringAsFixed(2)}",
                                       style: const TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -185,7 +185,7 @@ class TipoMilhas extends StatelessWidget{
                                     const Text(
                                       "Limite Bagagem Despachada:",
                                       style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -193,7 +193,7 @@ class TipoMilhas extends StatelessWidget{
                                     Text(
                                       "23kg: ${item.BagagemDespachada}",
                                       style: const TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -206,7 +206,7 @@ class TipoMilhas extends StatelessWidget{
                                     const Text(
                                       "Limite Bagagem Mão:",
                                       style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       ),
@@ -214,7 +214,7 @@ class TipoMilhas extends StatelessWidget{
                                     Text(
                                       "10kg: ${item.BagagemMao}",
                                       style: const TextStyle(
-                                        color: Colors.blue,
+                                        color: Color.fromRGBO(0, 0, 128, 1),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12,
                                       )

@@ -16,7 +16,7 @@ class BottomBar<T extends Widget> extends StatelessWidget {
   Widget build(BuildContext context){
     return Container(
       height: MediaQuery.sizeOf(context).height * 0.1,
-      color: Colors.blue,
+      color: Color.fromRGBO(0, 0, 128, 1),
       child: Row(
           children:[
             IconButton(

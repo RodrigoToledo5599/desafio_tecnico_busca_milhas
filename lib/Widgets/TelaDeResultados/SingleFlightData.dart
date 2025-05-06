@@ -36,7 +36,7 @@ class SingleFlightDataState extends State<SingleFlightData>{
         ),
         child: Container(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Color.fromRGBO(0, 0, 128, 1),
               borderRadius: BorderRadius.circular(8),
             ),
             width: MediaQuery.sizeOf(context).width * 0.8,

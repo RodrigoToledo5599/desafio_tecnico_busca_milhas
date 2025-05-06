@@ -67,7 +67,7 @@ class SelectDataETipoDeViagemState extends State<SelectDataETipoDeViagem>{
                     Text(
                       "Tipo De Viagem",
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Color.fromRGBO(0, 0, 128, 1),
                           fontWeight: FontWeight.w600,
                           fontSize: 15
                       ),
@@ -83,7 +83,7 @@ class SelectDataETipoDeViagemState extends State<SelectDataETipoDeViagem>{
                         children:[
                           Switch(
                             value: this.switch_value,
-                            activeColor: Colors.blue,
+                            activeColor: Color.fromRGBO(0, 0, 128, 1),
                             onChanged: (bool value) {
                               setState(() {
                                 this.switch_value = value;
@@ -94,7 +94,7 @@ class SelectDataETipoDeViagemState extends State<SelectDataETipoDeViagem>{
                           Text(
                             "${this.ida_ou_ida_volta}",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Color.fromRGBO(0, 0, 128, 1),
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16
                             ),
@@ -110,7 +110,7 @@ class SelectDataETipoDeViagemState extends State<SelectDataETipoDeViagem>{
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w600,
-                                  color: Colors.blue
+                                  color: Color.fromRGBO(0, 0, 128, 1)
                               ),
                             ),
                           ]
@@ -131,7 +131,7 @@ class SelectDataETipoDeViagemState extends State<SelectDataETipoDeViagem>{
                                     style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w600,
-                                        color: Colors.blue
+                                        color: Color.fromRGBO(0, 0, 128, 1)
                                     ),
                                   ),
                                 ]

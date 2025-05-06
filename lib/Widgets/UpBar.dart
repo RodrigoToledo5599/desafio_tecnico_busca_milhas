@@ -12,7 +12,7 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
     return AppBar(
       actions: [
         Container(
-          color: Colors.blue,
+          color: Color.fromRGBO(0, 0, 128, 1),
           width: MediaQuery.sizeOf(context).width * 1,
           child:
           Row(
@@ -37,10 +37,10 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
                         ),
                       ]
                   ),
-                  color:  Colors.blue,
+                  color:  Color.fromRGBO(0, 0, 128, 1),
                 ),
                 Container(
-                    color: Colors.blue,
+                    color: Color.fromRGBO(0, 0, 128, 1),
                     child:
                       Row(
                         children:[
@@ -57,7 +57,7 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
           ),
         ),
       ],
-      backgroundColor: Colors.blue,
+      backgroundColor: Color.fromRGBO(0, 0, 128, 1),
     );
   }
   @override

@@ -2,10 +2,10 @@ import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/Conexoes.dar
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/FlightPrice.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/BottomBar.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
 import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 
 
@@ -51,6 +51,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.white,
         appBar: UpBar(),
         bottomNavigationBar: BottomBar(prev_page:TelaDeResultados()),
         body: Container(
@@ -73,7 +74,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 Text(
                                   "Número do Voo:   ${widget.Flight!.NumeroVoo}",
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                   ),
@@ -94,7 +95,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 Text(
                                   "Duração:  ${widget.Flight!.Duracao}",
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                   ),
@@ -115,7 +116,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 Text(
                                   "Companhia:   ",
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                   ),
@@ -123,7 +124,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 Text(
                                   "${widget.Flight!.Companhia}",
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                   ),
@@ -144,7 +145,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 Text(
                                   "Número de Conexões:  ",
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                   ),
@@ -152,7 +153,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 Text(
                                   "${widget.Flight!.NumeroConexoes}",
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                   ),
@@ -173,7 +174,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 Text(
                                   "Embarque:  ",
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                   ),
@@ -181,7 +182,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 Text(
                                   "${widget.Flight!.Embarque}",
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                   ),
@@ -202,7 +203,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 Text(
                                   "Desembarque:   ",
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                   ),
@@ -210,7 +211,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 Text(
                                   "${widget.Flight!.Desembarque}",
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                   ),

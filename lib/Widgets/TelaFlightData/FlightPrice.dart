@@ -72,7 +72,7 @@ class FlightPriceState extends State<FlightPrice>{
               child: Text(
                   "${button_text}",
                   style: const TextStyle(
-                    color: Colors.blue,
+                    color: Color.fromRGBO(0, 0, 128, 1),
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
                   ),
@@ -88,7 +88,7 @@ class FlightPriceState extends State<FlightPrice>{
                     children: [
                       Switch(
                         value: tipo_milhas_ou_valor,
-                        activeColor: Colors.blue,
+                        activeColor: Color.fromRGBO(0, 0, 128, 1),
                         onChanged: (bool value) {
                           setState(() {
                             tipo_milhas_ou_valor = !tipo_milhas_ou_valor;
@@ -106,7 +106,7 @@ class FlightPriceState extends State<FlightPrice>{
                               const Text(
                                 "Valor",
                                 style: const TextStyle(
-                                  color: Colors.blue,
+                                  color: Color.fromRGBO(0, 0, 128, 1),
                                   fontWeight: FontWeight.w600,
                                   fontSize: 20,
                                 ),
@@ -125,7 +125,7 @@ class FlightPriceState extends State<FlightPrice>{
                               const Text(
                                 "Milhas",
                                 style: const TextStyle(
-                                  color: Colors.blue,
+                                  color: Color.fromRGBO(0, 0, 128, 1),
                                   fontWeight: FontWeight.w600,
                                   fontSize: 20,
                                 ),

@@ -88,7 +88,7 @@ class SelectDataState extends State<SelectData>{
                 //             color: Colors.white,
                 //             border: Border.all(
                 //               width: 2,
-                //               color: Colors.blue,
+                //               color: Color.fromRGBO(0, 0, 128, 1),
                 //               style: BorderStyle.solid,
                 //             ),
                 //           ),
@@ -99,7 +99,7 @@ class SelectDataState extends State<SelectData>{
                 //               style: TextStyle(
                 //                 fontSize: 25,
                 //                 fontWeight: FontWeight.w900,
-                //                 color: Colors.blue
+                //                 color: Color.fromRGBO(0, 0, 128, 1)
                 //               ),
                 //             ),
                 //           )
@@ -118,7 +118,7 @@ class SelectDataState extends State<SelectData>{
                 //           },
                 //           icon: Icon(
                 //               Icons.alarm,
-                //               color: Colors.blue,
+                //               color: Color.fromRGBO(0, 0, 128, 1),
                 //               size: 40,
                 //           )
                 //       )

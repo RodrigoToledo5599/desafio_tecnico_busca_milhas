@@ -78,7 +78,7 @@ class TelaDeResultadosState extends State<TelaDeResultados>{
                     const Text(
                       "Voos encontrados",
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Color.fromRGBO(0, 0, 128, 1),
                           fontWeight: FontWeight.w600,
                           fontSize: 20
                       ),

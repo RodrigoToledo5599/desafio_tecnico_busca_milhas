@@ -88,7 +88,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                               ),
                               child: const Icon(
                                 Icons.search,
-                                color: Colors.blue,
+                                color: Color.fromRGBO(0, 0, 128, 1),
                                 size: 25,
                               ),
                             ),
@@ -115,7 +115,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                               ),
                               child: const Icon(
                                 Icons.close,
-                                color: Colors.blue,
+                                color: Color.fromRGBO(0, 0, 128, 1),
                                 size: 25,
                               ),
                             ),
@@ -149,7 +149,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                                   maxLines: 2,
                                   softWrap: false,
                                   style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w500,
                                     fontSize: 12,
                                   ),

@@ -22,7 +22,7 @@ class ConexaoRow extends StatelessWidget{
         Text(
           "${field_name}: ",
           style: const TextStyle(
-            color: Colors.blue,
+            color: Color.fromRGBO(0, 0, 128, 1),
             fontWeight: FontWeight.w600,
             fontSize: 12,
           ),
@@ -30,7 +30,7 @@ class ConexaoRow extends StatelessWidget{
         Text(
           "${text}",
           style: const TextStyle(
-            color: Colors.blue,
+            color: Color.fromRGBO(0, 0, 128, 1),
             fontWeight: FontWeight.w600,
             fontSize: 12,
           ),
@@ -68,7 +68,7 @@ class ConexoesState extends State<Conexoes>{
               const Text(
                 "Conexões",
                 style: const TextStyle(
-                  color: Colors.blue,
+                  color: Color.fromRGBO(0, 0, 128, 1),
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
                 ),
@@ -82,7 +82,7 @@ class ConexoesState extends State<Conexoes>{
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.blue,
+                        color: Color.fromRGBO(0, 0, 128, 1),
                         width: 2.0,
                       ),
                       borderRadius: BorderRadius.circular(0),
