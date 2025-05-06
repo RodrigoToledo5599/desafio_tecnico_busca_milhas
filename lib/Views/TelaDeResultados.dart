@@ -19,6 +19,7 @@ class TelaDeResultados extends StatefulWidget{
 class TelaDeResultadosState extends State<TelaDeResultados>{
 
   SessionData sd = new SessionData();
+  bool is_loading = true;
   TravelOptionsViewModel tovm = new TravelOptionsViewModel();
 
   String? codigo;

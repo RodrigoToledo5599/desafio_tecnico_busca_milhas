@@ -21,20 +21,18 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
                 Container(
                   child: Row(
                       children:[
-                        SizedBox(width: MediaQuery.sizeOf(context).width * 0.075),
-                        const Icon(
-                          Icons.account_circle,
-                          size: 40,
-                          color: Colors.white,
-                        ),
-                        const Text(
-                          " Account",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(MediaQuery.sizeOf(context).width * 0.075, 0, 0, 0),
+                          child:
+                            const Text(
+                            " Account",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 24
+                            ),
                           ),
-                        ),
+                        )
                       ]
                   ),
                   color:  Color.fromRGBO(0, 0, 128, 1),

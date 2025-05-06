@@ -63,17 +63,21 @@ class ConexoesState extends State<Conexoes>{
       width: MediaQuery.sizeOf(context).width * 0.8,
       child:Column(
         children:[
-          Row(
-            children:[
-              const Text(
-                "Conexões",
-                style: const TextStyle(
-                  color: Color.fromRGBO(0, 0, 128, 1),
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                ),
-              ),
-            ]
+          Padding(
+            padding: EdgeInsets.fromLTRB(0,20,0,20),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  const Text(
+                    "CONEXÕES",
+                    style: const TextStyle(
+                      color: Color.fromRGBO(0, 0, 128, 1),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24,
+                    ),
+                  ),
+                ]
+            ),
           ),
           for(var item in widget.conexoes)
             Column(
