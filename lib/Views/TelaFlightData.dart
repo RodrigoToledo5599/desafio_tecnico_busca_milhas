@@ -59,20 +59,28 @@ class TelaFlightDataState extends State<TelaFlightData>{
               child:SingleChildScrollView(
                 child: Padding(
                     padding: EdgeInsets.fromLTRB(
-                      MediaQuery.sizeOf(context).width * 0.1,  // Left
-                      30,  // Top
-                      MediaQuery.sizeOf(context).width * 0.1,  // Right
-                      14, // Bottom
+                      MediaQuery.sizeOf(context).width * 0.1,
+                      30,
+                      MediaQuery.sizeOf(context).width * 0.1,
+                      14,
                     ),
                     child: Column(
                       children:[
                         Padding(
                           child:
                           Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
-                                  "Número do Voo:   ${widget.Flight!.NumeroVoo}",
+                                  "Número do Voo:",
+                                  style: const TextStyle(
+                                    color: Color.fromRGBO(0, 0, 128, 1),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  "${widget.Flight!.NumeroVoo}",
                                   style: const TextStyle(
                                     color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
@@ -81,19 +89,22 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 ),
                               ]
                           ),
-                          padding: const EdgeInsets.fromLTRB(
-                            0,  // Left
-                            0,  // Top
-                            0,  // Right
-                            14, // Bottom
-                          ),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 14),
                         ),
                         Padding(
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
-                                  "Duração:  ${widget.Flight!.Duracao}",
+                                  "Duração:  ",
+                                  style: const TextStyle(
+                                    color: Color.fromRGBO(0, 0, 128, 1),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  "${widget.Flight!.Duracao}",
                                   style: const TextStyle(
                                     color: Color.fromRGBO(0, 0, 128, 1),
                                     fontWeight: FontWeight.w600,
@@ -102,16 +113,11 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 ),
                               ]
                           ),
-                          padding: EdgeInsets.fromLTRB(
-                            0,  // Left
-                            0,  // Top
-                            0,  // Right
-                            14, // Bottom
-                          ),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 14),
                         ),
                         Padding(
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
                                   "Companhia:   ",
@@ -131,16 +137,11 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 ),
                               ]
                           ),
-                          padding: const EdgeInsets.fromLTRB(
-                            0,  // Left
-                            0,  // Top
-                            0,  // Right
-                            14, // Bottom
-                          ),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 14),
                         ),
                         Padding(
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
                                   "Número de Conexões:  ",
@@ -160,16 +161,11 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 ),
                               ]
                           ),
-                          padding: const EdgeInsets.fromLTRB(
-                            0,  // Left
-                            0,  // Top
-                            0,  // Right
-                            14, // Bottom
-                          ),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 14),
                         ),
                         Padding(
                           child:Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
                                   "Embarque:  ",
@@ -189,16 +185,11 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 ),
                               ]
                           ),
-                          padding: const EdgeInsets.fromLTRB(
-                            0,  // Left
-                            0,  // Top
-                            0,  // Right
-                            14, // Bottom
-                          ),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 14),
                         ),
                         Padding(
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children:[
                                 Text(
                                   "Desembarque:   ",
@@ -218,21 +209,16 @@ class TelaFlightDataState extends State<TelaFlightData>{
                                 ),
                               ]
                           ),
-                          padding: const EdgeInsets.fromLTRB(
-                            0,  // Left
-                            0,  // Top
-                            0,  // Right
-                            14, // Bottom
-                          ),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 14),
                         ),
                         Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children:[
                               Conexoes(conexoes: widget.Flight!.Conexoes!),
                             ]
                         ),
                         Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children:[
                               FlightPrice(
                                   valor: widget.Flight!.Valor,

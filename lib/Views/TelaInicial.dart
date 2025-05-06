@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Services/TelaInicialService.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaDeResultados.dart';
+
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/SelectDataETipoDeViagem.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/TelaInicial/PesquisaAeroporto.dart';

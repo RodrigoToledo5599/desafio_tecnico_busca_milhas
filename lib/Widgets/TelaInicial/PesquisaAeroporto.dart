@@ -156,17 +156,20 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                                   children:[
                                     Container(
                                       child:
-                                        Text(
-                                          "${airport.Nome} - ${airport.Iata}\n",
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 2,
-                                          softWrap: false,
-                                          style: const TextStyle(
-                                            color: Color.fromRGBO(0, 0, 128, 1),
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
+                                          Flexible(
+                                            child:
+                                              Text(
+                                                "${airport.Nome} - ${airport.Iata}\n",
+                                                overflow: TextOverflow.ellipsis,
+                                                maxLines: 2,
+                                                softWrap: false,
+                                                style: const TextStyle(
+                                                  color: Color.fromRGBO(0, 0, 128, 1),
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 12,
+                                                ),
+                                              ),
                                           ),
-                                        ),
                                     ),
                                   ]
                                 )

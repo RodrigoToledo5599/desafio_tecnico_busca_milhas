@@ -20,6 +20,7 @@ class TelaDeResultadosState extends State<TelaDeResultados>{
 
   SessionData sd = new SessionData();
   TravelOptionsViewModel tovm = new TravelOptionsViewModel();
+
   String? codigo;
   List<FlightModel> flights_available = [];
 
@@ -51,59 +52,45 @@ class TelaDeResultadosState extends State<TelaDeResultados>{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:Scaffold(
-        appBar: const UpBar(),
-        bottomNavigationBar: BottomBar(prev_page: TelaInicial(warning_msg: "")),
-        body: FutureBuilder<List<FlightModel>?>(
-          future: Future.value(this.flights_available),
-          builder: (context, snapshot){
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator()); // Show loading spinner
-            }
-            if (snapshot.hasError) {
-              return const Center(child: Text("Error loading tasks"));
-            }
-            if (!snapshot.hasData || snapshot.data!.isEmpty) {
-              return const Center(child: Text("No flights available"));
-            }
-            List<FlightModel> flights = snapshot.data!;
-            return SingleChildScrollView(
-              child: Container(
-                color: const Color.fromRGBO(255, 255, 255,1),
-                width: MediaQuery.sizeOf(context).width * 1,
-                child: Column(
-                  children:[
-                    const SizedBox(height:20),
-                    const Text(
-                      "Voos encontrados",
-                      style: TextStyle(
-                          color: Color.fromRGBO(0, 0, 128, 1),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20
+        debugShowCheckedModeBanner: false,
+        home:Scaffold(
+            appBar: const UpBar(),
+            bottomNavigationBar: BottomBar(prev_page: TelaInicial(warning_msg: "")),
+            body:
+              Container(
+                child:
+                  Column(
+                    children:[
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        child:
+                        Text(
+                          "Voos encontrados",
+                          style: TextStyle(
+                              color: Color.fromRGBO(0, 0, 128, 1),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20
+                          ),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height:20),
-                    Column(
-                      children:
-                      flights.map((flight) {
-                        return Container(
-                          child: Column(
-                            children:[
-                              const SizedBox(height: 10),
-                              SingleFlightData(Flight: flight),
-                            ]
-                          )
-                        );
-                      }).toList(),
-                    ),
-                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
-                  ]
-                )
-              ),
-            );
-          }),
+                      Expanded(
+                        child:ListView.builder(
+                            itemCount: flights_available.length,
+                            itemBuilder: (context, index){
+                              final flight = flights_available[index];
+                              return Padding(
+                                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                  child: SingleFlightData(Flight: flight)
+                              );
+                            }
+                        ),
+                      )
+
+                    ]
+                  )
+              )
+
         )
-      );
+    );
   }
 }
