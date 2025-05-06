@@ -1,4 +1,3 @@
-import 'package:desafio_tecnico_busca_milhas/Widgets/CheckBoxStyle.dart';
 import 'package:flutter/material.dart';
 
 class SelectCompanhiaAerea extends StatefulWidget {
@@ -54,8 +53,9 @@ class SelectCompanhiaAereaState extends State<SelectCompanhiaAerea> {
               return Row(
                 children: [
                   Checkbox(
+                    activeColor: Color.fromRGBO(0, 0, 128, 1),
                     side: BorderSide(
-                      color: CheckBoxStyle.getBorderSideColor(),
+                      color: Color.fromRGBO(0, 0, 128, 1),
                       width: 2.0,
                     ),
                     checkColor: Colors.white,

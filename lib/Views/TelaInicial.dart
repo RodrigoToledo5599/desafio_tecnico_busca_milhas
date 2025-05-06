@@ -37,8 +37,6 @@ class TelaInicialState extends State<TelaInicial> {
 
   bool CheckingIfWarningMsgIsEmpty(){
     bool result = widget.warning_msg != "";
-    print('oi o teu resultado ai: ${result}');
-    print(widget.warning_msg);
     return result;
   }
 

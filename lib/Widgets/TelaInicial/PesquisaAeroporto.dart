@@ -103,7 +103,6 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                                 backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
                                 side: BorderSide.none,
                                 shadowColor: Colors.transparent,
-                                // foregroundColor: Color.fromRGBO(0, 127, 255, 1),
                                 padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                                 textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                                 shape: const RoundedRectangleBorder(
@@ -121,11 +120,12 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                             ),
                           ]
                       ),
-                      const SizedBox(height:20),
+                      // const SizedBox(height:20),
                       Container(
+                        padding: const EdgeInsets.all(16.0),
                         child: airPorts.isNotEmpty
                             ?
-                        SizedBox(
+                        Container(
                           height: MediaQuery.sizeOf(context).height * 0.3,
                           child: ListView.builder(
                             itemCount: airPorts.length,
@@ -143,17 +143,25 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                                   shadowColor: Colors.transparent,
                                   overlayColor: Colors.transparent,
                                 ),
-                                child: Text(
-                                  "${airport.Nome} - ${airport.Iata}\n",
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                  softWrap: false,
-                                  style: const TextStyle(
-                                    color: Color.fromRGBO(0, 0, 128, 1),
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12,
-                                  ),
-                                ),
+                                child:
+                                Row(
+                                  children:[
+                                    Container(
+                                      child:
+                                        Text(
+                                          "${airport.Nome} - ${airport.Iata}\n",
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                          softWrap: false,
+                                          style: const TextStyle(
+                                            color: Color.fromRGBO(0, 0, 128, 1),
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                    ),
+                                  ]
+                                )
                               );
                             },
                           ),
