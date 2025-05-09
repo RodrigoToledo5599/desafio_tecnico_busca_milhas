@@ -1,10 +1,10 @@
 import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.dart';
-import 'package:desafio_tecnico_busca_milhas/Views/TelaInicial.dart';
+import 'package:desafio_tecnico_busca_milhas/Views/TelaOpcoesDeVoos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/TelaListaDeVoos/SingleFlightData.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaListaDeVoos/SingleFlightData.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/BottomBar.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
@@ -56,7 +56,7 @@ class TelaListaDeVoosState extends State<TelaListaDeVoos>{
         debugShowCheckedModeBanner: false,
         home:Scaffold(
             appBar: const UpBar(),
-            bottomNavigationBar: BottomBar(prev_page: TelaInicial(warning_msg: "")),
+            bottomNavigationBar: BottomBar(prev_page: TelaOpcoesDeVoos(warning_msg: "")),
             body:
             Container(
                 child:
@@ -86,11 +86,9 @@ class TelaListaDeVoosState extends State<TelaListaDeVoos>{
                             }
                         ),
                       )
-
                     ]
                 )
             )
-
         )
     );
   }

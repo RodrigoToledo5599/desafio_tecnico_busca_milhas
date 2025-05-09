@@ -1,6 +1,6 @@
 import 'package:desafio_tecnico_busca_milhas/Views/TelaListaDeVoos.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/Conexoes.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/TelaFlightData/FlightPrice.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaFlightData/FlightPrice.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaFlightData/Conexoes.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/BottomBar.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
 import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';

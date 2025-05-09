@@ -3,7 +3,7 @@ import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
 
 
-class TelaInicialService{
+class TelaOpcoesDeVoosService{
   String? aeroporto_origem;
   String? aeroporto_destino;
   String? data_ida;
@@ -18,7 +18,7 @@ class TelaInicialService{
 
   SessionData sd = SessionData();
 
-  TelaInicialService({
+  TelaOpcoesDeVoosService({
     this.aeroporto_origem,
     this.aeroporto_destino,
     this.data_ida,
