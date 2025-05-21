@@ -1,4 +1,3 @@
-// import 'package:desafio_tecnico_busca_milhas/Views/TelaInicial.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/User/TelaCriarUsuario.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/User/TelaLogin.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';

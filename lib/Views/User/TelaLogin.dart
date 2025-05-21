@@ -82,7 +82,7 @@ class TelaLoginState extends State<TelaLogin>{
                               controller: widget.LoginEmailController,
                               controller_name: "Email",
                               obscure_text: false,
-                              keyboard_type: false,
+                              keyboard_type: true,
                             ),
                             InputLogin(
                               controller: widget.LoginPasswordController,

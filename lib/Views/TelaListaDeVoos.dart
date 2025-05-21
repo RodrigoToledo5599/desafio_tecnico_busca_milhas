@@ -62,7 +62,7 @@ class TelaListaDeVoosState extends State<TelaListaDeVoos>{
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home:Scaffold(
-            appBar: UpBar(name: this.name),
+            appBar: UpBar(sd: this.widget.sd, name: this.name),
             bottomNavigationBar: BottomBar(prev_page: TelaOpcoesDeVoos(sd:widget.sd, warning_msg: "")),
             body:
             Container(

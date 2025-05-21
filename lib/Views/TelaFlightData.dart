@@ -65,7 +65,7 @@ class TelaFlightDataState extends State<TelaFlightData>{
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        appBar: UpBar(name: this.name),
+        appBar: UpBar(sd: this.widget.sd, name: this.name),
         bottomNavigationBar: BottomBar(prev_page: TelaListaDeVoos(sd: this.widget.sd)),
         body: Container(
           width: MediaQuery.sizeOf(context).width * 1,

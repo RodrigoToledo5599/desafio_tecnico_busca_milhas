@@ -137,7 +137,7 @@ class TelaOpcoesDeVoosState extends State<TelaOpcoesDeVoos> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home:Scaffold(
-            appBar:UpBar(name: this.name),
+            appBar:UpBar(sd: this.widget.sd, name: this.name),
             body:Container(
                 color: Color.fromRGBO(255, 255, 255,1),
                 width: MediaQuery.sizeOf(context).width * 1,
