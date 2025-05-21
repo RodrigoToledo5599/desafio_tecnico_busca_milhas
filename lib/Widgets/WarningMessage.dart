@@ -20,9 +20,9 @@ class WarningMessageState extends State<WarningMessage>{
 
   @override
   Widget build(BuildContext context){
-    // if (widget.msg == null || widget.msg!.isEmpty) {
-    //   return SizedBox.shrink();
-    // }
+    if (widget.msg == null || widget.msg!.isEmpty) {
+      return SizedBox.shrink();
+    }
 
     return Container(
       child: Column(

@@ -22,22 +22,8 @@ class TelaLogin extends StatefulWidget {
 
 class TelaLoginState extends State<TelaLogin>{
 
-  // bool CheckingIfWarningMsgIsEmpty(){
-  //   if(widget.msg == ""){
-  //     return true;
-  //   }
-  //   return false;
-  // }
+  Future<bool> ValidationScript() async {
 
-  bool CheckingIfWarningMsgIsEmpty(){
-    bool result = widget.msg != "";
-    return result;
-  }
-
-  Future<bool> SendingScript() async {
-    if (this.CheckingIfWarningMsgIsEmpty() == false){
-
-    }
     if(widget.LoginEmailController.text == "" || widget.LoginPasswordController.text == "" ){
       setState(() {
         this.widget.msg = "Preencha todos os campos";
@@ -121,19 +107,17 @@ class TelaLoginState extends State<TelaLogin>{
                       size:40
                   ),
                   onPressed: () async {
-                    SendingScript();
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => TelaOpcoesDeVoos(warning_msg: "")
-                    //     )
-                    // );
+                    if(ValidationScript() == true){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TelaOpcoesDeVoos(warning_msg: "")
+                          )
+                      );
+                    }
                   },
                 ),
-                // WarningMessage(msg: widget.msg),
-                this.CheckingIfWarningMsgIsEmpty() ?
-                WarningMessage(msg: widget.msg) : Container()
-                // WarningMessage(msg: widget.msg)
+                WarningMessage(msg: widget.msg)
               ]
           ),
           width: double.infinity,
