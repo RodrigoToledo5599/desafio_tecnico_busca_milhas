@@ -33,11 +33,12 @@ class SingleFlightDataState extends State<SingleFlightData>{
           )
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
+          backgroundColor: Color.fromRGBO(255, 255, 255, 0),
           shadowColor: Colors.transparent,
           overlayColor:Colors.transparent,
         ),
-        child: Container(
+        child:
+          Container(
             decoration: BoxDecoration(
               color: Color.fromRGBO(0, 0, 128, 1),
               borderRadius: BorderRadius.circular(8),
@@ -99,7 +100,7 @@ class SingleFlightDataState extends State<SingleFlightData>{
                   ),
                 ]
             )
-        ),
+          ),
       );
   }
 }

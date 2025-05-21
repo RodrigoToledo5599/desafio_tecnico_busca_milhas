@@ -1,3 +1,5 @@
+import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaCriarUsuario/CriarUsuarioAppBar.dart';
+import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaLogin/LoginAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,26 +7,36 @@ import 'package:desafio_tecnico_busca_milhas/Widgets/InputLogin.dart';
 
 
 
-class TelaCriarUsuario extends StatelessWidget{
+class TelaCriarUsuario extends StatefulWidget {
   final _formKey = GlobalKey<FormState>();
+  SessionData sd;
 
   TextEditingController LoginUserNameController = TextEditingController();
   TextEditingController LoginEmailController = TextEditingController();
   TextEditingController LoginPasswordController = TextEditingController();
 
 
-  bool SendingScript(){
+  bool SendingScript() {
     print(LoginEmailController.text);
     print(LoginPasswordController.text);
     return true;
   }
 
+  TelaCriarUsuario({
+    required this.sd,
+    Key? key,
+  }) : super(key: key);
+
+  TelaCriarUsuarioState createState() => TelaCriarUsuarioState();
+}
+
+class TelaCriarUsuarioState extends State<TelaCriarUsuario>{
   @override Widget build(BuildContext context){
     return
       MaterialApp(
           debugShowCheckedModeBanner: false,
           home: Scaffold(
-              appBar: LoginAppBar(),
+              appBar: CriarusUsuarioAppBar(sd: this.widget.sd),
               body: Container(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -49,19 +61,19 @@ class TelaCriarUsuario extends StatelessWidget{
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children:[
                                     InputLogin(
-                                      controller: LoginEmailController,
+                                      controller: widget.LoginEmailController,
                                       controller_name: "Email",
                                       obscure_text: false,
                                       keyboard_type: false,
                                     ),
                                     InputLogin(
-                                      controller: LoginUserNameController,
+                                      controller: widget.LoginUserNameController,
                                       controller_name: "UserName",
                                       obscure_text: false,
                                       keyboard_type: false,
                                     ),
                                     InputLogin(
-                                      controller: LoginPasswordController,
+                                      controller: widget.LoginPasswordController,
                                       controller_name: "Password",
                                       obscure_text: true,
                                       keyboard_type: true,
@@ -88,7 +100,7 @@ class TelaCriarUsuario extends StatelessWidget{
                             size:40
                         ),
                         onPressed: () async {
-                          SendingScript();
+                          widget.SendingScript();
                           // Navigator.push(
                           //     context,
                           //     MaterialPageRoute(
@@ -101,7 +113,6 @@ class TelaCriarUsuario extends StatelessWidget{
                 ),
                 width: double.infinity,
                 height: double.infinity,
-                // color: Color.fromRGBO(0, 0, 128, 1),
                 color:Colors.white,
               )
           )

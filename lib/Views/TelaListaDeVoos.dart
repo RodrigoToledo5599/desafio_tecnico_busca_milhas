@@ -66,6 +66,7 @@ class TelaListaDeVoosState extends State<TelaListaDeVoos>{
             bottomNavigationBar: BottomBar(prev_page: TelaOpcoesDeVoos(sd:widget.sd, warning_msg: "")),
             body:
             Container(
+
                 child:
                 Column(
                     children:[

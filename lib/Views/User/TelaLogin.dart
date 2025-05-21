@@ -1,5 +1,6 @@
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaOpcoesDeVoos.dart';
+import 'package:desafio_tecnico_busca_milhas/Views/User/TelaCriarUsuario.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WarningMessage.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaLogin/LoginAppBar.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/UserViewModel.dart';
@@ -109,7 +110,7 @@ class TelaLoginState extends State<TelaLogin>{
                   ),
                   icon: const Icon(
                       Icons.login,
-                      size:40
+                      size: 40
                   ),
                   onPressed: () async {
                     bool isValid = await this.ValidationScript();
@@ -122,6 +123,40 @@ class TelaLoginState extends State<TelaLogin>{
                       );
                     }
                   },
+                ),
+                ElevatedButton(
+                    onPressed: () async {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TelaCriarUsuario(sd: this.widget.sd)
+                          )
+                      );
+                    },
+                    child: Container(
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(0, 0, 128, 1),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          width: MediaQuery.sizeOf(context).width * 0.8,
+                          padding: const EdgeInsets.all(12.0),
+                          child: Column(
+                              children:[
+                                Text(
+                                  "Criar Conta",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ]
+                          )
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        shadowColor: Colors.transparent,
+                        overlayColor:Colors.transparent,
+                        backgroundColor: Color.fromRGBO(255, 255, 255, 0),
+
+                      ),
                 ),
                 WarningMessage(msg: widget.msg)
               ]
