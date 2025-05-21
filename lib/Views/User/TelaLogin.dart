@@ -22,18 +22,25 @@ class TelaLogin extends StatefulWidget {
 
 class TelaLoginState extends State<TelaLogin>{
 
+  // bool CheckingIfWarningMsgIsEmpty(){
+  //   if(widget.msg == ""){
+  //     return true;
+  //   }
+  //   return false;
+  // }
+
   bool CheckingIfWarningMsgIsEmpty(){
-    if(widget.msg == ""){
-      return true;
-    }
-    return false;
+    bool result = widget.msg != "";
+    return result;
   }
 
   Future<bool> SendingScript() async {
-    this.CheckingIfWarningMsgIsEmpty();
+    if (this.CheckingIfWarningMsgIsEmpty() == false){
+
+    }
     if(widget.LoginEmailController.text == "" || widget.LoginPasswordController.text == "" ){
       setState(() {
-        this.widget.msg == "Preencha todos os campos";
+        this.widget.msg = "Preencha todos os campos";
       });
       return false;
     }
@@ -41,7 +48,7 @@ class TelaLoginState extends State<TelaLogin>{
     String token = await widget.sd.getAuthToken();
     if(token == ""){
       setState(() {
-        this.widget.msg == "Credenciais erradas";
+        this.widget.msg = "Credenciais erradas";
       });
       return false;
     }
@@ -123,8 +130,9 @@ class TelaLoginState extends State<TelaLogin>{
                     // );
                   },
                 ),
+                // WarningMessage(msg: widget.msg),
                 this.CheckingIfWarningMsgIsEmpty() ?
-                  Container() : Text("${widget.msg}")
+                WarningMessage(msg: widget.msg) : Container()
                 // WarningMessage(msg: widget.msg)
               ]
           ),

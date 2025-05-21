@@ -8,7 +8,7 @@ class WarningMessage extends StatefulWidget{
   String? msg;
 
   WarningMessage({
-    String? msg,
+    required this.msg,
     Key? key
   }): super(key : key);
 
@@ -20,6 +20,10 @@ class WarningMessageState extends State<WarningMessage>{
 
   @override
   Widget build(BuildContext context){
+    // if (widget.msg == null || widget.msg!.isEmpty) {
+    //   return SizedBox.shrink();
+    // }
+
     return Container(
       child: Column(
         children:[
@@ -39,7 +43,7 @@ class WarningMessageState extends State<WarningMessage>{
                         Flexible(
                           child:
                           Text(
-                            "${widget.msg} ",
+                            "${this.widget.msg} ",
                             overflow: TextOverflow.ellipsis,
                             maxLines: 3,
                             textAlign: TextAlign.center,
