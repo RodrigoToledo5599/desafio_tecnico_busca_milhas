@@ -1,16 +1,19 @@
 // import 'package:desafio_tecnico_busca_milhas/Views/TelaInicial.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/User/TelaCriarUsuario.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/User/TelaLogin.dart';
+import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaOpcoesDeVoos.dart';
 import 'package:flutter/material.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  SessionData sd = new SessionData();
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +24,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      // home: TelaOpcoesDeVoos(warning_msg: "")
-      // home: TelaCriarUsuario()
-      home: TelaLogin()
+      // home: TelaOpcoesDeVoos(sd: this.sd ,warning_msg: "")
+      // home: TelaCriarUsuario(sd: this.sd)
+      home: TelaLogin(sd: this.sd)
     );
   }
 }

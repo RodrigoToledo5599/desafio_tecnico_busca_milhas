@@ -1,4 +1,5 @@
 import 'package:desafio_tecnico_busca_milhas/Views/TelaListaDeVoos.dart';
+import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaFlightData/FlightPrice.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaFlightData/Conexoes.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/BottomBar.dart';
@@ -11,7 +12,7 @@ import 'package:flutter/cupertino.dart';
 
 
 class SpaceBetweenRows extends StatelessWidget{
-  const SpaceBetweenRows({super.key});
+  SpaceBetweenRows({super.key});
   @override
   Widget build(BuildContext context){
     return SizedBox(
@@ -34,8 +35,10 @@ class RowSidePadding extends StatelessWidget{
 
 class TelaFlightData extends StatefulWidget{
   FlightModel? Flight = FlightModel();
+  SessionData sd;
   TelaFlightData({
     Key? key,
+    required this.sd,
     this.Flight
   }) : super(key: key);
   TelaFlightDataState createState() => TelaFlightDataState();
@@ -44,7 +47,17 @@ class TelaFlightData extends StatefulWidget{
 
 class TelaFlightDataState extends State<TelaFlightData>{
   TextEditingController textController = TextEditingController();
+  String? name;
 
+  @override
+  void initState(){
+    super.initState();
+    widget.sd.getUserName().then((name){
+      setState(() {
+        this.name = name;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +65,8 @@ class TelaFlightDataState extends State<TelaFlightData>{
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        appBar: UpBar(),
-        bottomNavigationBar: BottomBar(prev_page: TelaListaDeVoos()),
+        appBar: UpBar(name: this.name),
+        bottomNavigationBar: BottomBar(prev_page: TelaListaDeVoos(sd: this.widget.sd)),
         body: Container(
           width: MediaQuery.sizeOf(context).width * 1,
               child:SingleChildScrollView(

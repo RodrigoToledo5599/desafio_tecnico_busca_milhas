@@ -2,7 +2,6 @@ import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaLogin/Log
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/InputLogin.dart';
-import 'package:iconic/iconic.dart';
 
 
 

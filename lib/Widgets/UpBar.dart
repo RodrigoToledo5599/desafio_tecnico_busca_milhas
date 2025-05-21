@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
 
 
-class UpBar extends StatelessWidget implements PreferredSizeWidget{
-  const UpBar({Key? key}) : super(key: key);
+
+class UpBar extends StatefulWidget implements PreferredSizeWidget{
+  String? name;
+  UpBar({
+    required this.name,
+    Key? key
+  }) : super(key: key);
+
+  UpBarState createState() => UpBarState();
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+}
+   
+
+
+class UpBarState extends State<UpBar>{
 
   @override
   Widget build (BuildContext context){
@@ -14,8 +29,7 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
         Container(
           color: Color.fromRGBO(0, 0, 128, 1),
           width: MediaQuery.sizeOf(context).width * 1,
-          child:
-          Row(
+          child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children:[
                 Container(
@@ -23,9 +37,8 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
                       children:[
                         Padding(
                           padding: EdgeInsets.fromLTRB(MediaQuery.sizeOf(context).width * 0.075, 0, 0, 0),
-                          child:
-                            const Text(
-                            " Account",
+                          child: Text(
+                            "${widget.name}",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
@@ -58,6 +71,4 @@ class UpBar extends StatelessWidget implements PreferredSizeWidget{
       backgroundColor: Color.fromRGBO(0, 0, 128, 1),
     );
   }
-  @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }

@@ -3,6 +3,7 @@ import 'package:desafio_tecnico_busca_milhas/Views/TelaOpcoesDeVoos.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WarningMessage.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaLogin/LoginAppBar.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/UserViewModel.dart';
+import 'package:desafio_tecnico_busca_milhas/DTO/LoginResponseDTO.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/InputLogin.dart';
@@ -14,25 +15,29 @@ class TelaLogin extends StatefulWidget {
 
   TextEditingController LoginEmailController = TextEditingController();
   TextEditingController LoginPasswordController = TextEditingController();
-  SessionData sd = SessionData();
+  SessionData sd;
   UserViewModel uvm = UserViewModel();
   String msg = "";
   TelaLoginState createState() => TelaLoginState();
+
+  TelaLogin({
+    required this.sd,
+    Key? key,
+  }): super(key: key);
 }
 
 class TelaLoginState extends State<TelaLogin>{
 
   Future<bool> ValidationScript() async {
-
     if(widget.LoginEmailController.text == "" || widget.LoginPasswordController.text == "" ){
       setState(() {
         this.widget.msg = "Preencha todos os campos";
       });
       return false;
     }
-    widget.uvm.Login(widget.LoginEmailController.text, widget.LoginPasswordController.text);
-    String token = await widget.sd.getAuthToken();
-    if(token == ""){
+    LoginResponseDTO result = await widget.uvm.Login(widget.LoginEmailController.text, widget.LoginPasswordController.text);
+    // print("voltei do login e p token é ${result.auth_token}");
+    if(result.auth_token == "" || result.auth_token == null){
       setState(() {
         this.widget.msg = "Credenciais erradas";
       });
@@ -107,11 +112,12 @@ class TelaLoginState extends State<TelaLogin>{
                       size:40
                   ),
                   onPressed: () async {
-                    if(ValidationScript() == true){
+                    bool isValid = await this.ValidationScript();
+                    if(isValid == true){
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => TelaOpcoesDeVoos(warning_msg: "")
+                              builder: (context) => TelaOpcoesDeVoos(sd: widget.sd, warning_msg: "")
                           )
                       );
                     }

@@ -1,5 +1,6 @@
 import 'package:desafio_tecnico_busca_milhas/Views/TelaListaDeVoos.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WarningMessage.dart';
+import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 import 'package:flutter/material.dart';
 
 import 'package:desafio_tecnico_busca_milhas/Services/TelaOpcoesDeVoosService.dart';
@@ -14,15 +15,19 @@ import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaOpcoesDeV
 
 class TelaOpcoesDeVoos extends StatefulWidget{
   String warning_msg = "";
-
+  SessionData sd;
   TelaOpcoesDeVoos({
     Key? key,
+    required this.sd,
     required this.warning_msg,
   }) : super(key: key);
   TelaOpcoesDeVoosState createState() => TelaOpcoesDeVoosState();
 }
 
 class TelaOpcoesDeVoosState extends State<TelaOpcoesDeVoos> {
+  String? name;
+
+
   TextEditingController aeroporto_controller_origem = TextEditingController();
   TextEditingController aeroporto_controller_destino = TextEditingController();
   TextEditingController data_controller_ida = TextEditingController();
@@ -36,11 +41,7 @@ class TelaOpcoesDeVoosState extends State<TelaOpcoesDeVoos> {
   TextEditingController n_passageiros_bebes_controller = TextEditingController();
 
   TravelOptionsViewModel tovm = TravelOptionsViewModel();
-  //
-  // bool CheckingIfWarningMsgIsEmpty(){
-  //   bool result = widget.warning_msg != "";
-  //   return result;
-  // }
+
 
   // primeiro metodo a ser invocado após o botão de enviar ser pressionado.
   void ensuringTheNullsWontBeNulls(){
@@ -114,31 +115,35 @@ class TelaOpcoesDeVoosState extends State<TelaOpcoesDeVoos> {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => TelaListaDeVoos()
+            builder: (context) => TelaListaDeVoos(sd: widget.sd)
         )
     );
     return true;
   }
 
-
-
   //============================================================================================================
 
-
+  void initState(){
+    super.initState();
+    widget.sd.getUserName().then((name){
+      setState(() {
+        this.name = name;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            appBar:UpBar(),
+        home:Scaffold(
+            appBar:UpBar(name: this.name),
             body:Container(
                 color: Color.fromRGBO(255, 255, 255,1),
                 width: MediaQuery.sizeOf(context).width * 1,
                 height: MediaQuery.sizeOf(context).height * 1,
                 child: SingleChildScrollView(
-                  child:
-                  Padding(
+                  child: Padding(
                     padding: const EdgeInsets.fromLTRB(0, 50, 0, 0,),
                     child: Column(
                         children:[

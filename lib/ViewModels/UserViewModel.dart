@@ -17,12 +17,12 @@ class UserViewModel{
     // dynamic result = jsonDecode(responseBody);
     LoginResponseDTO resultFinal = new LoginResponseDTO();
     if(result.containsKey('access_token')){
-      SessionData().setAuthToken(result['access_token']);
+      SessionData().setAuthTokenAndUserName(result['access_token'], result['user_name']);
       resultFinal.auth_token = result['access_token'];
       resultFinal.error_message = "";
     }
     else{
-      SessionData().setAuthToken("");
+      SessionData().setAuthTokenAndUserName("","");
       resultFinal.auth_token = "";
       resultFinal.error_message = result['message'];
     }

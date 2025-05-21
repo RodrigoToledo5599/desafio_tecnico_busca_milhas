@@ -58,9 +58,10 @@ class SessionData{
     return result;
   }
 
-  Future<void> setAuthToken(String token) async{
+  Future<void> setAuthTokenAndUserName(String token,String username) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("auth-token", token);
+    prefs.setString("user-name", username);
   }
 
   Future<String> getAuthToken() async{
@@ -72,6 +73,14 @@ class SessionData{
     return result;
   }
 
+  Future<String> getUserName() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? result = prefs.getString("user-name");
+    if(result == null){
+      result = "";
+    }
+    return result;
+  }
 
 
 

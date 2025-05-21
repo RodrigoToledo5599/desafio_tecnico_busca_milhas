@@ -1,4 +1,5 @@
 import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';
+import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaFlightData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +9,10 @@ import 'package:flutter/material.dart';
 
 class SingleFlightData extends StatefulWidget{
   FlightModel Flight = FlightModel();
+  SessionData sd;
   SingleFlightData({
     Key? key,
+    required this.sd,
     required this.Flight,
   }) : super(key: key);
   SingleFlightDataState createState() => SingleFlightDataState();
@@ -25,7 +28,7 @@ class SingleFlightDataState extends State<SingleFlightData>{
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => TelaFlightData(Flight: widget.Flight)
+              builder: (context) => TelaFlightData(sd:this.widget.sd ,Flight: widget.Flight)
             )
           )
         },

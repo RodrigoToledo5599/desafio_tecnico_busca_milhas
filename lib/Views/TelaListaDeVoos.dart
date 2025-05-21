@@ -12,16 +12,19 @@ import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
 
 class TelaListaDeVoos extends StatefulWidget{
-  TelaListaDeVoos({Key? key}) : super(key: key);
+  SessionData sd;
+  TelaListaDeVoos({
+    required this.sd,
+    Key? key,
+  }) : super(key: key);
   TelaListaDeVoosState createState() => TelaListaDeVoosState();
 }
 
 class TelaListaDeVoosState extends State<TelaListaDeVoos>{
 
-  SessionData sd = new SessionData();
   bool is_loading = true;
   TravelOptionsViewModel tovm = new TravelOptionsViewModel();
-
+  String? name;
   String? codigo;
   List<FlightModel> flights_available = [];
 
@@ -31,32 +34,36 @@ class TelaListaDeVoosState extends State<TelaListaDeVoos>{
     super.initState();
     this.LoadCode();
     this.LoadFlightOptions();
+    widget.sd.getUserName().then((name){
+      setState(() {
+        this.name = name;
+      });
+    });
   }
 
 
   Future<void> LoadCode() async{
-    String? codeString = await this.sd.getCodigoViagemOptions();
+    String? codeString = await this.widget.sd.getCodigoViagemOptions();
     setState((){
       this.codigo = codeString;
     });
   }
 
   Future<void> LoadFlightOptions() async {
-    String? codeString = await this.sd.getCodigoViagemOptions();
+    String? codeString = await this.widget.sd.getCodigoViagemOptions();
     var result = await this.tovm.queryTravelOptions(codeString);
     setState(() {
       this.flights_available = result;
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home:Scaffold(
-            appBar: const UpBar(),
-            bottomNavigationBar: BottomBar(prev_page: TelaOpcoesDeVoos(warning_msg: "")),
+            appBar: UpBar(name: this.name),
+            bottomNavigationBar: BottomBar(prev_page: TelaOpcoesDeVoos(sd:widget.sd, warning_msg: "")),
             body:
             Container(
                 child:
@@ -81,7 +88,7 @@ class TelaListaDeVoosState extends State<TelaListaDeVoos>{
                               final flight = flights_available[index];
                               return Padding(
                                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                                  child: SingleFlightData(Flight: flight)
+                                  child: SingleFlightData(sd:this.widget.sd,Flight: flight)
                               );
                             }
                         ),
