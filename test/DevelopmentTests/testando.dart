@@ -1,16 +1,23 @@
 import 'package:desafio_tecnico_busca_milhas/ViewModels/AirPortViewModel.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.dart';
+import 'package:desafio_tecnico_busca_milhas/ViewModels/UserViewModel.dart';
 
 
 void main() async{
 
   AirPortViewModel airPortVM = new AirPortViewModel();
   TravelOptionsViewModel travelOptVM = new TravelOptionsViewModel();
+  UserViewModel userVM = new UserViewModel();
+  
+  var resp = await userVM.Login("rodrigotmt89@gmail.com", "password123");
+  print(resp.auth_token);
+
+
   // var resp = await travelOptVM.createTravelOptionsCode(["AZUL"], "19/05/2025", "3/06/2025", "AAA", "AAB", "Ida");
   // print(resp);
   // var resp2 = await travelOptVM.queryTravelOptions(resp!["Busca"]);
-  var resp2 = await travelOptVM.queryTravelOptions("1d056f5e-cf4c-462b-9ab4-eb24febdfa5d");
-  print(resp2[0]);
+  // var resp2 = await travelOptVM.queryTravelOptions("1d056f5e-cf4c-462b-9ab4-eb24febdfa5d");
+  // print(resp2[0]);
   // print("Companhia: "+resp2[0].Companhia!);
   // print("Sentido: "+resp2[0].Sentido!);
   // print("Origem: "+resp2[0].Origem!);

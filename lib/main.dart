@@ -1,4 +1,5 @@
 import 'package:desafio_tecnico_busca_milhas/Views/TelaInicial.dart';
+import 'package:desafio_tecnico_busca_milhas/Views/User/TelaCriarUsuario.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/User/TelaLogin.dart';
 import 'package:desafio_tecnico_busca_milhas/Views/TelaOpcoesDeVoos.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: TelaOpcoesDeVoos(warning_msg: "")
+      // home: TelaCriarUsuario()
       home: TelaLogin()
     );
   }

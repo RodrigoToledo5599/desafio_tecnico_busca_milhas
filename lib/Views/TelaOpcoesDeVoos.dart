@@ -1,9 +1,9 @@
 import 'package:desafio_tecnico_busca_milhas/Views/TelaListaDeVoos.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/WarningMessage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:desafio_tecnico_busca_milhas/Services/TelaOpcoesDeVoosService.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.dart';
-
 
 import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaOpcoesDeVoos/SelectDataETipoDeViagem.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
@@ -36,11 +36,11 @@ class TelaOpcoesDeVoosState extends State<TelaOpcoesDeVoos> {
   TextEditingController n_passageiros_bebes_controller = TextEditingController();
 
   TravelOptionsViewModel tovm = TravelOptionsViewModel();
-
-  bool CheckingIfWarningMsgIsEmpty(){
-    bool result = widget.warning_msg != "";
-    return result;
-  }
+  //
+  // bool CheckingIfWarningMsgIsEmpty(){
+  //   bool result = widget.warning_msg != "";
+  //   return result;
+  // }
 
   // primeiro metodo a ser invocado após o botão de enviar ser pressionado.
   void ensuringTheNullsWontBeNulls(){
@@ -188,44 +188,7 @@ class TelaOpcoesDeVoosState extends State<TelaOpcoesDeVoos> {
                                   MediaQuery.sizeOf(context).width * 0.1,
                                   50
                               ),
-                              child:
-                              this.CheckingIfWarningMsgIsEmpty()?
-                              Container(
-                                  width: MediaQuery.sizeOf(context).width * 0.8,
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(220, 53, 69, 1),
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                  child:
-                                  Padding(
-                                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-                                    // padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                    child:Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Flexible(
-                                            child:
-                                            Text(
-                                              "${widget.warning_msg} ",
-                                              overflow: TextOverflow.ellipsis,
-                                              maxLines: 3,
-                                              textAlign: TextAlign.center,
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 16,
-                                              ),
-                                            ),
-                                          )
-                                        ]
-                                    ),
-
-                                  )
-
-                              )
-                                  :
-                              Container(
-                              )
+                              child: WarningMessage(msg: widget.warning_msg)
                           )
                         ]
                     ),
