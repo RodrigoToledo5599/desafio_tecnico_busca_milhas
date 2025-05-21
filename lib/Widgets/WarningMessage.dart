@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 
 class WarningMessage extends StatefulWidget{
-
   String? msg;
 
   WarningMessage({
@@ -19,29 +18,11 @@ class WarningMessage extends StatefulWidget{
 
 class WarningMessageState extends State<WarningMessage>{
 
-
-  // void initState() {
-  //   super.initState();
-  //   if (widget.msg == null || widget.msg == ""){
-  //      widget.msg = "";
-  //   }
-  // }
-
-  bool CheckingIfWarningMsgIsNotEmpty(){
-    bool result = false;
-    if(widget.msg == "")
-      result = true;
-    String message = "";
-    print("resultado ${result} e  a msg é ${message}");
-    return result;
-  }
-
   @override
   Widget build(BuildContext context){
     return Container(
       child: Column(
         children:[
-          this.CheckingIfWarningMsgIsNotEmpty()?
             Container(
                 width: MediaQuery.sizeOf(context).width * 0.8,
                 decoration: BoxDecoration(
@@ -73,8 +54,6 @@ class WarningMessageState extends State<WarningMessage>{
                   ),
                 )
             )
-              :
-            Container(),
         ]
       )
     );

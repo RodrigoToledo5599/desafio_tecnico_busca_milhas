@@ -1,21 +1,53 @@
+import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
+import 'package:desafio_tecnico_busca_milhas/Views/TelaOpcoesDeVoos.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/WarningMessage.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaLogin/LoginAppBar.dart';
+import 'package:desafio_tecnico_busca_milhas/ViewModels/UserViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/InputLogin.dart';
-import 'package:iconic/iconic.dart';
 
 
 
-class TelaLogin extends StatelessWidget{
+class TelaLogin extends StatefulWidget {
   final _formKey = GlobalKey<FormState>();
 
   TextEditingController LoginEmailController = TextEditingController();
   TextEditingController LoginPasswordController = TextEditingController();
+  SessionData sd = SessionData();
+  UserViewModel uvm = UserViewModel();
+  String msg = "";
+  TelaLoginState createState() => TelaLoginState();
+}
 
+class TelaLoginState extends State<TelaLogin>{
 
-  bool SendingScript(){
-    print(LoginEmailController.text);
-    print(LoginPasswordController.text);
+  bool CheckingIfWarningMsgIsEmpty(){
+    if(widget.msg == ""){
+      return true;
+    }
+    return false;
+  }
+
+  Future<bool> SendingScript() async {
+    this.CheckingIfWarningMsgIsEmpty();
+    if(widget.LoginEmailController.text == "" || widget.LoginPasswordController.text == "" ){
+      setState(() {
+        this.widget.msg == "Preencha todos os campos";
+      });
+      return false;
+    }
+    widget.uvm.Login(widget.LoginEmailController.text, widget.LoginPasswordController.text);
+    String token = await widget.sd.getAuthToken();
+    if(token == ""){
+      setState(() {
+        this.widget.msg == "Credenciais erradas";
+      });
+      return false;
+    }
+    setState(() {
+      this.widget.msg == "";
+    });
     return true;
   }
 
@@ -49,13 +81,13 @@ class TelaLogin extends StatelessWidget{
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children:[
                             InputLogin(
-                              controller: LoginEmailController,
+                              controller: widget.LoginEmailController,
                               controller_name: "Email",
                               obscure_text: false,
                               keyboard_type: false,
                             ),
                             InputLogin(
-                              controller: LoginPasswordController,
+                              controller: widget.LoginPasswordController,
                               controller_name: "Password",
                               obscure_text: true,
                               keyboard_type: true,
@@ -86,16 +118,18 @@ class TelaLogin extends StatelessWidget{
                     // Navigator.push(
                     //     context,
                     //     MaterialPageRoute(
-                    //         builder: (context) => Depositarousacar()
+                    //         builder: (context) => TelaOpcoesDeVoos(warning_msg: "")
                     //     )
                     // );
                   },
                 ),
+                this.CheckingIfWarningMsgIsEmpty() ?
+                  Container() : Text("${widget.msg}")
+                // WarningMessage(msg: widget.msg)
               ]
           ),
           width: double.infinity,
           height: double.infinity,
-          // color: Color.fromRGBO(0, 0, 128, 1),
           color:Colors.white,
         )
       )

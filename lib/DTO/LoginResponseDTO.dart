@@ -4,20 +4,20 @@
 class LoginResponseDTO{
 
   String? auth_token;
-  String? errorMessage;
+  String? error_message;
 
 
   LoginResponseDTO({
     this.auth_token,
-    this.errorMessage
+    this.error_message
   });
 
-  factory LoginResponseDTO.fromJson(dynamic json){
-    return LoginResponseDTO(
-      auth_token: json['access_token'],
-      errorMessage: json['message'],
-    );
-  }
+  // factory LoginResponseDTO.fromJson(dynamic json){
+  //   return LoginResponseDTO(
+  //     auth_token: json['access_token'],
+  //     error_message: json['message'],
+  //   );
+  // }
 
 
 }
