@@ -63,7 +63,7 @@ class TelaLoginState extends State<TelaLogin>{
               children: [
                 Text("Login",
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 30,
                       fontWeight: FontWeight.w900,
                       // color: Colors.white,
                       color: Color.fromRGBO(0, 0, 128, 1),
