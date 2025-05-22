@@ -84,6 +84,22 @@ class Repository {
 
   }
 
+  Future<HttpClientResponse> CreateUser(String email, String username, String password) async {
+    HttpClientRequest request = await this.client.postUrl(Uri.parse(this.url + "users/login"));
+    request.headers.set(HttpHeaders.contentTypeHeader, 'application/json');
+
+    final body = jsonEncode({
+      "email": email,
+      "name": username,
+      "password": password
+    });
+    request.write(body);
+    final response = await request.close();
+    return response;
+
+  }
+
+
 
 
 

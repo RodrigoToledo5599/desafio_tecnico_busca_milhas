@@ -1,6 +1,7 @@
+import 'package:desafio_tecnico_busca_milhas/DTO/CreateUserDTO.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaCriarUsuario/CriarUsuarioAppBar.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaLogin/LoginAppBar.dart';
+import 'package:desafio_tecnico_busca_milhas/ViewModels/UserViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/InputLogin.dart';
@@ -9,18 +10,13 @@ import 'package:desafio_tecnico_busca_milhas/Widgets/InputLogin.dart';
 
 class TelaCriarUsuario extends StatefulWidget {
   final _formKey = GlobalKey<FormState>();
+  UserViewModel uvm = UserViewModel();
   SessionData sd;
 
   TextEditingController LoginUserNameController = TextEditingController();
   TextEditingController LoginEmailController = TextEditingController();
   TextEditingController LoginPasswordController = TextEditingController();
 
-
-  bool SendingScript() {
-    print(LoginEmailController.text);
-    print(LoginPasswordController.text);
-    return true;
-  }
 
   TelaCriarUsuario({
     required this.sd,
@@ -31,6 +27,19 @@ class TelaCriarUsuario extends StatefulWidget {
 }
 
 class TelaCriarUsuarioState extends State<TelaCriarUsuario>{
+  String? msg = "";
+
+  Future<bool> ValidationScript() async {
+    if(this.widget.LoginEmailController.text == "" || this.widget.LoginPasswordController.text == "" || this.widget.LoginUserNameController.text == "" ){
+      setState(() {
+        this.msg = "Preencha todos os campos";
+      });
+      return false;
+    }
+    CreateUserDTO result = await widget.uvm.CreateUser(widget.LoginEmailController.text, widget.LoginUserNameController.text, widget.LoginPasswordController.text);
+    return true;
+  }
+
   @override Widget build(BuildContext context){
     return
       MaterialApp(
@@ -64,13 +73,13 @@ class TelaCriarUsuarioState extends State<TelaCriarUsuario>{
                                       controller: widget.LoginEmailController,
                                       controller_name: "Email",
                                       obscure_text: false,
-                                      keyboard_type: false,
+                                      keyboard_type: true,
                                     ),
                                     InputLogin(
                                       controller: widget.LoginUserNameController,
                                       controller_name: "UserName",
                                       obscure_text: false,
-                                      keyboard_type: false,
+                                      keyboard_type: true,
                                     ),
                                     InputLogin(
                                       controller: widget.LoginPasswordController,
@@ -100,15 +109,16 @@ class TelaCriarUsuarioState extends State<TelaCriarUsuario>{
                             size:40
                         ),
                         onPressed: () async {
-                          widget.SendingScript();
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => Depositarousacar()
-                          //     )
-                          // );
+                          bool isValid = await this.ValidationScript();
+                          if(isValid){
+                            setState(() {
+
+                            });
+                          }
+
                         },
                       ),
+
                     ]
                 ),
                 width: double.infinity,
