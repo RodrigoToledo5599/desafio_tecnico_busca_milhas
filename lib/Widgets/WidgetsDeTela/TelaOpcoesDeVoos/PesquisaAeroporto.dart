@@ -68,7 +68,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                                   focusedBorder: const OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color.fromRGBO(245, 247, 249, 1),
-                                      width: 0.0,
+                                      width: 2.0,
                                     ),
                                   ),
                                 ),
@@ -84,12 +84,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                                 shadowColor: Colors.transparent,
                                 padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                                 textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                shape: const RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    color:Color.fromRGBO(255, 255, 255, 1),
-                                    width: 0.0,
-                                  ),
-                                ),
+                                shape: const RoundedRectangleBorder(),
                               ),
                               child: const Icon(
                                 Icons.search,
@@ -110,12 +105,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                                 shadowColor: Colors.transparent,
                                 padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                                 textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                shape: const RoundedRectangleBorder(
-                                  side:BorderSide(
-                                    color: const Color.fromRGBO(255, 255, 255, 1),
-                                    width: 0.0,
-                                  ),
-                                ),
+                                shape: const RoundedRectangleBorder(),
                               ),
                               child: const Icon(
                                 Icons.close,
@@ -134,7 +124,17 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                         airPorts.isNotEmpty
                             ?
                         Container(
+                          padding: const EdgeInsets.fromLTRB(10, 5, 10, 5), // Espaçamento interno de 16 em todos os lados,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(
+                              color: Color.fromRGBO(0, 0, 128, 1),
+                              width: 2,
+                            ),
+                          ),
                           height: MediaQuery.sizeOf(context).height * 0.3,
+                          width: MediaQuery.sizeOf(context).width * 0.8,
                           child: ListView.builder(
                             itemCount: airPorts.length,
                             itemBuilder: (context, index) {
