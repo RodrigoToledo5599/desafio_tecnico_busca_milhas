@@ -35,15 +35,33 @@ class TelaCriarUsuarioState extends State<TelaCriarUsuario>{
   String? msg = "";
 
   Future<bool> ValidationAndSendingScript() async {
+    setState(() {
+      this.widget.is_loading = true;
+    });
     if(this.widget.LoginEmailController.text == "" || this.widget.LoginPasswordController.text == "" || this.widget.LoginUserNameController.text == "" ){
       setState(() {
+        this.widget.is_loading = false;
         this.msg = "Preencha todos os campos";
       });
       return false;
     }
     CreateUserDTO result = await widget.uvm.CreateUser(widget.LoginEmailController.text, widget.LoginUserNameController.text, widget.LoginPasswordController.text);
-    return true;
+    if(result.sucessfull!){
+      setState(() {
+        this.widget.is_loading = false;
+        this.widget.is_sucessfull = true;
+        this.msg = "";
+      });
+      return true;
+    }
+    setState(() {
+      this.widget.is_loading = false;
+      this.msg = "Usuário não pode ser criado";
+      this.widget.is_sucessfull = false;
+    });
+    return false;
   }
+
 
   @override Widget build(BuildContext context){
     return
@@ -155,7 +173,7 @@ class TelaCriarUsuarioState extends State<TelaCriarUsuario>{
                           ),
                         ]
                       ),
-                      this.widget.is_sucessfull ? Aviso(msg: "") : SizedBox.shrink(),
+                      this.widget.is_sucessfull ? Aviso(msg: "Usário foi criado com sucesso") : SizedBox.shrink(),
                       this.widget.is_loading ? CircularProgressIndicator() : WarningMessage(msg: this.msg)
                     ],
                 ),
