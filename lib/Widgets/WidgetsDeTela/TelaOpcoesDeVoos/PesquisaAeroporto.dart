@@ -120,7 +120,7 @@ class PesquisaAeroportoState extends State<PesquisaAeroporto>{
                         padding: const EdgeInsets.all(16.0),
                         child: this.is_loading ?
                         const Center(child: CircularProgressIndicator())
-                          :
+                            :
                         airPorts.isNotEmpty
                             ?
                         Container(

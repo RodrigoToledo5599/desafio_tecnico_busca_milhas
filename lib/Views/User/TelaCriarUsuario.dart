@@ -1,16 +1,21 @@
 import 'package:desafio_tecnico_busca_milhas/DTO/CreateUserDTO.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaCriarUsuario/CriarUsuarioAppBar.dart';
+import 'package:desafio_tecnico_busca_milhas/Views/User/TelaLogin.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/WarningMessage.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/UserViewModel.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/InputLogin.dart';
+import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaCriarUsuario/Aviso.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/InputLogin.dart';
+
 
 
 
 class TelaCriarUsuario extends StatefulWidget {
   final _formKey = GlobalKey<FormState>();
   UserViewModel uvm = UserViewModel();
+  bool is_loading = false;
+  bool is_sucessfull = false;
   SessionData sd;
 
   TextEditingController LoginUserNameController = TextEditingController();
@@ -29,7 +34,7 @@ class TelaCriarUsuario extends StatefulWidget {
 class TelaCriarUsuarioState extends State<TelaCriarUsuario>{
   String? msg = "";
 
-  Future<bool> ValidationScript() async {
+  Future<bool> ValidationAndSendingScript() async {
     if(this.widget.LoginEmailController.text == "" || this.widget.LoginPasswordController.text == "" || this.widget.LoginUserNameController.text == "" ){
       setState(() {
         this.msg = "Preencha todos os campos";
@@ -45,17 +50,18 @@ class TelaCriarUsuarioState extends State<TelaCriarUsuario>{
       MaterialApp(
           debugShowCheckedModeBanner: false,
           home: Scaffold(
-              appBar: CriarusUsuarioAppBar(sd: this.widget.sd),
               body: Container(
+                width: double.infinity,
+                height: double.infinity,
+                color:Colors.white,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("Criar Conta",
+                      Text("Crie sua conta",
                           style: TextStyle(
                             fontSize: 40,
-                            fontWeight: FontWeight.w900,
-                            // color: Colors.white,
+                            fontWeight: FontWeight.w600,
                             color: Color.fromRGBO(0, 0, 128, 1),
                           )
                       ),
@@ -77,7 +83,7 @@ class TelaCriarUsuarioState extends State<TelaCriarUsuario>{
                                     ),
                                     InputLogin(
                                       controller: widget.LoginUserNameController,
-                                      controller_name: "UserName",
+                                      controller_name: "User Name",
                                       obscure_text: false,
                                       keyboard_type: true,
                                     ),
@@ -91,39 +97,68 @@ class TelaCriarUsuarioState extends State<TelaCriarUsuario>{
                               )
                           )
                       ),
-                      IconButton(
-                        style: IconButton.styleFrom(
-                          backgroundColor: const Color.fromRGBO(0, 0, 128, 1),
-                          foregroundColor: const Color.fromRGBO(255, 255, 255, 1),
-                          padding: EdgeInsets.all(15),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(9.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children:[
+                          IconButton(
+                            style: IconButton.styleFrom(
+                              foregroundColor: const Color.fromRGBO(0, 0, 128, 1),
+                              backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+                              padding: EdgeInsets.all(15),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(9.0),
+                              ),
+                              side: BorderSide(
+                                width: 6.0,
+                                color: const Color.fromRGBO(0, 0, 128, 1),
+                              ),
+                            ),
+                            icon: const Icon(
+                              Icons.keyboard_return,
+                              color: const Color.fromRGBO(0, 0, 128, 1),
+                              size: 45,
+                            ),
+                            onPressed: () async {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TelaLogin(sd: this.widget.sd),
+                                  )
+                              );
+                            },
                           ),
-                          side: BorderSide(
-                            width: 4.0,
-                            color: Colors.white,
+                          IconButton(
+                            style: IconButton.styleFrom(
+                              foregroundColor: const Color.fromRGBO(0, 0, 128, 1),
+                              backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+                              padding: EdgeInsets.all(15),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(9.0),
+                              ),
+                              side: BorderSide(
+                                width: 6.0,
+                                color: const Color.fromRGBO(0, 0, 128, 1),
+                              ),
+                            ),
+                            icon: const Icon(
+                                Icons.login,
+                                size:50
+                            ),
+                            onPressed: () async {
+                              bool isValid = await this.ValidationAndSendingScript();
+                              if(isValid){
+                                setState(() {
+
+                                });
+                              }
+                            },
                           ),
-                        ),
-                        icon: const Icon(
-                            Icons.login,
-                            size:40
-                        ),
-                        onPressed: () async {
-                          bool isValid = await this.ValidationScript();
-                          if(isValid){
-                            setState(() {
-
-                            });
-                          }
-
-                        },
+                        ]
                       ),
-
-                    ]
+                      this.widget.is_sucessfull ? Aviso(msg: "") : SizedBox.shrink(),
+                      this.widget.is_loading ? CircularProgressIndicator() : WarningMessage(msg: this.msg)
+                    ],
                 ),
-                width: double.infinity,
-                height: double.infinity,
-                color:Colors.white,
               )
           )
       );
