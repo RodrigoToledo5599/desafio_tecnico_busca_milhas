@@ -9,10 +9,12 @@ void main() async{
   TravelOptionsViewModel travelOptVM = new TravelOptionsViewModel();
   UserViewModel userVM = new UserViewModel();
   
-  var resp1 = await userVM.Login("rodrigotmt89@gmail.com", "password123");
-  print(resp1.auth_token);
+  var resp1 = await userVM.CreateUser("carolinatmt89@gmail.com","Carolina", "password123");
+  print(resp1.message);
+  print(resp1.sucessfull);
 
-  var resp = await travelOptVM.createTravelOptionsCode(["AZUL"], "25/05/2025", "3/06/2025", "AAA", "AAB", "Ida");
+
+  // var resp = await travelOptVM.createTravelOptionsCode(["AZUL"], "25/05/2025", "3/06/2025", "AAA", "AAB", "Ida");
   // print(resp);
   // var resp2 = await travelOptVM.queryTravelOptions(resp!["Busca"]);
   // var resp2 = await travelOptVM.queryTravelOptions("1d056f5e-cf4c-462b-9ab4-eb24febdfa5d");

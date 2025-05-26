@@ -15,7 +15,6 @@ class UserViewModel{
     HttpClientResponse responseBodyNotFuture = await Future.value(response);
     String responseBody = await responseBodyNotFuture.transform(utf8.decoder).join();
     Map<String,dynamic?> result = jsonDecode(responseBody);
-    // dynamic result = jsonDecode(responseBody);
     LoginResponseDTO resultFinal = new LoginResponseDTO();
     if(result.containsKey('access_token')){
       SessionData().setAuthTokenAndUserName(result['access_token'], result['user_name']);
@@ -37,6 +36,7 @@ class UserViewModel{
     Map<String,dynamic?> result = jsonDecode(responseBody);
     CreateUserDTO resultFinal = new CreateUserDTO();
     resultFinal.message = result['message'];
+    resultFinal.sucessfull = result['sucessfull'];
     return resultFinal;
   }
 
