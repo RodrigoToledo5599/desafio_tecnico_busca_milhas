@@ -8,10 +8,7 @@ import 'package:desafio_tecnico_busca_milhas/Pages/TelaListaDeVoos/Widgets/Singl
 import 'package:desafio_tecnico_busca_milhas/Widgets/BottomBar.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 
-
-
-
-class TelaListaDeVoos extends StatefulWidget{
+class TelaListaDeVoos extends StatefulWidget {
   SessionData sd;
   TelaListaDeVoos({
     required this.sd,
@@ -20,31 +17,28 @@ class TelaListaDeVoos extends StatefulWidget{
   TelaListaDeVoosState createState() => TelaListaDeVoosState();
 }
 
-class TelaListaDeVoosState extends State<TelaListaDeVoos>{
-
+class TelaListaDeVoosState extends State<TelaListaDeVoos> {
   bool is_loading = true;
   TravelOptionsViewModel tovm = new TravelOptionsViewModel();
   String? name;
   String? codigo;
   List<FlightModel> flights_available = [];
 
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
     this.LoadCode();
     this.LoadFlightOptions();
-    widget.sd.getUserName().then((name){
+    widget.sd.getUserName().then((name) {
       setState(() {
         this.name = name;
       });
     });
   }
 
-
-  Future<void> LoadCode() async{
+  Future<void> LoadCode() async {
     String? codeString = await this.widget.sd.getCodigoViagemOptions();
-    setState((){
+    setState(() {
       this.codigo = codeString;
     });
   }
@@ -61,43 +55,33 @@ class TelaListaDeVoosState extends State<TelaListaDeVoos>{
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home:Scaffold(
+        home: Scaffold(
             appBar: UpBar(sd: this.widget.sd, name: this.name),
-            bottomNavigationBar: BottomBar(prev_page: TelaOpcoesDeVoos(sd:widget.sd, warning_msg: "")),
-            body:
-            Container(
-
-                child:
-                Column(
-                    children:[
-                      const Padding(
-                        padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                        child:
-                        Text(
-                          "Voos encontrados",
-                          style: TextStyle(
-                              color: Color.fromRGBO(0, 0, 128, 1),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 20
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child:ListView.builder(
-                            itemCount: flights_available.length,
-                            itemBuilder: (context, index){
-                              final flight = flights_available[index];
-                              return Padding(
-                                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                                  child: SingleFlightData(sd:this.widget.sd,Flight: flight)
-                              );
-                            }
-                        ),
-                      )
-                    ]
-                )
-            )
-        )
-    );
+            bottomNavigationBar: BottomBar(
+                prev_page: TelaOpcoesDeVoos(sd: widget.sd, warning_msg: "")),
+            body: Container(
+                child: Column(children: [
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                child: Text(
+                  "Voos encontrados",
+                  style: TextStyle(
+                      color: Color.fromRGBO(0, 0, 128, 1),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20),
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                    itemCount: flights_available.length,
+                    itemBuilder: (context, index) {
+                      final flight = flights_available[index];
+                      return Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          child: SingleFlightData(
+                              sd: this.widget.sd, Flight: flight));
+                    }),
+              )
+            ]))));
   }
 }

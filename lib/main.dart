@@ -1,6 +1,7 @@
 import 'package:desafio_tecnico_busca_milhas/Pages/TelaLogin/TelaLogin.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
