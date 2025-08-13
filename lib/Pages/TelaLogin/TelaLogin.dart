@@ -1,8 +1,8 @@
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
-import 'package:desafio_tecnico_busca_milhas/Views/TelaOpcoesDeVoos.dart';
-import 'package:desafio_tecnico_busca_milhas/Views/User/TelaCriarUsuario.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaOpcoesDeVoos/TelaOpcoesDeVoos.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaCriarUsuario/TelaCriarUsuario.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WarningMessage.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaLogin/LoginAppBar.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaLogin/Widgets/LoginAppBar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/UserViewModel.dart';
 import 'package:desafio_tecnico_busca_milhas/DTO/LoginResponseDTO.dart';

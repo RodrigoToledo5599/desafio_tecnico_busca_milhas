@@ -1,4 +1,4 @@
-import 'package:desafio_tecnico_busca_milhas/Views/User/TelaLogin.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaLogin/TelaLogin.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';

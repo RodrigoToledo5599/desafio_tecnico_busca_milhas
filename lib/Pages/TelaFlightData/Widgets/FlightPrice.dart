@@ -1,7 +1,7 @@
 import 'package:desafio_tecnico_busca_milhas/DTO/FlightPointsDTO.dart';
 import 'package:desafio_tecnico_busca_milhas/DTO/FlightPriceDTO.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaFlightData/TipoValor.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaFlightData/TipoMilhas.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaFlightData/Widgets/TipoValor.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaFlightData/Widgets/TipoMilhas.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';

@@ -1,10 +1,10 @@
 import 'package:desafio_tecnico_busca_milhas/Models/FlightModel.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.dart';
-import 'package:desafio_tecnico_busca_milhas/Views/TelaOpcoesDeVoos.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaOpcoesDeVoos/TelaOpcoesDeVoos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaListaDeVoos/SingleFlightData.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaListaDeVoos/Widgets/SingleFlightData.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/BottomBar.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 

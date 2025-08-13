@@ -1,7 +1,5 @@
-import 'package:desafio_tecnico_busca_milhas/Views/User/TelaCriarUsuario.dart';
-import 'package:desafio_tecnico_busca_milhas/Views/User/TelaLogin.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaLogin/TelaLogin.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
-import 'package:desafio_tecnico_busca_milhas/Views/TelaOpcoesDeVoos.dart';
 import 'package:flutter/material.dart';
 
 

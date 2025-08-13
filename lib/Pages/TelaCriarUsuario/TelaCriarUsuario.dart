@@ -1,10 +1,10 @@
 import 'package:desafio_tecnico_busca_milhas/DTO/CreateUserDTO.dart';
-import 'package:desafio_tecnico_busca_milhas/Views/User/TelaLogin.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaLogin/TelaLogin.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WarningMessage.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/UserViewModel.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/InputLogin.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaCriarUsuario/Aviso.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaCriarUsuario/Widgets/Aviso.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

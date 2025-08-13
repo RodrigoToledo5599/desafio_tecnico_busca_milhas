@@ -1,4 +1,4 @@
-import 'package:desafio_tecnico_busca_milhas/Views/TelaListaDeVoos.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaListaDeVoos/TelaListaDeVoos.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/WarningMessage.dart';
 import 'package:desafio_tecnico_busca_milhas/SessionData/SessionData.dart';
 import 'package:flutter/material.dart';
@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:desafio_tecnico_busca_milhas/Services/TelaOpcoesDeVoosService.dart';
 import 'package:desafio_tecnico_busca_milhas/ViewModels/TravelOptionsViewModel.dart';
 
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaOpcoesDeVoos/SelectDataETipoDeViagem.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaOpcoesDeVoos/Widgets/SelectDataETipoDeViagem.dart';
 import 'package:desafio_tecnico_busca_milhas/Widgets/UpBar.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaOpcoesDeVoos/PesquisaAeroporto.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaOpcoesDeVoos/SelectCompanhiaAerea.dart';
-import 'package:desafio_tecnico_busca_milhas/Widgets/WidgetsDeTela/TelaOpcoesDeVoos/SelectNPassageiros.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaOpcoesDeVoos/Widgets/PesquisaAeroporto.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaOpcoesDeVoos/Widgets/SelectCompanhiaAerea.dart';
+import 'package:desafio_tecnico_busca_milhas/Pages/TelaOpcoesDeVoos/Widgets/SelectNPassageiros.dart';
 
 
 class TelaOpcoesDeVoos extends StatefulWidget{
