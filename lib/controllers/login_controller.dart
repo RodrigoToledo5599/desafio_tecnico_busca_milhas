@@ -17,14 +17,6 @@ class LoginController extends GetxController {
     return !email.value.contains("@");
   }
 
-  void loading() {
-    is_loading.value = true;
-  }
-
-  void notLoading() {
-    is_loading.value = false;
-  }
-
   void validadeEmail() {
     if (email.value == "") {
       email_error_message.value = "Preencha este campo";
@@ -46,11 +38,11 @@ class LoginController extends GetxController {
   Future<bool> validationAndSendingScript() async {
     this.request_error_message.value = "";
 
-    loading();
+    is_loading.value = true;
     LoginResponseDTO result =
         await UserViewModel().Login(email.value, password.value);
     if (result.auth_token == "" || result.auth_token == null) {
-      notLoading();
+      is_loading.value = false;
       this.request_error_message.value = "Credenciais erradas";
       return false;
     }
