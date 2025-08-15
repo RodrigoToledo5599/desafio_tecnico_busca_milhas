@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/home/rodrigo/development/flutter-3.29.3/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/rodrigo/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/rodrigo/Documentos/Projetos_pessoais/busca_milhas_teste_estagio/desafio_tecnico_busca_milhas/android/app/.cxx/Debug/3z1wc512/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/rodrigo/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/rodrigo/Documentos/Projetos_pessoais/busca_milhas_teste_estagio/desafio_tecnico_busca_milhas/android/app/.cxx/Debug/3z1wc512/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}
